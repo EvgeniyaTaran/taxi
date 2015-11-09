@@ -194,3 +194,7 @@ FakesAssemblies/
 
 # Visual Studio 6 workspace options file
 *.opt
+/Taxi.WebApp/Web.config
+/Taxi.Entities/App.config
+/Taxi.DataAccess/App.config
+/Taxi.AdminApp/App.config

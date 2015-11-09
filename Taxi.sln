@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taxi.WebApp", "Taxi.WebApp\Taxi.WebApp.csproj", "{A895A6BC-C13A-4680-9E9C-B36E54C5DC17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taxi.Entities", "Taxi.Entities\Taxi.Entities.csproj", "{123A704A-1E9A-4164-9AEE-8F4844650037}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taxi.DataAccess", "Taxi.DataAccess\Taxi.DataAccess.csproj", "{25CE084C-1560-461A-ADBC-DD95829C469C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taxi.AdminApp", "Taxi.AdminApp\Taxi.AdminApp.csproj", "{29699D7E-FD8E-450F-B6C0-EC80BB621BAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taxi.Tests", "Taxi.Tests\Taxi.Tests.csproj", "{D91A9D50-4832-439A-AC38-6A2FB0A9A9AA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{784C7C12-A0EF-4512-87BE-9E4323C28281}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A895A6BC-C13A-4680-9E9C-B36E54C5DC17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A895A6BC-C13A-4680-9E9C-B36E54C5DC17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A895A6BC-C13A-4680-9E9C-B36E54C5DC17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A895A6BC-C13A-4680-9E9C-B36E54C5DC17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{123A704A-1E9A-4164-9AEE-8F4844650037}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{123A704A-1E9A-4164-9AEE-8F4844650037}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{123A704A-1E9A-4164-9AEE-8F4844650037}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{123A704A-1E9A-4164-9AEE-8F4844650037}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25CE084C-1560-461A-ADBC-DD95829C469C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25CE084C-1560-461A-ADBC-DD95829C469C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25CE084C-1560-461A-ADBC-DD95829C469C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25CE084C-1560-461A-ADBC-DD95829C469C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29699D7E-FD8E-450F-B6C0-EC80BB621BAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29699D7E-FD8E-450F-B6C0-EC80BB621BAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29699D7E-FD8E-450F-B6C0-EC80BB621BAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29699D7E-FD8E-450F-B6C0-EC80BB621BAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D91A9D50-4832-439A-AC38-6A2FB0A9A9AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D91A9D50-4832-439A-AC38-6A2FB0A9A9AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D91A9D50-4832-439A-AC38-6A2FB0A9A9AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D91A9D50-4832-439A-AC38-6A2FB0A9A9AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
