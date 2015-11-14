@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,16 +8,14 @@ using System.Threading.Tasks;
 
 namespace Taxi.Entities
 {
-	public class WebUser: IdentityUser
-	{
-		public int PhoneNomber { get; set; }
-
-		public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<WebUser> manager)
+    public class Manager : WebUser
+    {
+		public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<Manager> manager)
 		{
 			// Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
 			var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
 			// Add custom user claims here
 			return userIdentity;
 		}
-	}
+    }
 }
