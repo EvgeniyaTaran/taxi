@@ -26,6 +26,8 @@ namespace Taxi.Entities
 		public int FreeValue { get; set; }
 
 		public float PriceKoef { get; set; }
+		[JsonIgnore]
+		public ICollection<Address> Addresses { get; set; }
 	}
 
 	public enum RoadType

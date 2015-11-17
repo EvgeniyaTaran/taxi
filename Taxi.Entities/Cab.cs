@@ -36,6 +36,9 @@ namespace Taxi.Entities
 		[JsonIgnore]
 		public bool IsReady { get { return Status == CabStatus.Free; } }
 
+		[JsonIgnore]
+		public ICollection<Order> Orders { get; set; }
+
 
 	}
 

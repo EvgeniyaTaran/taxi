@@ -18,9 +18,6 @@ namespace Taxi.Entities
 		[JsonIgnore]
 		public virtual ICollection<Road> Roads { get; set; }
 
-		[JsonIgnore]
-		public virtual ICollection<Address> Addresses { get; set; }
-
 		public RoadPoint()
 		{
 			//Roads = new List<Road>();

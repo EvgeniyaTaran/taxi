@@ -15,11 +15,13 @@ namespace Taxi.DataAccess
 		public DbSet<Car> Cars { get; set; }
 		//public DbSet<CarType> CarTypes { get; set; }
 		public DbSet<Order> Orders { get; set; }
-		public DbSet<OrderedCab> OrderedCars { get; set; }
+		public DbSet<OrderAddress> OrderAddresses { get; set; }
 		public DbSet<TechData> TechDataSet { get; set; }
+		public DbSet<Address> Addresses { get; set; }
 
 		public DbSet<Route> Routes { get; set; }
 		public DbSet<Road> Roads { get; set; }
+		public DbSet<RoutePoint> RoutePoints { get; set; }
 		public DbSet<RoadPoint> RoadPoints { get; set; }
 		//public DbSet<MapPoint> MapPoints { get; set; }
 

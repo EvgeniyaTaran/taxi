@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Device.Location;
 using System.Linq;
@@ -16,6 +17,15 @@ namespace Taxi.Entities
 		public string Number { get; set; }
 		public int? Porch { get; set; }
 		public GeoCoordinate Coords { get; set; }
+		public int RoadId { get; set; }
+		[JsonIgnore]
+		public Road Road { get; set; }
+
+		[JsonIgnore]
+		public virtual ICollection<RoutePoint> Routes { get; set; }
+
+		[JsonIgnore]
+		public virtual ICollection<OrderAddress> OrderAddresses { get; set; }
 	}
 
 	public enum StreetType 

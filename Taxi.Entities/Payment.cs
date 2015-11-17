@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -14,6 +15,10 @@ namespace Taxi.Entities
 		public string UserId { get; set; }
 		
 		public PaymentDetails Details { get; set; }
+
+		public int OrderId { get; set; }
+		[JsonIgnore]
+		public Order Order { get; set; }
 
 		public Payment()
 		{

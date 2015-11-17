@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Device.Location;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Taxi.Entities.Helpers;
 
 namespace Taxi.Entities
 {
@@ -13,9 +16,31 @@ namespace Taxi.Entities
 		public WaitingPeriod Period { get; set; }
 		public ServiceClass Class { get; set; }
 
-		public Address StartPoint { get; set; }
-		public Address EndPoint { get; set; }
-		public List<Address> RoutePoints { get; set; }
+		[JsonIgnore]
+		public string AddressesJson { get; set; }
+
+		[NotMapped]
+		private List<Address> _addressesJson;
+
+		[NotMapped]
+		public List<Address> Addresses
+		{
+			get 
+			{
+				if (_addressesJson != null)
+				{
+					return _addressesJson;
+				}
+				return
+					_addressesJson =
+						JsonConvert.DeserializeObject<List<Address>>(AddressesJson, JsonSettings.Default());
+			}
+			set 
+			{
+				_addressesJson = value;
+				AddressesJson = JsonConvert.SerializeObject(value, JsonSettings.Default());
+			}
+		}
 	}
 
 	public enum WaitingPeriod

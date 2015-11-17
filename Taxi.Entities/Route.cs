@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,15 +14,7 @@ namespace Taxi.Entities
 		public string Name { get; set; }
 
 		[JsonIgnore]
-		public virtual ICollection<Address> Addresses { get; set; }
-
-		public int StartAddressId { get; set; }
-		[JsonIgnore]
-		public Address StartAddress { get; set; }
-
-		public int EndAddressId { get; set; }
-		[JsonIgnore]
-		public Address EndAddress { get; set; }
+		public virtual ICollection<RoutePoint> Addresses { get; set; }
 
 		public double GetRouteLength() 
 		{
