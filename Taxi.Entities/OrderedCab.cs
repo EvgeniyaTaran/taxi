@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Taxi.Entities
 {
-	public class OrderedCar
+	public class OrderedCab
 	{
 		public int Id { get; set; }
 
-		public int CarId { get; set; }
+		public int CabId { get; set; }
 
 		[JsonIgnore]
-		public Car Car { get; set; }
+		public Cab Cab { get; set; }
 
 		public int OrderId { get; set; }
 		[JsonIgnore]

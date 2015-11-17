@@ -14,21 +14,21 @@ namespace Taxi.Entities
 
 		public string ClientId { get; set; }
 		[JsonIgnore]
-		public WebClient Client { get; set; }
+		public WebUser Client { get; set; }
 
 		public string ManagerId { get; set; }
 		[JsonIgnore]
 		public Manager Manager { get; set; }
 
 		[JsonIgnore]
-		public virtual ICollection<OrderedCar> Cars { get; set; }
+		public virtual ICollection<OrderedCab> Cars { get; set; }
 
 		public DateTime Date { get; set; }
 
 		public Order()
 		{
 			Date = DateTime.Now;
-			Cars = new List<OrderedCar>();
+			Cars = new List<OrderedCab>();
 			Status = OrderStatus.Draft;
 		}
 
@@ -36,7 +36,7 @@ namespace Taxi.Entities
 		{
 			ClientId = client.Id;
 			Date = DateTime.Now;
-			Cars = new List<OrderedCar>();
+			Cars = new List<OrderedCab>();
 			Status = OrderStatus.Draft;
 		}
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Device.Location;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace Taxi.Entities
 		public StreetType Type { get; set; }
 		public string Number { get; set; }
 		public int? Porch { get; set; }
-		//public GeoCoordinates
+		public GeoCoordinate Coords { get; set; }
 	}
 
 	public enum StreetType 

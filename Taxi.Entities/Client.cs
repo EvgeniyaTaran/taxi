@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Taxi.Entities
 {
-	public class Client: IClient
+	public class Client: WebUser
 	{
 		public string Id { get; set; }
 		[JsonIgnore]
