@@ -4,11 +4,19 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Taxi.DataAccess;
 
 namespace Taxi.WebApp.Controllers.Api
 {
     public class ApiBaseController : ApiController
     {
+		private EntityContext _db;
 
+		public EntityContext Db { get { return _db; } }
+
+		public ApiBaseController(EntityContext context)
+		{
+			_db = context;
+		}
     }
 }
