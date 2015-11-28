@@ -225,7 +225,9 @@
     <Compile Include="Controllers\Api\AddressController.cs" />
     <Compile Include="Controllers\Api\ApiBaseController.cs" />
     <Compile Include="Controllers\Api\CabController.cs" />
+    <Compile Include="Controllers\Api\CarBrandController.cs" />
     <Compile Include="Controllers\Api\CarController.cs" />
+    <Compile Include="Controllers\Api\CarModelController.cs" />
     <Compile Include="Controllers\Api\ClientController.cs" />
     <Compile Include="Controllers\Api\DriverController.cs" />
     <Compile Include="Controllers\Api\OrderController.cs" />
