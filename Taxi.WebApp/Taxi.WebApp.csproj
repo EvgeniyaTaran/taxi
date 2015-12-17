@@ -342,6 +342,7 @@
   <ItemGroup>
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
   </ItemGroup>
+  <ItemGroup>
     <Content Include="Views\Shared\Templates\Order\_cars.cshtml" />
     <Content Include="Views\Shared\Templates\Order\_order.cshtml" />
     <Content Include="Views\Shared\Templates\_cars.cshtml" />
