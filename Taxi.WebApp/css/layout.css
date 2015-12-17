@@ -1,0 +1,18 @@
+﻿body {
+	margin: 0 auto;
+	width: 1000px;
+}
+
+.main-menu {
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-menu li {
+	display: inline;
+}
+
+.form-control {
+	max-width: 400px;
+}

@@ -9,7 +9,6 @@ namespace Taxi.WebApp.App_Start
     using SimpleInjector.Extensions;
     using SimpleInjector.Integration.Web;
     using SimpleInjector.Integration.Web.Mvc;
-	using System.Data.Entity;
 	using Taxi.DataAccess;
     
     public static class SimpleInjectorInitializer
@@ -32,6 +31,8 @@ namespace Taxi.WebApp.App_Start
         private static void InitializeContainer(Container container)
         {
 			container.Register<EntityContext, EntityContext>(Lifestyle.Scoped);
+            // For instance:
+            // container.Register<IUserRepository, SqlUserRepository>(Lifestyle.Scoped);
         }
     }
 }

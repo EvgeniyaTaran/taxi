@@ -14,7 +14,7 @@ namespace Taxi.WebApp.Controllers
 
 		public BaseController(EntityContext context)
 		{
- 
+			_db = context;
 		}
     }
 }

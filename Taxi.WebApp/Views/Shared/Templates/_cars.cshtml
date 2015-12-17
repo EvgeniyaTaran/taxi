@@ -1,0 +1,10 @@
+﻿<div ng-app="">
+    <div ng-init="models=['Toyota', 'Ford', 'ZAZ', 'Fiat', 'Mersedes']"></div>
+    <div>
+        <ul>
+            <li ng-repeat="model in models">{{model}}</li>
+        </ul>
+        <input type="text" ng-model="car" /><span ng-model="car">{{car}}</span>
+    </div>
+</div>
+

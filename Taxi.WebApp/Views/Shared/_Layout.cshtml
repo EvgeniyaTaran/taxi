@@ -1,42 +1,65 @@
-﻿<!DOCTYPE html>
+﻿@model Taxi.WebApp.Models.LayoutViewModel
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @*@Styles.Render("~/Content/css")*@
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Free car</title>
+	@Styles.Render("~/css")
 
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("App", "Index", "App")</li>
-                    <li>@Html.ActionLink("About", "About", "App")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "App")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+<body class="main-container">
+	<header>
+		@*<div>
+				<img src="/img/logo.svg" />
+			</div>*@
+		<div><h1>Служба такси</h1></div>
+	</header>
+	<div class="navbar">
+		<ul class="nav navbar-nav main-menu">
+			@*<li><a href="/">Главная</a></li>*@
+			<li><a href="/order/">Заказ такси</a></li>
+			<li><a href="/marrige/">Прокат свадебных машин</a></li>
+			<li><a href="/medical/">Услуги спецтранспорта</a></li>
+			<li><a href="/about/">О нас</a></li>
+			<li><a href="/contacts/">Контакты</a></li>
+		</ul>
+		@Html.Partial("_LoginPartial")
+	</div>
+	<div class="container body-content">
+		<div class="page_content jMainRegion">
+			@RenderBody()
+		</div>
+		<hr />
+		<footer>
+			<p>&copy; @DateTime.Now.Year - free car for you 24/7</p>
+		</footer>
+	</div>
 
-    @*@Scripts.Render("~/bundles/jquery")
-    @RenderSection("scripts", required: false)*@
+	<div class="jModalRegion"></div>
+
+	<div class="jTemplates">
+		@Html.Partial("Templates/Order/_order")
+		@Html.Partial("Templates/Order/_cars")
+	</div>
+
+	<div class="jScripts">
+		@Scripts.Render("~/bundles/libs")
+		@*@Scripts.Render("~/bundles/bootstrap")*@
+		@Scripts.Render("~/bundles/app")
+
+		<script>
+			App.Collections.cars.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Cars))));
+			App.Collections.carModels.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.CarModels))));
+			App.Collections.carBrands.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.CarBrands))));
+			@*App.Collections.cars.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Cars))));
+			App.Collections.cars.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Cars))));
+			App.Collections.cars.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Cars))));
+			App.Collections.cars.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Cars))));*@
+
+			App.start();
+		</script>
+		@RenderSection("scripts", required: false)
+	</div>
 </body>
 </html>

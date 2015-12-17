@@ -29,6 +29,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -72,24 +73,24 @@
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector, Version=3.1.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\packages\SimpleInjector.3.1.0\lib\net45\SimpleInjector.dll</HintPath>
+    <Reference Include="SimpleInjector, Version=3.1.1.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.3.1.1\lib\net45\SimpleInjector.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector.Extensions.ExecutionContextScoping, Version=3.1.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\packages\SimpleInjector.Extensions.ExecutionContextScoping.3.1.0\lib\net45\SimpleInjector.Extensions.ExecutionContextScoping.dll</HintPath>
+    <Reference Include="SimpleInjector.Extensions.ExecutionContextScoping, Version=3.1.1.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Extensions.ExecutionContextScoping.3.1.1\lib\net45\SimpleInjector.Extensions.ExecutionContextScoping.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector.Integration.Web, Version=3.1.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\packages\SimpleInjector.Integration.Web.3.1.0\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
+    <Reference Include="SimpleInjector.Integration.Web, Version=3.1.1.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.Web.3.1.1\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector.Integration.Web.Mvc, Version=3.1.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\packages\SimpleInjector.Integration.Web.Mvc.3.1.0\lib\net40\SimpleInjector.Integration.Web.Mvc.dll</HintPath>
+    <Reference Include="SimpleInjector.Integration.Web.Mvc, Version=3.1.1.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.Web.Mvc.3.1.1\lib\net40\SimpleInjector.Integration.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SimpleInjector.Integration.WebApi, Version=3.1.0.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
-      <HintPath>..\packages\SimpleInjector.Integration.WebApi.3.1.0\lib\net45\SimpleInjector.Integration.WebApi.dll</HintPath>
+    <Reference Include="SimpleInjector.Integration.WebApi, Version=3.1.1.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.WebApi.3.1.1\lib\net45\SimpleInjector.Integration.WebApi.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -241,13 +242,45 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Dtos\CarDto.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LayoutViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\layout.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="js\app\app.collections.js" />
+    <Content Include="js\app\app.js" />
+    <Content Include="js\app\controllers\cars.js" />
+    <Content Include="js\app\controllers\order.js" />
+    <Content Include="js\app\models\car.js" />
+    <Content Include="js\app\models\carBrand.js" />
+    <Content Include="js\app\models\carModel.js" />
+    <Content Include="js\app\models\driver.js" />
+    <Content Include="js\app\router.js" />
+    <Content Include="js\app\views\order\cars.js" />
+    <Content Include="js\app\views\order\order.js" />
+    <Content Include="js\libs\backbone.marionette\backbone.js" />
+    <Content Include="js\libs\backbone.marionette\backbone.marionette.js" />
+    <Content Include="js\libs\backbone.marionette\backbone.paginator.js" />
+    <Content Include="js\libs\jquery-2.1.0.js" />
+    <Content Include="js\libs\jquery.cookie.js" />
+    <Content Include="js\libs\jsrender.js" />
+    <Content Include="js\libs\lodash.js" />
+    <Content Include="js\libs\spin.js" />
+    <Content Include="js\libs\select2\select2.js" />
+    <Content Include="js\libs\select2\select2_4.js" />
+    <Content Include="js\libs\select2\select2_locale_ru.js" />
+    <Content Include="js\practices\backbone.extensions.js" />
+    <Content Include="js\practices\behaviors\settings.js" />
+    <Content Include="js\practices\behaviors\sortable.js" />
+    <Content Include="js\practices\hideOnClickExcept.js" />
+    <Content Include="js\practices\models\mixins.js" />
+    <Content Include="js\practices\utils.js" />
+    <Content Include="js\practices\views\components.js" />
+    <Content Include="js\practices\views\templateHelpers.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -279,11 +312,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="css\libs\" />
     <Folder Include="img\" />
-    <Folder Include="js\app\controllers\" />
-    <Folder Include="js\app\models\" />
-    <Folder Include="js\app\views\" />
-    <Folder Include="js\libs\backbone.marionette\" />
-    <Folder Include="js\libs\select2\" />
     <Folder Include="js\pages\" />
     <Folder Include="Views\Auth\" />
     <Folder Include="Views\Base\" />
@@ -300,6 +328,14 @@
       <Project>{123a704a-1e9a-4164-9aee-8f4844650037}</Project>
       <Name>Taxi.Entities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Templates\Order\_cars.cshtml" />
+    <Content Include="Views\Shared\Templates\Order\_order.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Templates\_cars.cshtml" />
+    <Content Include="Views\Shared\Templates\_map.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -319,7 +355,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>2355</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:2355/</IISUrl>
+          <IISUrl>http://localhost:3030/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -1,0 +1,26 @@
+﻿<script type="text/x-jsrender" class="jOrderLayoutTmpl">
+	<div>
+		<div class="form-group">
+			<label for="time">Время подачи машины</label>
+			<select class="jTime form-control" id="time" name="time">
+				<option value="-1" selected>не выбрано</option>
+				<option value="0" data-enum="About_15">до 15 мин</option>
+				<option value="1" data-enum="About_30">до 30 мин</option>
+				<option value="2" data-enum="About_60">до 60 мин</option>
+				<option value="3" data-enum="Custom">более 1 часа</option>
+			</select>
+		</div>
+		<div class="jMapRegion" style="display: none">
+			<div class="form-group">
+				<label for="from">Откуда</label>
+				<input type="text" class="jFrom form-control" id="from" />
+			</div>
+			<div class="form-group">
+				<label for="to">Куда</label>
+				<input type="text" class="jTo form-control" id="to" />
+			</div>
+		</div>
+		<div class="jActiveCars"></div>
+	</div>
+</script>
+

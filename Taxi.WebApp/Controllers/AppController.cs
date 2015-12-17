@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Taxi.DataAccess;
+using Taxi.WebApp.Models;
 
 namespace Taxi.WebApp.Controllers
 {
@@ -15,21 +16,16 @@ namespace Taxi.WebApp.Controllers
 
 		public ActionResult Index()
 		{
-			return View();
-		}
-
-		public ActionResult About()
-		{
-			ViewBag.Message = "Your application description page.";
-
-			return View();
-		}
-
-		public ActionResult Contact()
-		{
-			ViewBag.Message = "Your contact page.";
-
-			return View();
+			var cars = Db.Cars.ToList();
+			var models = Db.CarModels.ToList();
+			var brands = Db.CarBrands.ToList();
+			var vm = new LayoutViewModel()
+			{
+				Cars = cars,
+				CarModels = models,
+				CarBrands = brands
+			};
+			return View(vm);
 		}
 	}
 }
