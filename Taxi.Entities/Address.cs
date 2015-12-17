@@ -11,9 +11,9 @@ namespace Taxi.Entities
 	public class Address: IEntity
 	{
 		public int Id { get; set; }
-
-		public String StreetName { get; set; }
-		public StreetType Type { get; set; }
+		public int StreetId { get; set; }
+		[JsonIgnore]
+		public Street Street { get; set; }
 		public string Number { get; set; }
 		public int? Porch { get; set; }
 		public GeoCoordinate Coords { get; set; }
@@ -26,13 +26,5 @@ namespace Taxi.Entities
 
 		[JsonIgnore]
 		public virtual ICollection<OrderAddress> OrderAddresses { get; set; }
-	}
-
-	public enum StreetType 
-	{
-		Street,
-		Alley,
-		Avenue,
-		BlindAlley
 	}
 }

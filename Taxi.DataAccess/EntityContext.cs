@@ -35,6 +35,7 @@ namespace Taxi.DataAccess
 		public DbSet<OrderRequest> Requests { get; set; }
 		public DbSet<Cab> Cabs { get; set; }
 		public DbSet<Payment> Payments { get; set; }
+		public DbSet<Street> Streets { get; set; }
 		//public DbSet<Settings> Settings { get; set; }
 
 

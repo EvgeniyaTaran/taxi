@@ -83,6 +83,7 @@
     <Compile Include="RoadPoint.cs" />
     <Compile Include="Route.cs" />
     <Compile Include="RoutePoint.cs" />
+    <Compile Include="Street.cs" />
     <Compile Include="TechData.cs" />
     <Compile Include="WebUser.cs" />
   </ItemGroup>

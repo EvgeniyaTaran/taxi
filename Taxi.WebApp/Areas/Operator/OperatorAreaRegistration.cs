@@ -1,28 +1,28 @@
 ﻿using System.Web.Mvc;
 
-namespace Taxi.WebApp.Areas.Admin
+namespace Taxi.WebApp.Areas.Operator
 {
-    public class AdminAreaRegistration : AreaRegistration 
+    public class OperatorAreaRegistration : AreaRegistration 
     {
         public override string AreaName 
         {
             get 
             {
-                return "Admin";
+                return "Operator";
             }
         }
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
 			context.MapRoute(
-				"Auth",
-				"admin/",
-				new { action = "Index", controller = "Auth" }
+				"Desk",
+				"Operator/",
+				new { action = "Index", controller = "Desk" }
 			);
 
             context.MapRoute(
-                "Admin_default",
-                "Admin/{controller}/{action}/{id}",
+                "Operator_default",
+                "Operator/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
         }

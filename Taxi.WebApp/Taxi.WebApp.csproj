@@ -223,7 +223,11 @@
     <Compile Include="App_Start\SimpleInjectorWebApiInitializer.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AppAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\AuthController.cs" />
+    <Compile Include="Areas\Admin\Models\AppAdminViewModel.cs" />
+    <Compile Include="Areas\Operator\Controllers\DeskController.cs" />
+    <Compile Include="Areas\Operator\OperatorAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\AddressController.cs" />
     <Compile Include="Controllers\Api\ApiBaseController.cs" />
@@ -253,17 +257,23 @@
     <Content Include="css\layout.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="js\app\app.collections.js" />
-    <Content Include="js\app\app.js" />
-    <Content Include="js\app\controllers\cars.js" />
-    <Content Include="js\app\controllers\order.js" />
-    <Content Include="js\app\models\car.js" />
-    <Content Include="js\app\models\carBrand.js" />
-    <Content Include="js\app\models\carModel.js" />
-    <Content Include="js\app\models\driver.js" />
-    <Content Include="js\app\router.js" />
-    <Content Include="js\app\views\order\cars.js" />
-    <Content Include="js\app\views\order\order.js" />
+    <Content Include="js\apps\admin\app.collections.js" />
+    <Content Include="js\apps\admin\app.js" />
+    <Content Include="js\apps\admin\router.js" />
+    <Content Include="js\apps\app\app.collections.js" />
+    <Content Include="js\apps\app\app.js" />
+    <Content Include="js\apps\app\controllers\cars.js" />
+    <Content Include="js\apps\app\controllers\order.js" />
+    <Content Include="js\apps\app\models\car.js" />
+    <Content Include="js\apps\app\models\carBrand.js" />
+    <Content Include="js\apps\app\models\carModel.js" />
+    <Content Include="js\apps\app\models\driver.js" />
+    <Content Include="js\apps\app\router.js" />
+    <Content Include="js\apps\app\views\order\cars.js" />
+    <Content Include="js\apps\app\views\order\order.js" />
+    <Content Include="js\apps\operator\app.collections.js" />
+    <Content Include="js\apps\operator\app.js" />
+    <Content Include="js\apps\operator\router.js" />
     <Content Include="js\libs\backbone.marionette\backbone.js" />
     <Content Include="js\libs\backbone.marionette\backbone.marionette.js" />
     <Content Include="js\libs\backbone.marionette\backbone.paginator.js" />
@@ -313,9 +323,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Operator\Models\" />
     <Folder Include="css\libs\" />
     <Folder Include="img\" />
+    <Folder Include="js\apps\admin\controllers\" />
+    <Folder Include="js\apps\admin\models\" />
+    <Folder Include="js\apps\admin\views\" />
+    <Folder Include="js\apps\operator\controllers\" />
+    <Folder Include="js\apps\operator\models\" />
+    <Folder Include="js\apps\operator\views\" />
     <Folder Include="js\pages\" />
     <Folder Include="Views\Auth\" />
     <Folder Include="Views\Base\" />
@@ -347,6 +363,18 @@
     <Content Include="Views\Shared\Templates\Order\_order.cshtml" />
     <Content Include="Views\Shared\Templates\_cars.cshtml" />
     <Content Include="Views\Shared\Templates\_map.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Operator\Views\web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Operator\Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Operator\Views\Desk\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\AppAdmin\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
