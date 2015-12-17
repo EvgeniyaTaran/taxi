@@ -8,9 +8,11 @@ namespace Taxi.WebApp.Models.Dtos
 {
 	public class CarDto
 	{
+		public int Id { get; set; }
 		public int ModelId { get; set; }
-		//public CarColor Color { get; set; }
+		public CarColor Color { get; set; }
 		public string Number { get; set; }
 		public string Name { get; set; }
+		public bool IsActive { get; set; }
 	}
 }
