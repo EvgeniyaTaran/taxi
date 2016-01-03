@@ -10,6 +10,7 @@ namespace Taxi.Entities
 {
 	public class RoadPoint : IEntity
 	{
+		public int Num { get; set; }
 		public int Id { get; set; }
 		public string name { get; set; }
 

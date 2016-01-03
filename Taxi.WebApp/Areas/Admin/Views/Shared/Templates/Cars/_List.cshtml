@@ -1,0 +1,20 @@
+﻿<script type="text/x-jsrender" class="jCarsLayoutTmpl">
+	<div>
+		<form class="form-inline">
+			<input type="text" class="form-control jNumber" placeholder="номер авто" />
+			<button type="submit" class="btn btn-primary jCreate">Создать</button>
+		</form>
+		<ul class="jContent list_cars"></ul>
+	</div>
+</script>
+
+<script type="text/x-jsrender" class="jCarListItemTmpl">
+	<li>
+		<span class="active_car"><a class="jItem" href="/admin/cars/{{>id}}/">{{>name}}</a></span>
+		<label class="jDelete hide"><i class="glyphicon glyphicon-remove"></i></label>
+	</li>
+</script>
+
+<script type="text/x-jsrender" class="jCarEmptyListTmpl">
+	<p>Пока нет автомобилей в базе данных</p>
+</script>

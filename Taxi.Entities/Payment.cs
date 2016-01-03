@@ -11,6 +11,7 @@ namespace Taxi.Entities
 	public class Payment: IEntity
 	{
 		public int Id { get; set; }
+		public int Num { get; set; }
 
 		public string UserId { get; set; }
 		

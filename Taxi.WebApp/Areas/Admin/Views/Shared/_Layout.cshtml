@@ -1,64 +1,94 @@
-﻿<!DOCTYPE html>
+﻿@model Taxi.WebApp.Areas.Admin.Models.AppAdminViewModel
+@using Taxi.Entities.Helpers;
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Taxi</title>
-	@Styles.Render("~/css")
+	@Styles.Render("~/bundles/css/libs/")
+	@Styles.Render("~/bundles/css/admin/commons/")
 
 </head>
-<body class="main-container">
-	<header>
-		@*<div>
-				<img src="/img/logo.svg" />
-			</div>*@
-		<div><h1>Админка службы такси</h1></div>
-	</header>
-	<div class="navbar">
-		<ul class="nav navbar-nav main-menu">
-			@*<li><a href="/">Главная</a></li>*@
-			<li><a href="/cars/">Машины</a></li>
-			<li><a href="/cabs/">Такси</a></li>
-			<li><a href="/orders/">Заказы</a></li>
-			<li><a href="/drivers/">Водители</a></li>
-			<li><a href="/carmodels/">Модели авто</a></li>
-			<li><a href="/carbrands/">Бренды</a></li>
-			<li><a href="/orders/">Заявки</a></li>
-			<li><a href="/operators/">Операторы</a></li>
-			<li><a href="/addresses/">Адреса</a></li>
-			<li><a href="/clients/">Клиенты</a></li>
-
-		</ul>
-		@Html.Partial("_LoginPartial")
-	</div>
-	<div class="container body-content">
-		<div class="page_content jMainRegion">
-			@RenderBody()
+<body>
+	<div class="container">
+		<div class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/">Cлужба такси</a>
+				</div>
+				<div>
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="/">Администрирование</a></li>
+						<li><a href="/online/">Мониторинг</a></li>
+						<li><a href="/statistics/">Статистика</a></li>
+					</ul>
+					<p class="navbar-text navbar-right user_info">
+						<a href="/auth/logout/" class="navbar-link jDefaultLink">Выйти</a>
+					</p>
+					<p class="navbar-text navbar-right">
+						<span class="manager_name">Здравствуйте, @User.Identity.Name</span>
+					</p>
+				</div>
+			</div>
 		</div>
-		<hr />
-		<footer>
-			<p>&copy; @DateTime.Now.Year - free car for you 24/7</p>
-		</footer>
-	</div>
+
+		<div class="container-fluid" style="margin-top: 64px;">
+			<div class="row">
+				<div class="col-xs-1" style="position: fixed;">
+					<div class="menu_wrp">
+						<ul class="menu jMenu">
+							<li class="jMenuTab active"><a href="/admin/orders/"><i class="glyphicon glyphicon-fire"></i></a></li>
+							<li class="jMenuTab"><a href="/admin/requests/"><i class="glyphicon glyphicon-thumbs-up"></i></a></li>
+							<li class="jMenuTab"><a href="/admin/cars/"><i class="glyphicon glyphicon-cd"></i></a></li>
+							<li class="jMenuTab"><a href="/admin/cabs/"><i class="glyphicon glyphicon-pawn"></i></a></li>
+							<li class="jMenuTab"><a href="/admin/drivers/"><i class="glyphicon glyphicon-sunglasses"></i></a></li>
+							<li class="jMenuTab"><a href="/admin/carmodels/"><i class="glyphicon glyphicon-barcode"></i></a></li>
+							<li class="jMenuTab"><a href="/admin/carbrands/"><i class="glyphicon glyphicon glyphicon-apple"></i></a></li>
+							<li class="jMenuTab"><a href="/admin/operators/"><i class="glyphicon glyphicon-phone-alt"></i></a></li>
+							<li class="jMenuTab"><a href="/admin/addresses/"><i class="glyphicon glyphicon-pushpin"></i></a></li>
+							<li class="jMenuTab"><a href="/admin/clients/"><i class="glyphicon glyphicon-user"></i></a></li>
+
+
+							@*<li><a href="/sales/"><i class="glyphicon glyphicon-gift"></i></a></li>
+							<li><a href="/clients/"><i class="glyphicon glyphicon-user"></i></a></li>*@
+
+						</ul>
+					</div>
+				</div>
+				<div class="col-xs-11" style="margin-left: 11%;">
+					<div class="page_content jMainRegion">
+						@RenderBody()
+						<hr />
+						<footer>
+							<p>&copy; @DateTime.Now.Year - Taxi</p>
+						</footer>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div> 
 
 	<div class="jModalRegion"></div>
 
 	<div class="jTemplates">
-		@Html.Partial("Templates/Order/_order")
-		@Html.Partial("Templates/Order/_cars")
+		@Html.Partial("Templates/Cars/_List")
+		@Html.Partial("Templates/Cars/_Page")
 	</div>
 
 	<div class="jScripts">
 		@Scripts.Render("~/bundles/libs")
-		@*@Scripts.Render("~/bundles/bootstrap")*@
-		@Scripts.Render("~/bundles/app")
+		@Scripts.Render("~/bundles/js/areas/admin")
+		@Scripts.Render("~/bundles/apps")
+		@Scripts.Render("~/bundles/adminApp")
 
 		<script>
-			@*App.Collections.cars.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Cars))));
-			App.Collections.carModels.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.CarModels))));
-			App.Collections.carBrands.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.CarBrands))));
+			App.Collections.cars.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Cars, JsonSettings.Default()))));
+			App.Collections.carModels.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Models, JsonSettings.Default()))));
+			App.Collections.carBrands.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Brands, JsonSettings.Default()))));
 
-			App.start();*@
+			App.start();
 		</script>
 		@RenderSection("scripts", required: false)
 	</div>

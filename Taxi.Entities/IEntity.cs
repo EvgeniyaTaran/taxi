@@ -8,5 +8,6 @@ namespace Taxi.Entities
     public interface IEntity
     {
         int Id { get; set; }
+		int Num { get; set; }
     }
 }

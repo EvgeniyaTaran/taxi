@@ -15,9 +15,9 @@ namespace Taxi.WebApp.Areas.Admin
         public override void RegisterArea(AreaRegistrationContext context) 
         {
 			context.MapRoute(
-				"Auth",
+				"AppAdmin",
 				"admin/",
-				new { action = "Index", controller = "Auth" }
+				new { action = "Index", controller = "AppAdmin" }
 			);
 
             context.MapRoute(

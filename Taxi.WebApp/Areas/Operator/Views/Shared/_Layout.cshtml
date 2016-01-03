@@ -10,53 +10,55 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Taxi</title>
-	@Styles.Render("~/css")
+	@Styles.Render("~/bundles/css/libs/")
+	@Styles.Render("~/bundles/css/operator/commons/")
 </head>
 <body>
-	<header>
-		@*<div>
-				<img src="/img/logo.svg" />
-			</div>*@
-		<div><h1>Админка службы такси</h1></div>
-	</header>
-	<div class="navbar">
-		<ul class="nav navbar-nav main-menu">
-			@*<li><a href="/">Главная</a></li>*@
-			<li><a href="/cars/">Машины</a></li>
-			<li><a href="/cabs/">Такси</a></li>
-			<li><a href="/orders/">Заказы</a></li>
-			<li><a href="/drivers/">Водители</a></li>
-			<li><a href="/carmodels/">Модели авто</a></li>
-			<li><a href="/carbrands/">Бренды</a></li>
-			<li><a href="/orders/">Заявки</a></li>
-			<li><a href="/operators/">Операторы</a></li>
-			<li><a href="/addresses/">Адреса</a></li>
-			<li><a href="/clients/">Клиенты</a></li>
+	<div class="container">
+		<div class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/">Такси сервис</a>
+				</div>
+				<div>
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="/">Доска</a></li>
+						<li><a href="/requests/">Заявки</a></li>
+						<li><a href="/orders/">Заказы</a></li>
+						<li><a href="/settings/">Настройки</a></li>
+					</ul>
+					<p class="navbar-text navbar-right user_info">
+						<a href="/auth/logout/" class="navbar-link jDefaultLink">Выйти</a>
+					</p>
+					<p class="navbar-text navbar-right">
+						<span class="manager_name">Здравствуйте, @User.Identity.Name</span>
+					</p>
+				</div>
+			</div>
+		</div>
 
-		</ul>
-		@Html.Partial("_LoginPartial")
-	</div>
-	<div class="container body-content">
-		<div class="page_content jMainRegion">
+		<div class="container-fluid">
 			@RenderBody()
+
 		</div>
 		<hr />
 		<footer>
-			<p>&copy; @DateTime.Now.Year - free car for you 24/7</p>
+			<p>&copy; @DateTime.Now.Year - Taxi</p>
 		</footer>
-	</div>
+	</div> 
 
 	<div class="jModalRegion"></div>
 
 	<div class="jTemplates">
-		@Html.Partial("Templates/Order/_order")
-		@Html.Partial("Templates/Order/_cars")
+		@Html.Partial("Templates/Cars/_List")
+		@Html.Partial("Templates/Cars/_Page")
 	</div>
 
 	<div class="jScripts">
 		@Scripts.Render("~/bundles/libs")
-		@*@Scripts.Render("~/bundles/bootstrap")*@
-		@Scripts.Render("~/bundles/app")
+		@Scripts.Render("~/bundles/js/areas/operator")
+		@Scripts.Render("~/bundles/apps")
+		@Scripts.Render("~/bundles/operatorApp")
 
 		<script>
 			@*App.Collections.cars.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Cars))));

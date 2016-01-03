@@ -254,38 +254,85 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\layout.css" />
+    <Content Include="css\libs\select2\select2-bootstrap.css" />
+    <Content Include="css\libs\select2\select2.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="js\apps\admin\app.collections.js" />
-    <Content Include="js\apps\admin\app.js" />
-    <Content Include="js\apps\admin\router.js" />
-    <Content Include="js\apps\app\app.collections.js" />
-    <Content Include="js\apps\app\app.js" />
-    <Content Include="js\apps\app\controllers\cars.js" />
-    <Content Include="js\apps\app\controllers\order.js" />
-    <Content Include="js\apps\app\models\car.js" />
-    <Content Include="js\apps\app\models\carBrand.js" />
-    <Content Include="js\apps\app\models\carModel.js" />
-    <Content Include="js\apps\app\models\driver.js" />
-    <Content Include="js\apps\app\router.js" />
-    <Content Include="js\apps\app\views\order\cars.js" />
-    <Content Include="js\apps\app\views\order\order.js" />
-    <Content Include="js\apps\operator\app.collections.js" />
-    <Content Include="js\apps\operator\app.js" />
-    <Content Include="js\apps\operator\router.js" />
+    <Content Include="js\app\apps\admin\app.collections.js" />
+    <Content Include="js\app\apps\admin\app.js" />
+    <Content Include="js\app\apps\admin\controllers\cabs.js" />
+    <Content Include="js\app\apps\admin\controllers\cars.js" />
+    <Content Include="js\app\apps\admin\controllers\drivers.js" />
+    <Content Include="js\app\apps\admin\controllers\orders.js" />
+    <Content Include="js\app\apps\admin\router.js" />
+    <Content Include="js\app\apps\admin\views\cabs\list.js" />
+    <Content Include="js\app\apps\admin\views\cabs\page.js" />
+    <Content Include="js\app\apps\admin\views\cars\list.js" />
+    <Content Include="js\app\apps\admin\views\cars\page.js" />
+    <Content Include="js\app\apps\admin\views\drivers\list.js" />
+    <Content Include="js\app\apps\admin\views\drivers\page.js" />
+    <Content Include="js\app\apps\admin\views\orders\list.js" />
+    <Content Include="js\app\apps\admin\views\orders\page.js" />
+    <Content Include="js\app\apps\main\app.collections.js" />
+    <Content Include="js\app\apps\main\app.js" />
+    <Content Include="js\app\apps\main\controllers\cars.js" />
+    <Content Include="js\app\apps\main\controllers\order.js" />
+    <Content Include="js\app\apps\main\models\car.js" />
+    <Content Include="js\app\apps\main\models\carBrand.js" />
+    <Content Include="js\app\apps\main\models\carModel.js" />
+    <Content Include="js\app\apps\main\models\driver.js" />
+    <Content Include="js\app\apps\main\router.js" />
+    <Content Include="js\app\apps\main\views\order\cars.js" />
+    <Content Include="js\app\apps\main\views\order\order.js" />
+    <Content Include="js\app\apps\operator\app.collections.js" />
+    <Content Include="js\app\apps\operator\app.js" />
+    <Content Include="js\app\apps\operator\router.js" />
+    <Content Include="js\app\behaviors\delete.js" />
+    <Content Include="js\app\behaviors\modal.js" />
+    <Content Include="js\app\models\address.js" />
+    <Content Include="js\app\models\cab.js" />
+    <Content Include="js\app\models\car.js" />
+    <Content Include="js\app\models\carBrand.js" />
+    <Content Include="js\app\models\carModel.js" />
+    <Content Include="js\app\models\client.js" />
+    <Content Include="js\app\models\country.js" />
+    <Content Include="js\app\models\driver.js" />
+    <Content Include="js\app\models\manager.js" />
+    <Content Include="js\app\models\order.js" />
+    <Content Include="js\app\models\orderedAddress.js" />
+    <Content Include="js\app\models\payment.js" />
+    <Content Include="js\app\models\photo.js" />
+    <Content Include="js\app\models\request.js" />
+    <Content Include="js\app\models\street.js" />
     <Content Include="js\libs\backbone.marionette\backbone.js" />
     <Content Include="js\libs\backbone.marionette\backbone.marionette.js" />
     <Content Include="js\libs\backbone.marionette\backbone.paginator.js" />
+    <Content Include="js\libs\bootstrap\affix.js" />
+    <Content Include="js\libs\bootstrap\alert.js" />
+    <Content Include="js\libs\bootstrap\button.js" />
+    <Content Include="js\libs\bootstrap\carousel.js" />
+    <Content Include="js\libs\bootstrap\collapse.js" />
+    <Content Include="js\libs\bootstrap\dropdown.js" />
+    <Content Include="js\libs\bootstrap\modal.js" />
+    <Content Include="js\libs\bootstrap\popover.js" />
+    <Content Include="js\libs\bootstrap\scrollspy.js" />
+    <Content Include="js\libs\bootstrap\tab.js" />
+    <Content Include="js\libs\bootstrap\tooltip.js" />
+    <Content Include="js\libs\bootstrap\transition.js" />
     <Content Include="js\libs\jquery-2.1.0.js" />
     <Content Include="js\libs\jquery.cookie.js" />
     <Content Include="js\libs\jsrender.js" />
     <Content Include="js\libs\lodash.js" />
+    <Content Include="js\libs\select2\select2_locale_ru.js" />
     <Content Include="js\libs\spin.js" />
     <Content Include="js\libs\select2\select2.js" />
     <Content Include="js\libs\select2\select2_4.js" />
-    <Content Include="js\libs\select2\select2_locale_ru.js" />
+    <Content Include="js\pages\areas\layout.js" />
+    <Content Include="js\pages\areas\operator\layout.js" />
+    <Content Include="js\pages\areas\admin\layout.js" />
     <Content Include="js\practices\backbone.extensions.js" />
+    <Content Include="js\app\behaviors\save.js" />
     <Content Include="js\practices\behaviors\settings.js" />
     <Content Include="js\practices\behaviors\sortable.js" />
     <Content Include="js\practices\hideOnClickExcept.js" />
@@ -324,15 +371,11 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Operator\Models\" />
-    <Folder Include="css\libs\" />
     <Folder Include="img\" />
-    <Folder Include="js\apps\admin\controllers\" />
-    <Folder Include="js\apps\admin\models\" />
-    <Folder Include="js\apps\admin\views\" />
-    <Folder Include="js\apps\operator\controllers\" />
-    <Folder Include="js\apps\operator\models\" />
-    <Folder Include="js\apps\operator\views\" />
-    <Folder Include="js\pages\" />
+    <Folder Include="js\app\apps\admin\models\" />
+    <Folder Include="js\app\apps\operator\controllers\" />
+    <Folder Include="js\app\apps\operator\models\" />
+    <Folder Include="js\app\apps\operator\views\" />
     <Folder Include="Views\Auth\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
@@ -375,6 +418,117 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\AppAdmin\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\libs\bootstrap\alerts.less" />
+    <Content Include="css\libs\bootstrap\badges.less" />
+    <Content Include="css\libs\bootstrap\bootstrap.less" />
+    <Content Include="css\libs\bootstrap\breadcrumbs.less" />
+    <Content Include="css\libs\bootstrap\button-groups.less" />
+    <Content Include="css\libs\bootstrap\buttons.less" />
+    <Content Include="css\libs\bootstrap\carousel.less" />
+    <Content Include="css\libs\bootstrap\close.less" />
+    <Content Include="css\libs\bootstrap\code.less" />
+    <Content Include="css\libs\bootstrap\component-animations.less" />
+    <Content Include="css\libs\bootstrap\dropdowns.less" />
+    <Content Include="css\libs\bootstrap\forms.less" />
+    <Content Include="css\libs\bootstrap\glyphicons.less" />
+    <Content Include="css\libs\bootstrap\grid.less" />
+    <Content Include="css\libs\bootstrap\input-groups.less" />
+    <Content Include="css\libs\bootstrap\jumbotron.less" />
+    <Content Include="css\libs\bootstrap\labels.less" />
+    <Content Include="css\libs\bootstrap\list-group.less" />
+    <Content Include="css\libs\bootstrap\media.less" />
+    <Content Include="css\libs\bootstrap\mixins.less" />
+    <Content Include="css\libs\bootstrap\modals.less" />
+    <Content Include="css\libs\bootstrap\navbar.less" />
+    <Content Include="css\libs\bootstrap\navs.less" />
+    <Content Include="css\libs\bootstrap\normalize.less" />
+    <Content Include="css\libs\bootstrap\pager.less" />
+    <Content Include="css\libs\bootstrap\pagination.less" />
+    <Content Include="css\libs\bootstrap\panels.less" />
+    <Content Include="css\libs\bootstrap\popovers.less" />
+    <Content Include="css\libs\bootstrap\print.less" />
+    <Content Include="css\libs\bootstrap\progress-bars.less" />
+    <Content Include="css\libs\bootstrap\responsive-embed.less" />
+    <Content Include="css\libs\bootstrap\responsive-utilities.less" />
+    <Content Include="css\libs\bootstrap\scaffolding.less" />
+    <Content Include="css\libs\bootstrap\tables.less" />
+    <Content Include="css\libs\bootstrap\theme.less" />
+    <Content Include="css\libs\bootstrap\thumbnails.less" />
+    <Content Include="css\libs\bootstrap\tooltip.less" />
+    <Content Include="css\libs\bootstrap\type.less" />
+    <Content Include="css\libs\bootstrap\utilities.less" />
+    <Content Include="css\libs\bootstrap\variables.less" />
+    <Content Include="css\libs\bootstrap\wells.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\libs\bootstrap\mixins\alerts.less" />
+    <Content Include="css\libs\bootstrap\mixins\background-variant.less" />
+    <Content Include="css\libs\bootstrap\mixins\border-radius.less" />
+    <Content Include="css\libs\bootstrap\mixins\buttons.less" />
+    <Content Include="css\libs\bootstrap\mixins\center-block.less" />
+    <Content Include="css\libs\bootstrap\mixins\clearfix.less" />
+    <Content Include="css\libs\bootstrap\mixins\forms.less" />
+    <Content Include="css\libs\bootstrap\mixins\gradients.less" />
+    <Content Include="css\libs\bootstrap\mixins\grid-framework.less" />
+    <Content Include="css\libs\bootstrap\mixins\grid.less" />
+    <Content Include="css\libs\bootstrap\mixins\hide-text.less" />
+    <Content Include="css\libs\bootstrap\mixins\image.less" />
+    <Content Include="css\libs\bootstrap\mixins\labels.less" />
+    <Content Include="css\libs\bootstrap\mixins\list-group.less" />
+    <Content Include="css\libs\bootstrap\mixins\nav-divider.less" />
+    <Content Include="css\libs\bootstrap\mixins\nav-vertical-align.less" />
+    <Content Include="css\libs\bootstrap\mixins\opacity.less" />
+    <Content Include="css\libs\bootstrap\mixins\pagination.less" />
+    <Content Include="css\libs\bootstrap\mixins\panels.less" />
+    <Content Include="css\libs\bootstrap\mixins\progress-bar.less" />
+    <Content Include="css\libs\bootstrap\mixins\reset-filter.less" />
+    <Content Include="css\libs\bootstrap\mixins\reset-text.less" />
+    <Content Include="css\libs\bootstrap\mixins\resize.less" />
+    <Content Include="css\libs\bootstrap\mixins\responsive-visibility.less" />
+    <Content Include="css\libs\bootstrap\mixins\size.less" />
+    <Content Include="css\libs\bootstrap\mixins\tab-focus.less" />
+    <Content Include="css\libs\bootstrap\mixins\table-row.less" />
+    <Content Include="css\libs\bootstrap\mixins\text-emphasis.less" />
+    <Content Include="css\libs\bootstrap\mixins\text-overflow.less" />
+    <Content Include="css\libs\bootstrap\mixins\vendor-prefixes.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\bootstrap.less" />
+    <Content Include="css\bootswatch_paper.less" />
+    <Content Include="css\ext_variables.less" />
+    <Content Include="css\variables.less" />
+    <Content Include="css\variables_paper.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\sections\layout.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\override\navbar.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\exttrap\contexts.less" />
+    <Content Include="css\exttrap\extmixins.less" />
+    <Content Include="css\exttrap\universals.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\sections\operator\layout.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\sections\admin\layout.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Shared\Templates\Cars\_List.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Shared\Templates\Cars\_Page.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

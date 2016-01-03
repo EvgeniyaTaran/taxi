@@ -9,5 +9,6 @@ namespace Taxi.Entities
 	public class TechData: IEntity
 	{
 		public int Id { get; set; }
+		public int Num { get; set; }
 	}
 }

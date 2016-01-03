@@ -11,6 +11,7 @@ namespace Taxi.Entities
 	public class Cab : IEntity
 	{
 		public int Id { get; set; }
+		public int Num { get; set; }
 
 		public int CarId { get; set; }
 		[JsonIgnore]
@@ -38,8 +39,6 @@ namespace Taxi.Entities
 
 		[JsonIgnore]
 		public ICollection<Order> Orders { get; set; }
-
-
 	}
 
 	public enum CabStatus 

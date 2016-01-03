@@ -11,6 +11,7 @@ namespace Taxi.Entities
     public class Order: IEntity
     {
 		public int Id { get; set; }
+		public int Num { get; set; }
 
 		public string ClientId { get; set; }
 		[JsonIgnore]
@@ -20,19 +21,22 @@ namespace Taxi.Entities
 		[JsonIgnore]
 		public Manager Manager { get; set; }
 
+		public int CabId { get; set; }
 		[JsonIgnore]
-		public virtual ICollection<Cab> Cabs { get; set; }
+		public Cab Cab { get; set; }
 
 		public int OrderRequestId { get; set; }
 		[JsonIgnore]
 		public OrderRequest Request { get; set; }
+
+		[JsonIgnore]
+		public virtual ICollection<OrderedAddress> OrderedAddresses { get; set; }
 
 		public DateTime Date { get; set; }
 
 		public Order()
 		{
 			Date = DateTime.Now;
-			Cabs = new List<Cab>();
 			Status = OrderStatus.Draft;
 		}
 
@@ -40,7 +44,6 @@ namespace Taxi.Entities
 		{
 			ClientId = client.Id;
 			Date = DateTime.Now;
-			Cabs = new List<Cab>();
 			Status = OrderStatus.Draft;
 		}
 

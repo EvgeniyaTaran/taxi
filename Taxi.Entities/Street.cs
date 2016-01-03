@@ -9,6 +9,7 @@ namespace Taxi.Entities
 	public class Street: IEntity
 	{
 		public int Id { get; set; }
+		public int Num { get; set; }
 
 		public string StreetName { get; set; }
 		public StreetType Type { get; set; }

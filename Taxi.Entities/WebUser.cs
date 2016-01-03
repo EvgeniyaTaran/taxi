@@ -11,7 +11,10 @@ namespace Taxi.Entities
 {
 	public class WebUser: IdentityUser
 	{
+		public int Num { get; set; }
 		public int PhoneNomber { get; set; }
+
+		public virtual ICollection<WebUserPhoto> Photos { get; set; }
 
 		public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<WebUser> manager)
 		{

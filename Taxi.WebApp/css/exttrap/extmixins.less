@@ -1,0 +1,135 @@
+// Установка марджинов и паддингов элемента. 
+// По умолчанию устанавливаются в 0, т.е. сбрасываются
+.set_indent (@margin: 0px, @padding: 0px) {
+	margin: @margin;
+	padding: @padding;
+}
+
+.set_size	(@element_width: auto, @element_height: auto){
+	width:@element_width;
+	height:@element_height; 
+}
+
+
+// Сокращалки частоиспользуемых правил
+.block		(){display:block}
+.inline		(){display:inline}
+.iblock		(){display:inline-block}
+.hidden		(){display:none}
+
+.fleft		(){float:left}
+.fright		(){float:right}
+
+.aleft		(){text-align:left}
+.aright		(){text-align:right}
+.acenter	(){text-align:center}
+.justify	(){text-align:justify}
+
+.valtop		(){vertical-align:top}
+.valbottom  (){vertical-align:bottom}
+
+
+.relative	(){position:relative}
+.fixed		(){position:fixed}
+.absolute	(@Top:auto, @Right:auto, @Bottom:auto, @Left:auto) {
+			   position:absolute;
+			   top:@Top;
+			   right:@Right;
+			   bottom:@Bottom;
+			   left:@Left;
+}
+
+
+.overhidden (){overflow:hidden}
+.nowrap		(){white-space:nowrap}
+
+.bold		(){font-weight:bold}
+.normal		(){font-weight:normal}
+.italic		(){font-style:italic}
+
+.pointer 	(){cursor:pointer}
+
+
+
+
+.ellipsys	(@EllipsysWidth) {
+				.overhidden;
+				.nowrap;
+				width:@EllipsysWidth;
+				text-overflow:ellipsis;
+			}
+
+
+
+@border: @gray-lighter 1px solid;
+.border (@BorderWidth: 1px)	
+		{border: @gray-lighter @BorderWidth solid;}
+
+.radius(@radius) {
+  border-radius: @radius;
+}
+
+.radius(@TopLeft, @TopRight, @BottomRight, @BottomLeft ) {
+  	border-top-left-radius:@TopLeft;
+	border-top-right-radius:@TopRight;	
+	border-bottom-right-radius:@BottomRight;
+	border-bottom-left-radius:@BottomLeft;
+}
+
+
+
+
+//
+// Миксины для работы со списками
+//  
+
+// Сброс базовых свойств списка
+.reset_list  (){
+	list-style: none;
+	.set_indent;
+
+	li {.set_indent;}
+}
+
+// Задаем горизонтальный список с флоат-элементами 
+.float_list  (){
+	.reset_list; 	
+	.overhidden;
+	/*.clearfix;*/
+
+	li {.fleft;}
+}
+
+// Задаем горизонтальный список с инлайн-элементами
+.inline_list  (){
+	.reset_list;
+	.iblock;
+	text-align:justify;
+
+	li {.iblock;}
+}
+
+// Элемент-пустышка для правильного выравнивания в инлайновых списках
+.dummy (@DummyWidth:auto) {	
+	width:@DummyWidth;
+	height:0px;
+	line-height:0px;
+	margin:0px;
+	padding:0px;
+	overflow:hidden;
+	font-size:0px;
+	border:none;
+	zoom:0;
+}
+
+
+
+
+
+
+// Пунктирные ссылки
+.dashed(@dash-width: 1px) {
+	border-bottom:@dash-width dashed;
+	line-height:@line-height-base;	
+	cursor:pointer;
+}

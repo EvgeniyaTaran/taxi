@@ -1,0 +1,149 @@
+﻿body {
+	.navbar {
+		p {
+			a { 
+				padding-right: 10px;
+			}
+		}
+	} 
+	background-color: #eeeeee;
+	.menu {
+		list-style: none;
+		font-size: 1.6em;
+		margin-left: 0px;
+		padding-left: 5px;
+		border-right: 1px solid #dddddd; 
+
+		>li {
+			text-align: center;
+			vertical-align: middle;
+			background-color: #eeeeee;
+			&.active {
+				color: orange;
+				background-color: white;
+				font-size: 1.8em;
+				a {
+					color: orange;
+				}
+			}
+			&:hover {
+				a {
+					color: orange;
+				}
+			}
+		}
+
+
+	}
+
+	.settings {
+		float: right;
+		&.delete {
+			margin-right: 5px;
+			color: red;
+			opacity: 0.6;
+		}
+		&.delete:hover {
+			color: red;
+			opacity: 0.9;
+		}
+	}
+
+	.delete_popup {
+		z-index: 999;
+		display: none;
+		position: fixed;
+		padding: 5px;
+		margin: -5px;
+		background-color: rgba(70,70,70, 0.7);
+		text-align: center;
+		//vertical-align: middle;
+		
+		.delete_confirm {
+			padding-top: 4px;
+			vertical-align: middle;
+			background-color: orange;
+			width: 100px;
+			height: 33px;
+			color: white;
+			font-size: 0.8em;
+			cursor: pointer;
+
+			&:hover {
+				color: yellow;
+			}
+
+			.delete_confirm_text {
+				&:hover {
+					color: yellow;
+				}
+			}
+		}
+	}
+
+	.pointer {
+		cursor: pointer;
+		color: #2196F3;
+		font-size: 1.1em;
+	}
+
+	.textbox {
+		background-color: white;
+		border: 1px solid gray;
+		padding-left: 10px !important;
+	}
+
+	.popup_modal {
+		position: absolute;
+		width: 200%;
+		height: 150%;
+		padding-left: 50%;
+		margin: -50%;
+		margin-top: -100px;
+		background-color: rgba(120,120,120, 0.6);
+		//opacity: 0.6;
+
+		.modal_content {
+			margin: 5%;
+
+			.control_rbl {
+				.add_rbl_item {
+					background-color: orange;
+					color: white;
+					text-align: center;
+					height: 40px;
+					padding: 5px;
+					margin: 5px;
+					width: 30%;
+					cursor: pointer;
+					font-size: 1.2em;
+					opacity: 1;
+					&:hover {
+						color: yellow;
+						opacity: 0.7;
+					}
+				}
+
+				ul {
+					list-style: none;
+				}
+			}
+
+			.btn_right {
+				float: right;
+			}
+		}
+	}
+
+	.list_cars {
+		list-style: none;
+		color: #505050;
+		opacity: .8;
+		.active_car {
+			color: green;
+			font-weight: 600;
+			opacity: 1;
+		}
+	}
+
+}

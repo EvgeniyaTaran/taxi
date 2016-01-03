@@ -11,6 +11,7 @@ namespace Taxi.Entities
 	public class Route : IEntity
 	{
 		public int Id { get; set; }
+		public int Num { get; set; }
 		public string Name { get; set; }
 
 		[JsonIgnore]

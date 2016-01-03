@@ -1,65 +1,71 @@
 ﻿@model Taxi.WebApp.Models.LayoutViewModel
+@using Taxi.Entities.Helpers;
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Taxi</title>
-	@Styles.Render("~/css")
+	@Styles.Render("~/bundles/css/libs/")
+	@Styles.Render("~/bundles/css/commons/")
 
 </head>
 <body class="main-container">
-	<header>
-		@*<div>
-				<img src="/img/logo.svg" />
-			</div>*@
-		<div><h1>Служба такси</h1></div>
-	</header>
-	<div class="navbar">
-		<ul class="nav navbar-nav main-menu">
-			@*<li><a href="/">Главная</a></li>*@
-			<li><a href="/order/">Заказ такси</a></li>
-			<li><a href="/marrige/">Прокат свадебных машин</a></li>
-			<li><a href="/medical/">Услуги спецтранспорта</a></li>
-			<li><a href="/about/">О нас</a></li>
-			<li><a href="/contacts/">Контакты</a></li>
-		</ul>
-		@Html.Partial("_LoginPartial")
-	</div>
-	<div class="container body-content">
-		<div class="page_content jMainRegion">
-			@RenderBody()
+	<div class="container">
+		<header>
+			@*<div>
+					<img src="/img/logo.svg" />
+				</div>*@
+			<div><h1>Служба такси</h1></div>
+		</header>
+		<div class="navbar">
+			<ul class="nav navbar-nav main-menu">
+				@*<li><a href="/">Главная</a></li>*@
+				<li><a href="/order/">Заказ такси</a></li>
+				<li><a href="/marrige/">Прокат свадебных машин</a></li>
+				<li><a href="/medical/">Услуги спецтранспорта</a></li>
+				<li><a href="/about/">О нас</a></li>
+				<li><a href="/contacts/">Контакты</a></li>
+			</ul>
+			@Html.Partial("_LoginPartial")
 		</div>
-		<hr />
-		<footer>
-			<p>&copy; @DateTime.Now.Year - free car for you 24/7</p>
-		</footer>
-	</div>
+		<div class="container body-content">
+			<div class="page_content jMainRegion">
+				@RenderBody()
+			</div>
+			<hr />
+			<footer>
+				<p>&copy; @DateTime.Now.Year - free car for you 24/7</p>
+			</footer>
+		</div>
 
-	<div class="jModalRegion"></div>
+		<div class="jModalRegion"></div>
 
-	<div class="jTemplates">
-		@Html.Partial("Templates/Order/_order")
-		@Html.Partial("Templates/Order/_cars")
-	</div>
+		<div class="jTemplates">
+			@Html.Partial("Templates/Order/_order")
+			@Html.Partial("Templates/Order/_cars")
+		</div>
 
-	<div class="jScripts">
-		@Scripts.Render("~/bundles/libs")
-		@*@Scripts.Render("~/bundles/bootstrap")*@
-		@Scripts.Render("~/bundles/app")
+		<div class="jScripts">
+			@Scripts.Render("~/bundles/libs")
+			@Scripts.Render("~/bundles/bootstrap")
+			@Scripts.Render("~/bundles/pages")
+			@Scripts.Render("~/bundles/apps")
+			@Scripts.Render("~/bundles/app")
 
-		<script>
-			App.Collections.cars.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Cars))));
-			App.Collections.carModels.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.CarModels))));
-			App.Collections.carBrands.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.CarBrands))));
-			@*App.Collections.cars.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Cars))));
+			<script>
+				App.Collections.cars.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Cars, JsonSettings.Default()))));
+				App.Collections.carModels.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.CarModels, JsonSettings.Default()))));
+				App.Collections.carBrands.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.CarBrands, JsonSettings.Default()))));
+				@*App.Collections.cars.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Cars))));
 			App.Collections.cars.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Cars))));
 			App.Collections.cars.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Cars))));
 			App.Collections.cars.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Cars))));*@
 
-			App.start();
-		</script>
-		@RenderSection("scripts", required: false)
+				App.start();
+			</script>
+			@RenderSection("Scripts", required: false)
+		</div>
 	</div>
 </body>
 </html>

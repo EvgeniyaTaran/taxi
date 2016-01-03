@@ -1,0 +1,52 @@
+/*	Хлебные крошки
+*****************************************************
+	<ul class="breadcrumbs">
+		<li><a href="#">Уровень 1</a></li>	
+		<li><a href="#">Уровень 2</a></li>
+		...	
+		<li><span>Уровень N</span></li>	
+	</ul>  
+*****************************************************/ 
+.breadcrumbs {
+	.float_list;
+
+	li::after {
+		content: "/";
+		margin:0px 5px;
+		color:lighten(@gray-light, 15%);
+	}
+
+	li:last-child {
+		&::after {
+			content:"";
+		}
+	}
+}
+
+
+/*	Пунктирные ссылки 
+*****************************************************/
+.dashed {
+	text-decoration: none;
+	border-bottom: 1px dashed;
+	cursor: pointer;
+	color:@link-color;
+
+	&:hover {color:@link-hover-color;}
+}
+
+
+
+
+
+ /*	Позиционирование и выравнивание
+*****************************************************/
+.fleft	{float:left}
+.fright	{float:right}
+.aleft	{text-align:left}
+.aright	{text-align:right}
+
+
+ /* Отображение
+*****************************************************/
+ .hide {display:none;}

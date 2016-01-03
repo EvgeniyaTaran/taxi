@@ -10,6 +10,7 @@ namespace Taxi.Entities
 	public class Road : IEntity
 	{
 		public int Id { get; set; }
+		public int Num { get; set; }
 
 		//public int FirstPointId { get; set; }
 		[JsonIgnore]

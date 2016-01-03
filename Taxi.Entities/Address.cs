@@ -11,6 +11,7 @@ namespace Taxi.Entities
 	public class Address: IEntity
 	{
 		public int Id { get; set; }
+		public int Num { get; set; }
 		public int StreetId { get; set; }
 		[JsonIgnore]
 		public Street Street { get; set; }
@@ -25,6 +26,9 @@ namespace Taxi.Entities
 		public virtual ICollection<RoutePoint> Routes { get; set; }
 
 		[JsonIgnore]
-		public virtual ICollection<OrderAddress> OrderAddresses { get; set; }
+		public virtual ICollection<OrderedAddress> OrderedAddresses { get; set; }
+
+		[JsonIgnore]
+		public virtual ICollection<AddressPhoto> Photos { get; set; }
 	}
 }

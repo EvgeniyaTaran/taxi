@@ -13,6 +13,7 @@ namespace Taxi.Entities
 	public class OrderRequest: IEntity
 	{
 		public int Id { get; set; }
+		public int Num { get; set; }
 		public WaitingPeriod Period { get; set; }
 		public ServiceClass Class { get; set; }
 

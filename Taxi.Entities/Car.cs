@@ -10,6 +10,7 @@ namespace Taxi.Entities
     public class Car : IEntity
     {
         public int Id { get; set; }
+		public int Num { get; set; }
 
         public string Name { get; set; }
         public string Number { get; set; }
@@ -27,6 +28,9 @@ namespace Taxi.Entities
         public int? TechDataId { get; set; }
 		[JsonIgnore]
 		public TechData TechData { get; set; }
+
+		[JsonIgnore]
+		public ICollection<CarPhoto> Photos { get; set; }
 
 		//[JsonIgnore]
 		//public ICollection<Driver> ActiveDrivers 

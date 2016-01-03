@@ -1,0 +1,32 @@
+﻿<script type="text/x-jsrender" class="jCarLayoutTmpl">
+	<div>
+		<h4>Автомобиль {{>name}} {{>number}}</h4>
+		<div class="container">
+			<form class="form-horizontal" role="form">
+				<div class="form-group">
+					<label class="col-sm-2 control-label" for="id">ID</label>
+					<input type="number" value="{{>id}}" name="id" class="jId" disabled />
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label" for="num">Название</label>
+					<input type="text" value="{{>name}} name="name" />
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label" for="number">Номер</label>
+					<input type="text" value="{{>number}}" name="number"/>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label" for="isActive">Активный</label>
+					<input type="checkbox" name="isActive" {{if isActive}} checked {{/if}} />
+				</div>
+
+				<div class="form-group">
+					<input type="button" class="btn btn-info jSave" value="Сохранить" />
+				</div>
+			</form>
+		</div>
+	</div>
+</script>

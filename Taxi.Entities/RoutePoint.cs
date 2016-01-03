@@ -10,6 +10,7 @@ namespace Taxi.Entities
 	public class RoutePoint: IEntity
 	{
 		public int Id { get; set; }
+		public int Num { get; set; }
 
 		public int RouteId { get; set; }
 		[JsonIgnore]
