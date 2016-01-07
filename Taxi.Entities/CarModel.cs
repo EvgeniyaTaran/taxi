@@ -12,10 +12,17 @@ namespace Taxi.Entities
         public int Id { get; set; }
 		public int Num { get; set; }
 
-        public string Name { get; set; }
+		public BaseLocale Ru { get; set; }
+		public BaseLocale En { get; set; }
 
 		public int CarBrandId { get; set; }
         [JsonIgnore]
         public CarBrand Brand { get; set; }
+
+		public CarModel() 
+		{
+			Ru = new BaseLocale();
+			En = new BaseLocale();
+		}
     }
 }

@@ -1,7 +1,7 @@
 ﻿App.Views.CarLayout = Marionette.LayoutView.extend({
 	template: ".jCarLayoutTmpl",
 	behaviors: {
-		Edit: {}
+		Save: {}
 	},
 	regions: {
 	},
@@ -13,8 +13,6 @@
 	events: {
 	},
 	onRender: function () {
-		this.changeStatus.show(new App.Views.ActionChangeStatus({
-			model: this.model
-		}));
+		
 	}
 });

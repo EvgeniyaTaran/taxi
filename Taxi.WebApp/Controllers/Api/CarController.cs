@@ -55,7 +55,7 @@ namespace Taxi.WebApp.Controllers.Api
 			car = new Car
 			{
 				CarModelId = dto.ModelId,
-				Name = dto.Name,
+				//Name = dto.Name,
 				Number = dto.Number,
 				IsActive = true
 			};
@@ -74,7 +74,7 @@ namespace Taxi.WebApp.Controllers.Api
 			}
 			car.CarModelId = dto.CarModelId;
 			car.Color = dto.Color;
-			car.Name = dto.Name;
+			//car.Name = dto.Name;
 			car.Number = dto.Number;
 			car.IsActive = dto.IsActive;
 			car.TechDataId = dto.TechDataId;

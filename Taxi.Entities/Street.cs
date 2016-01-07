@@ -11,8 +11,16 @@ namespace Taxi.Entities
 		public int Id { get; set; }
 		public int Num { get; set; }
 
-		public string StreetName { get; set; }
+		public BaseLocale Ru { get; set; }
+		public BaseLocale En { get; set; }
 		public StreetType Type { get; set; }
+
+		public Street() 
+		{
+			Ru = new BaseLocale();
+			En = new BaseLocale();
+		}
+
 	}
 
 	public enum StreetType

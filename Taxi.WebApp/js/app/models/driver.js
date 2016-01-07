@@ -6,7 +6,7 @@
 	}
 });
 
-App.Models.Cars = Backbone.Collection.extend({
+App.Models.Drivers = Backbone.Collection.extend({
 	url: "/api/driver",
-	model: App.Models.Car
+	model: App.Models.Driver
 });

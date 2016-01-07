@@ -17,6 +17,11 @@ namespace Taxi.Entities
 		public WaitingPeriod Period { get; set; }
 		public ServiceClass Class { get; set; }
 
+		public string ClientComment { get; set; }
+		public string DriverComment { get; set; }
+		public string AdminComment { get; set; }
+		public string OperatorComment { get; set; }
+
 		[JsonIgnore]
 		public string AddressesJson { get; set; }
 

@@ -20,13 +20,17 @@
 		"": "index",
 		"orders/": "orders",
 		"cars/": "cars",
+		"cars/:id/": "car",
 		"cabs/": "cabs"
 	},
 	index: function () {
 		App.Controllers.Cars.show();
 	},
-	cars: function (id) {
+	cars: function () {
 		App.Controllers.Cars.show();
+	},
+	car: function (id) {
+		App.Controllers.Car.show(id);
 	},
 	cabs: function (id) {
 		App.Controllers.Cabs.show(this.parseId(id));

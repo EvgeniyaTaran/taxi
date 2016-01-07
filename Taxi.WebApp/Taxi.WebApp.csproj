@@ -288,6 +288,7 @@
     <Content Include="js\app\apps\operator\app.collections.js" />
     <Content Include="js\app\apps\operator\app.js" />
     <Content Include="js\app\apps\operator\router.js" />
+    <Content Include="js\app\behaviors\1-setup.js" />
     <Content Include="js\app\behaviors\delete.js" />
     <Content Include="js\app\behaviors\modal.js" />
     <Content Include="js\app\models\address.js" />

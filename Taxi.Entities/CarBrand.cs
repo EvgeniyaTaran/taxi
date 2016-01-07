@@ -12,11 +12,18 @@ namespace Taxi.Entities
         public int Id { get; set; }
 		public int Num { get; set; }
 
-        public string Name { get; set; }
+		public BaseLocale Ru { get; set; }
+		public BaseLocale En { get; set; }
 
 		public string PhotoPath { get; set; }
 
 		[JsonIgnore]
         public List<Country> Countries { get; set; } 
+
+		public CarBrand() 
+		{
+			Ru = new BaseLocale();
+			En = new BaseLocale();
+		}
     }
 }

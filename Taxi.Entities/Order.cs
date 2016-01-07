@@ -13,6 +13,11 @@ namespace Taxi.Entities
 		public int Id { get; set; }
 		public int Num { get; set; }
 
+		public string ClientComment { get; set; }
+		public string DriverComment { get; set; }
+		public string AdminComment { get; set; }
+		public string OperatorComment { get; set; }
+
 		public string ClientId { get; set; }
 		[JsonIgnore]
 		public WebUser Client { get; set; }

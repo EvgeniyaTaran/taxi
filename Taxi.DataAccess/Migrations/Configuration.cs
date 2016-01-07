@@ -1,4 +1,4 @@
-namespace Taxi.DataAccess.Migrations
+﻿namespace Taxi.DataAccess.Migrations
 {
 	using System;
 	using System.Collections.Generic;
@@ -23,76 +23,174 @@ namespace Taxi.DataAccess.Migrations
 			{
 				new CarModel 
 				{ 
-					Name = "Corolla",
+					En = new BaseLocale
+					{
+						Name = "Corolla"
+					},
+					Ru = new BaseLocale
+					{
+						Name = "Corolla"
+					},
 					Brand = brands.ElementAt(0)
 				},
 				new CarModel 
 				{ 
-					Name = "Camry",
+					En = new BaseLocale
+					{
+						Name = "Camry"
+					},
+					Ru = new BaseLocale
+					{
+						Name = "Camry"
+					},
 					Brand = brands.ElementAt(0)
 				},
 				new CarModel 
 				{ 
-					Name = "Astra",
+					En = new BaseLocale
+					{
+						Name = "Astra"
+					},
+					Ru = new BaseLocale
+					{
+						Name = "Astra"
+					},
 					Brand = brands.ElementAt(1)
 				},
 				new CarModel 
 				{ 
-					Name = "Vectra",
+					En = new BaseLocale
+					{
+						Name = "Vectra"
+					},
+					Ru = new BaseLocale
+					{
+						Name = "Vectra"
+					},
 					Brand = brands.ElementAt(1)
 				},
 				new CarModel 
 				{ 
-					Name = "Focus",
+					En = new BaseLocale
+					{
+						Name = "Focus"
+					},
+					Ru = new BaseLocale
+					{
+						Name = "Focus"
+					},
 					Brand = brands.ElementAt(2)
 				},
 				new CarModel 
 				{ 
-					Name = "Mondeo",
+					En = new BaseLocale
+					{
+						Name = "Mondeo"
+					},
+					Ru = new BaseLocale
+					{
+						Name = "Mondeo"
+					},
 					Brand = brands.ElementAt(2)
 				},
 				new CarModel 
 				{ 
-					Name = "Civic",
+					En = new BaseLocale
+					{
+						Name = "Civic"
+					},
+					Ru = new BaseLocale
+					{
+						Name = "Civic"
+					},
 					Brand = brands.ElementAt(3)
 				},
 				new CarModel 
 				{ 
-					Name = "Pilot",
+					En = new BaseLocale
+					{
+						Name = "Pilot"
+					},
+					Ru = new BaseLocale
+					{
+						Name = "Pilot"
+					},
 					Brand = brands.ElementAt(3)
 				},
 				new CarModel 
 				{ 
-					Name = "S660",
+					En = new BaseLocale
+					{
+						Name = "S660"
+					},
+					Ru = new BaseLocale
+					{
+						Name = "S660"
+					},
 					Brand = brands.ElementAt(3)
 				},
 				new CarModel 
 				{ 
-					Name = "Benz",
+					En = new BaseLocale
+					{
+						Name = "Benz"
+					},
+					Ru = new BaseLocale
+					{
+						Name = "Benz"
+					},
 					Brand = brands.ElementAt(4)
 				},
 				new CarModel 
 				{ 
-					Name = "Aveo",
+					En = new BaseLocale
+					{
+						Name = "Aveo"
+					},
+					Ru = new BaseLocale
+					{
+						Name = "Aveo"
+					},
 					Brand = brands.ElementAt(5)
 				},
 				new CarModel 
 				{ 
-					Name = "Lacetti",
+					En = new BaseLocale
+					{
+						Name = "Lacetti"
+					},
+					Ru = new BaseLocale
+					{
+						Name = "Lacetti"
+					},
 					Brand = brands.ElementAt(5)
 				},
 				new CarModel 
 				{ 
-					Name = "Evanda",
+					En = new BaseLocale
+					{
+						Name = "Evanda"
+					},
+					Ru = new BaseLocale
+					{
+						Name = "Evanda"
+					},
 					Brand = brands.ElementAt(5)
 				},
 				new CarModel 
 				{ 
-					Name = "Camaro",
+					En = new BaseLocale
+					{
+						Name = "Camaro"
+					},
+					Ru = new BaseLocale
+					{
+						Name = "Camaro"
+					},
 					Brand = brands.ElementAt(5)
 				}
 			};
-
+			context.Countries.AddRange(_createCountries());
 			context.CarBrands.AddRange(brands);
 			context.CarModels.AddRange(models);
 
@@ -103,10 +201,12 @@ namespace Taxi.DataAccess.Migrations
 					Model = m,
 					Number = Guid.NewGuid().ToString(),
 					Color = _getRandomColor(r),
-					Name = String.Format("{0} {1}", m.Brand.Name, m.Name)
+					Ru = new BaseLocale { Name = String.Format("{0} {1}", m.Brand.Ru.Name, m.Ru.Name) },
+					En = new BaseLocale { Name = String.Format("{0} {1}", m.Brand.En.Name, m.En.Name) }
 				};
 				context.Cars.Add(car);
 			}
+			
 			context.SaveChanges();
         }
 
@@ -120,17 +220,40 @@ namespace Taxi.DataAccess.Migrations
 		{
 			var brands = new List<CarBrand>
 			{
-				new CarBrand { Name = "Toyota"},
-				new CarBrand { Name = "Opel"},
-				new CarBrand { Name = "Ford"},
-				new CarBrand { Name = "Honda"},
-				new CarBrand { Name = "Mersedes"},
-				new CarBrand { Name = "Chevrolet"},
-				new CarBrand { Name = "Nissan"}
+				new CarBrand { Ru = new BaseLocale{Name = "Toyota"}, En = new BaseLocale{Name = "Toyota"}},
+				new CarBrand { Ru = new BaseLocale{Name = "Opel"}, En = new BaseLocale{Name = "Opel"}},
+				new CarBrand { Ru = new BaseLocale{Name = "Ford"}, En = new BaseLocale{Name = "Ford"}},
+				new CarBrand { Ru = new BaseLocale{Name = "Honda"}, En = new BaseLocale{Name = "Honda"}},
+				new CarBrand { Ru = new BaseLocale{Name = "Mersedes"}, En = new BaseLocale{Name = "Mersedes"}},
+				new CarBrand { Ru = new BaseLocale{Name = "Chevrolet"}, En = new BaseLocale{Name = "Chevrolet"}},
+				new CarBrand { Ru = new BaseLocale{Name = "Nissan"}, En = new BaseLocale{Name = "Nissan"}}
 			};
 			context.CarBrands.AddRange(brands);
 			context.SaveChanges();
 			return brands;
+		}
+
+		private List<Country> _createCountries() 
+		{
+			var countries = new List<Country>
+			{
+				new Country
+				{
+					En = new BaseLocale{Name = "Ukraine", ShortName = "Ua"},
+					Ru = new BaseLocale{Name = "Украина", ShortName = "Ua"}
+				},
+				new Country
+				{
+					En = new BaseLocale{Name = "Germany", ShortName = "Gr"},
+					Ru = new BaseLocale{Name = "Германия", ShortName = "Gr"}
+				},
+				new Country
+				{
+					En = new BaseLocale{Name = "Poland", ShortName = "Po"},
+					Ru = new BaseLocale{Name = "Польша", ShortName = "Po"}
+				}
+			};
+			return countries;
 		}
     }
 }

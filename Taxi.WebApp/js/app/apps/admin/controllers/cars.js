@@ -8,7 +8,7 @@
 App.Controllers.Car = {
 	show: function (id) {
 		var model = App.Collections.cars.get(id);
-		var view = new App.Views.Car({ model: model });
+		var view = new App.Views.CarLayout({ model: model });
 		App.mainRegion.show(view);
 	}
 };

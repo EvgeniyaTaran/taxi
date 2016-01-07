@@ -12,7 +12,8 @@ namespace Taxi.Entities
         public int Id { get; set; }
 		public int Num { get; set; }
 
-        public string Name { get; set; }
+		public BaseLocale Ru { get; set; }
+		public BaseLocale En { get; set; }
         public string Number { get; set; }
 
 		public bool IsActive { get; set; }
@@ -65,6 +66,12 @@ namespace Taxi.Entities
 		//}
 
 		public CarColor Color { get; set; }
+		
+		public Car() 
+		{
+			Ru = new BaseLocale();
+			En = new BaseLocale();
+		}
     }
 
 	public enum CarColor 

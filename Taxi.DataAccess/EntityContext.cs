@@ -47,6 +47,7 @@ namespace Taxi.DataAccess
 		public EntityContext()
 			: base("default")
 		{
+			Database.SetInitializer<EntityContext>(new DropCreateDatabaseIfModelChanges<EntityContext>());
 		}
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
