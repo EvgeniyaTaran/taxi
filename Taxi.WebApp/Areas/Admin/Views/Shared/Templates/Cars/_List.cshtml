@@ -1,16 +1,56 @@
 ﻿<script type="text/x-jsrender" class="jCarsLayoutTmpl">
 	<div>
-		<form class="form-inline">
-			<input type="text" class="form-control jNumber" placeholder="номер авто" />
-			<button type="submit" class="btn btn-primary jCreate">Создать</button>
-		</form>
+		<div>
+			<span class="jShowForm glyphicon glyphicon-plus" area-hidden="true"></span>
+			<span class="jHideForm glyphicon glyphicon-minus" area-hidden="true" style="display: none"></span>
+			<div class="panel panel-info jForm" style="display: none">
+				<div class="panel-heading">Create new car</div>
+				<div class="panel-body">
+					<form class="form-horizontal" role="form">
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="modelId">Бренд</label>
+							<select class="jBrand" name="carBrandId">
+								{{for getCarBrands()}}
+								<option value="{{>id}}">{{>ru.name}}</option>
+								{{/for}}
+							</select>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="modelId">Модель авто</label>
+							<select class="jModel" name="carModelId">
+								{{for getCarModels()}}
+								<option data-id="{{>id}}" data-brandid="{{>carBrandId}}" value="{{>id}}">{{>ru.name}}</option>
+								{{/for}}
+							</select>
+						</div>
+
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="number">Номер</label>
+							<input type="text" class="jNumber" name="number" />
+						</div>
+
+						<div class="form-group">
+							<input type="button" class="jCreate btn btn-info" value="Create" />
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
 		<ul class="jContent list_cars"></ul>
 	</div>
 </script>
 
 <script type="text/x-jsrender" class="jCarListItemTmpl">
-	<li>
-		<span class="active_car"><a class="jItem" href="/admin/cars/{{>id}}/">{{>ru.name}}</a></span>
+	<li class="jItem car_item">
+		<div class="delete_popup jDeletePopup">
+			<div class="delete_confirm jDeleteConfirm">
+				<span class="delete_confirm_text">Удалить?</span>
+			</div>
+		</div>
+		<a href="/admin/cars/{{>id}}/">
+		<img src="/upload/cars/" />
+		{{>carModel.carBrand.ru.name}} {{>carModel.ru.name}} <b>{{>number}}</b></a>
 		<label class="jDelete hide"><i class="glyphicon glyphicon-remove"></i></label>
 	</li>
 </script>

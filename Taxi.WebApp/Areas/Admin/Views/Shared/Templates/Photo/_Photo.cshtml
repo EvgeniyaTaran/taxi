@@ -1,0 +1,127 @@
+﻿<script type="text/x-jsrender" class="jPhotoTmpl">
+	<div id="{{>cid}}" data-structure="{{>structureId}}" class="fl-wrap photo">
+		<div class="photo-wrap">
+			<label>{{if isMain}}Главное фото{{/if}}</label>
+
+			{{if hasServerFile()}}
+			<div class="selected-photo {{if isDeleted() }}
+				 deleted-photo
+				 {{else}}
+				 saved-photo
+				 {{/if}} ">
+
+				{{if isDeleted() }}
+				<button name="cancelDelete" class="btn btn-default btn-xs cancel-photo-deleting" title="Отменить удаление">
+					<span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+				</button>
+				{{else}}
+				{{if !isDisabled}}
+				<button name="delete" class="btn btn-default btn-xs cancel-photo" title="Удалить файл">
+					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+				</button>
+				{{/if}}
+				{{/if}}
+
+				<img class="product_photo_preview jServerPreview
+					 {{if isDeleted() }}
+					 deleted-photo
+					 {{else}}
+					 saved-photo
+					 {{/if}}
+					 " src=" />upload/shop/admin/{{>fileName}}.jpg" />
+			</div>
+			{{/if}}
+
+			{{if !hasFile()}}
+			<div>
+				{{if !isDisabled}}
+				<input type="file">
+				{{/if}}
+			</div>
+			{{/if}}
+
+			{{if isSelected()}}
+			<div class="selected-photo">
+				<img class="product_photo_preview jClientPreview" src="#" />
+				<button name="cancelSelected" class="btn btn-default btn-xs cancel-photo" title="Отменить выбранный файл">
+					<span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+				</button>
+			</div>
+			{{/if}}
+
+			{{if hasFile()}}
+			<div class="fl-wrap photo-desc">
+				<label>Описание:</label>
+				<input type="text" name="desc" value="{{>description}}" class="desc" {{if isDisabled}} readonly {{/if}}>
+			</div>
+			{{/if}}
+			<div>
+				<button class="btn btn-success jSavePhoto">Сохранить</button>
+			</div>
+		</div>
+	</div>
+</script>
+
+<script type="text/x-jsrender" class="jNoPhotoTmpl">
+	<div id="{{>cid}}" data-structure="{{>structureId}}" class="fl-wrap photo">
+		<div class="photo-wrap">
+			<label>{{if isMain}}Главное фото{{/if}}</label>
+
+			{{if hasServerFile()}}
+			<div class="selected-photo {{if isDeleted() }}
+				 deleted-photo
+				 {{else}}
+				 saved-photo
+				 {{/if}} ">
+
+				{{if isDeleted() }}
+				<button name="cancelDelete" class="btn btn-default btn-xs cancel-photo-deleting" title="Отменить удаление">
+					<span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+				</button>
+				{{else}}
+				{{if !isDisabled}}
+				<button name="delete" class="btn btn-default btn-xs cancel-photo" title="Удалить файл">
+					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+				</button>
+				{{/if}}
+				{{/if}}
+
+				<img class="product_photo_preview jServerPreview
+					 {{if isDeleted() }}
+					 deleted-photo
+					 {{else}}
+					 saved-photo
+					 {{/if}}
+					 " src=" />upload/shop/admin/{{>fileName}}.jpg" />
+			</div>
+			{{/if}}
+
+			{{if !hasFile()}}
+			<div>
+				{{if !isDisabled}}
+				<input type="file">
+				{{/if}}
+			</div>
+			{{/if}}
+
+			{{if isSelected()}}
+			<div class="selected-photo">
+				<img class="product_photo_preview jClientPreview" src="#" />
+				<button name="cancelSelected" class="btn btn-default btn-xs cancel-photo" title="Отменить выбранный файл">
+					<span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+				</button>
+			</div>
+			{{/if}}
+
+			{{if hasFile()}}
+			<div class="fl-wrap photo-desc">
+				<label>Описание:</label>
+				<input type="text" name="desc" value="{{>description}}" class="desc" {{if isDisabled}} readonly {{/if}}>
+			</div>
+			{{/if}}
+			<div>
+				<button class="btn btn-success jSavePhoto">Сохранить</button>
+			</div>
+		</div>
+	</div>
+</script>

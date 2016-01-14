@@ -108,9 +108,9 @@ Backbone.Model.prototype.fill = function() {
 
 	};
 
-	return function(view, options) { //todo:refactor
+	return function(view, data, options) { //todo:refactor
 
-		var result = {};
+		var result = data ? data : {};
 
 		view.$el.find("[name]").each(_.bind(function(ind, v) {
 			var control = $(v);

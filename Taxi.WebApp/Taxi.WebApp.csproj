@@ -222,6 +222,7 @@
     <Compile Include="App_Start\SimpleInjectorInitializer.cs" />
     <Compile Include="App_Start\SimpleInjectorWebApiInitializer.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AppAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\AuthController.cs" />
@@ -274,6 +275,8 @@
     <Content Include="js\app\apps\admin\views\drivers\page.js" />
     <Content Include="js\app\apps\admin\views\orders\list.js" />
     <Content Include="js\app\apps\admin\views\orders\page.js" />
+    <Content Include="js\app\apps\admin\views\photos\photo.js" />
+    <Content Include="js\app\apps\admin\views\photos\photoGallery.js" />
     <Content Include="js\app\apps\main\app.collections.js" />
     <Content Include="js\app\apps\main\app.js" />
     <Content Include="js\app\apps\main\controllers\cars.js" />
@@ -371,6 +374,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Views\Shared\Templates\Addresses\" />
+    <Folder Include="Areas\Admin\Views\Shared\Templates\Cabs\" />
+    <Folder Include="Areas\Admin\Views\Shared\Templates\CarBrands\" />
+    <Folder Include="Areas\Admin\Views\Shared\Templates\CarModels\" />
+    <Folder Include="Areas\Admin\Views\Shared\Templates\Clients\" />
+    <Folder Include="Areas\Admin\Views\Shared\Templates\Drivers\" />
+    <Folder Include="Areas\Admin\Views\Shared\Templates\Orders\" />
+    <Folder Include="Areas\Admin\Views\Shared\Templates\Requests\" />
     <Folder Include="Areas\Operator\Models\" />
     <Folder Include="img\" />
     <Folder Include="js\app\apps\admin\models\" />
@@ -379,6 +390,7 @@
     <Folder Include="js\app\apps\operator\views\" />
     <Folder Include="Views\Auth\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Shared\Templates\Photo\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -530,6 +542,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\Shared\Templates\Cars\_Page.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Shared\Templates\Photo\_Photo.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Shared\Templates\Photo\_PhotoGallery.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

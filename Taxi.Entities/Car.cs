@@ -14,13 +14,13 @@ namespace Taxi.Entities
 
 		public BaseLocale Ru { get; set; }
 		public BaseLocale En { get; set; }
-        public string Number { get; set; }
+		public string Number { get; set; }
 
 		public bool IsActive { get; set; }
 
 		public int CarModelId { get; set; }
 		[JsonIgnore]
-        public CarModel Model { get; set; }
+        public CarModel CarModel { get; set; }
 
 		//public int CarTypeId { get; set; }
 		//[JsonIgnore]

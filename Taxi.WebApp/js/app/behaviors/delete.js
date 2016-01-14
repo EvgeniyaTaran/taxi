@@ -35,22 +35,12 @@
 				e.stopPropagation();
 				var that = this;
 				that.ui.del.removeClass(that._hideClass);
-				//setTimeout(function () {
-				//	if (that.ui.del) {
-				//		$(that.ui.del).addClass(that._hideClass);
-				//	}
-				//}, 1500);
 			},
 			"mouseleave .jItem": function (e) {
 				e.preventDefault();
 				e.stopPropagation();
 				var that = this;
 				that.ui.del.addClass(that._hideClass);
-				//setTimeout(function () {
-				//	if (that.ui.del) {
-				//		$(that.ui.del).addClass(that._hideClass);
-				//	}
-				//}, 200);
 			},
 			"click @ui.popup": function (e) {
 				$("body").css("overflow", "auto");

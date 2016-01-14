@@ -1,0 +1,85 @@
+﻿<script type="text/x-jsrender" class="jMenuPhotoGalleryTmpl">
+
+	<li>
+		<a href="#">
+			Фотогалерея
+		</a>
+	</li>
+
+</script>
+
+
+<script type="text/x-jsrender" class="jPhotoGalleryTmpl">
+
+	<div id="{{>cid}}" data-structure="{{>structureId}}" class="panel panel-default photogallery">
+		<div class="panel-heading">
+			<label>Фото</label>
+			{{if !isDisabled}}
+			<input type="file" class="jPhotoFileDialog" multiple>
+			{{/if}}
+		</div>
+		<div class="panel-body jPhotosList photos-list"></div>
+		<div>
+			<button class="btn btn-success jSavePhotos">Сохранить</button>
+		</div>
+	</div>
+
+</script>
+
+
+<script type="text/x-jsrender" class="jPhotoGalleryItemTmpl">
+
+	<div class="fl-wrap photo">
+		<div class="photo-wrap">
+			@*{{if !isDisabled}}
+				<button class="jHandle drag-photo btn btn-default btn-xs">
+					<span class="glyphicon glyphicon-move" aria-hidden="true"></span>
+				</button>
+				{{/if}}*@
+			{{if !selectedFile}}
+			<div class="selected-photo">
+				{{if isDeleted() }}
+				<button name="cancelDelete" class="btn btn-default btn-xs cancel-photo-deleting" title="Отменить удаление">
+					<span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+				</button>
+				{{else}}
+				{{if !isDisabled}}
+				<button name="delete" class="btn btn-default btn-xs cancel-photo" title="Удалить файл">
+					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+				</button>
+				{{/if}}
+				{{/if}}
+
+
+				<img class="product_photo_preview jServerPreview
+					 {{if isDeleted() }}
+					 deleted-photo
+					 {{else}}
+					 saved-photo
+					 {{/if}} " src=" />upload/shop/admin/{{>fileName}}.jpg" />
+
+			</div>
+			{{/if}}
+
+
+			{{if isSelected()}}
+			<div class="selected-photo">
+				<img class="product_photo_preview jClientPreview" src="{{>selectedFileUrl}}" />
+				<button name="cancelSelected" class="btn btn-default btn-xs cancel-photo" title="Отменить выбранный файл">
+					<span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+				</button>
+			</div>
+			{{/if}}
+
+
+			{{if hasFile()}}
+			<div class="fl-wrap photo-desc">
+				<label>Описание:</label>
+				<input type="text" name="desc" value="{{>description}}" class="desc" {{if isDisabled}} readonly {{/if}}>
+			</div>
+			{{/if}}
+
+		</div>
+	</div>
+
+</script>

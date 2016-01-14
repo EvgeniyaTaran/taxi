@@ -198,7 +198,7 @@
 			{
 				var car = new Car
 				{
-					Model = m,
+					CarModel = m,
 					Number = Guid.NewGuid().ToString(),
 					Color = _getRandomColor(r),
 					Ru = new BaseLocale { Name = String.Format("{0} {1}", m.Brand.Ru.Name, m.Ru.Name) },
@@ -228,8 +228,8 @@
 				new CarBrand { Ru = new BaseLocale{Name = "Chevrolet"}, En = new BaseLocale{Name = "Chevrolet"}},
 				new CarBrand { Ru = new BaseLocale{Name = "Nissan"}, En = new BaseLocale{Name = "Nissan"}}
 			};
-			context.CarBrands.AddRange(brands);
-			context.SaveChanges();
+			//context.CarBrands.AddRange(brands);
+			//context.SaveChanges();
 			return brands;
 		}
 

@@ -45,19 +45,18 @@ namespace Taxi.WebApp.Controllers.Api
 		}
 
 		[HttpPost]
-		public object Create(CarDto dto)
+		public object Create(Car dto)
 		{
 			var car = Db.Cars.FirstOrDefault(c => c.Number == dto.Number);
-			if (car == null)
+			if (car != null)
 			{
 				throw new Exception(String.Format("The car with number {0} has already existed", dto.Number));
 			}
 			car = new Car
 			{
-				CarModelId = dto.ModelId,
-				//Name = dto.Name,
+				CarModelId = dto.CarModelId,
 				Number = dto.Number,
-				IsActive = true
+				IsActive = false
 			};
 			Db.Cars.Add(car);
 			Db.SaveChanges();
@@ -65,19 +64,24 @@ namespace Taxi.WebApp.Controllers.Api
 		}
 
 		[HttpPut]
-		public object Update(int id, Car dto)
+		public object Save(Car dto)
 		{
-			var car = Db.Cars.FirstOrDefault(c => c.Number == dto.Number);
+			var car = Db.Cars.FirstOrDefault(c => c.Id == dto.Id);
 			if (car == null)
 			{
-				throw new Exception(String.Format("There is no car with id = {0}", id));
+				throw new Exception(String.Format("There is no car with id = {0}", dto.Id));
+			}
+			if (Db.Cars.Any(c => c.Number == dto.Number && c.Id != dto.Id))
+			{
+				throw new Exception(String.Format("The car with number {0} has already existed", dto.Number));
 			}
 			car.CarModelId = dto.CarModelId;
 			car.Color = dto.Color;
-			//car.Name = dto.Name;
 			car.Number = dto.Number;
 			car.IsActive = dto.IsActive;
 			car.TechDataId = dto.TechDataId;
+			car.En = dto.En;
+			car.Ru = dto.Ru;
 			Db.SaveChanges();
 			return new { car };
 		}
