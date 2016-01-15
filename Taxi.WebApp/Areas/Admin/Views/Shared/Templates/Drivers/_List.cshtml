@@ -1,0 +1,43 @@
+﻿<script type="text/x-jsrender" class="jDriversLayoutTmpl">
+	<div>
+		<div>
+			<span class="jShowForm glyphicon glyphicon-plus" area-hidden="true"></span>
+			<span class="jHideForm glyphicon glyphicon-minus" area-hidden="true" style="display: none"></span>
+			<div class="panel panel-info jForm" style="display: none">
+				<div class="panel-heading">Create new driver</div>
+				<div class="panel-body">
+					<form class="form-horizontal" role="form">
+						<div class="form-group">
+							<label class="col-sm-2 control-label" for="email">Email</label>
+							<input type="text" class="jEmail" name="email" />
+						</div>
+
+						<div class="form-group">
+							<input type="button" class="jCreate btn btn-info" value="Create" />
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<ul class="jContent list_cars"></ul>
+	</div>
+</script>
+
+<script type="text/x-jsrender" class="jDriverListItemTmpl">
+	<li class="jItem car_item">
+		<div class="delete_popup jDeletePopup">
+			<div class="delete_confirm jDeleteConfirm">
+				<span class="delete_confirm_text">Удалить?</span>
+			</div>
+		</div>
+		<a href="/admin/drivers/{{>id}}/">
+			<img src="/upload/drivers/x300/" />
+			{{>realName}} ({{>email}})
+		</a>
+		<label class="jDelete hide"><i class="glyphicon glyphicon-remove"></i></label>
+	</li>
+</script>
+
+<script type="text/x-jsrender" class="jDriverEmptyListTmpl">
+	<p>Пока нет водителей в базе данных</p>
+</script>

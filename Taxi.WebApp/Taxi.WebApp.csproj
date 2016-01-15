@@ -379,7 +379,6 @@
     <Folder Include="Areas\Admin\Views\Shared\Templates\CarBrands\" />
     <Folder Include="Areas\Admin\Views\Shared\Templates\CarModels\" />
     <Folder Include="Areas\Admin\Views\Shared\Templates\Clients\" />
-    <Folder Include="Areas\Admin\Views\Shared\Templates\Drivers\" />
     <Folder Include="Areas\Admin\Views\Shared\Templates\Orders\" />
     <Folder Include="Areas\Admin\Views\Shared\Templates\Requests\" />
     <Folder Include="Areas\Operator\Models\" />
@@ -548,6 +547,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\Shared\Templates\Photo\_PhotoGallery.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Shared\Templates\Drivers\_List.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Shared\Templates\Drivers\_Page.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
