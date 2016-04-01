@@ -28,7 +28,7 @@ namespace Taxi.WebApp.Controllers
         {
             get
             {
-                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
+                return _signInManager ;//?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
             private set 
             { 
@@ -40,7 +40,7 @@ namespace Taxi.WebApp.Controllers
         {
             get
             {
-                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                return _userManager ;//?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
             private set
             {
@@ -423,13 +423,14 @@ namespace Taxi.WebApp.Controllers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
-        private IAuthenticationManager AuthenticationManager
-        {
-            get
-            {
-                return HttpContext.GetOwinContext().Authentication;
-            }
-        }
+		private IAuthenticationManager AuthenticationManager
+		{
+			get
+			{
+				return null;
+			//return HttpContext.GetOwinContext().Authentication;
+			}
+		}
 
         private void AddErrors(IdentityResult result)
         {
@@ -473,7 +474,7 @@ namespace Taxi.WebApp.Controllers
                 {
                     properties.Dictionary[XsrfKey] = UserId;
                 }
-                context.HttpContext.GetOwinContext().Authentication.Challenge(properties, LoginProvider);
+                //context.HttpContext.GetOwinContext().Authentication.Challenge(properties, LoginProvider);
             }
         }
         #endregion

@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -61,12 +63,16 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.WebSockets, Version=0.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WebSockets.0.2.3.1\lib\net45\Microsoft.WebSockets.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="MsieJavaScriptEngine, Version=1.5.6.0, Culture=neutral, PublicKeyToken=a3a2846a37ac0d3e, processorArchitecture=MSIL">
       <HintPath>..\packages\MsieJavaScriptEngine.1.5.6\lib\net40\MsieJavaScriptEngine.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
@@ -189,9 +195,6 @@
     <Reference Include="Microsoft.Owin">
       <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Host.SystemWeb">
-      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Owin.Security">
       <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
     </Reference>
@@ -240,6 +243,7 @@
     <Compile Include="Controllers\Api\DriverController.cs" />
     <Compile Include="Controllers\Api\OrderController.cs" />
     <Compile Include="Controllers\Api\PaymentController.cs" />
+    <Compile Include="Controllers\Api\RequestController.cs" />
     <Compile Include="Controllers\AppController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -279,15 +283,9 @@
     <Content Include="js\app\apps\admin\views\photos\photoGallery.js" />
     <Content Include="js\app\apps\main\app.collections.js" />
     <Content Include="js\app\apps\main\app.js" />
-    <Content Include="js\app\apps\main\controllers\cars.js" />
-    <Content Include="js\app\apps\main\controllers\order.js" />
-    <Content Include="js\app\apps\main\models\car.js" />
-    <Content Include="js\app\apps\main\models\carBrand.js" />
-    <Content Include="js\app\apps\main\models\carModel.js" />
-    <Content Include="js\app\apps\main\models\driver.js" />
+    <Content Include="js\app\apps\main\controllers\request.js" />
     <Content Include="js\app\apps\main\router.js" />
-    <Content Include="js\app\apps\main\views\order\cars.js" />
-    <Content Include="js\app\apps\main\views\order\order.js" />
+    <Content Include="js\app\apps\main\views\request.js" />
     <Content Include="js\app\apps\operator\app.collections.js" />
     <Content Include="js\app\apps\operator\app.js" />
     <Content Include="js\app\apps\operator\router.js" />
@@ -384,6 +382,7 @@
     <Folder Include="Areas\Operator\Models\" />
     <Folder Include="img\" />
     <Folder Include="js\app\apps\admin\models\" />
+    <Folder Include="js\app\apps\main\models\" />
     <Folder Include="js\app\apps\operator\controllers\" />
     <Folder Include="js\app\apps\operator\models\" />
     <Folder Include="js\app\apps\operator\views\" />
@@ -582,6 +581,13 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

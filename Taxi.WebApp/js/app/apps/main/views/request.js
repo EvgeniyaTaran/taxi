@@ -1,4 +1,4 @@
-﻿App.Views.Order.OrderLayout = Marionette.LayoutView.extend({
+﻿App.Views.RequestLayout = Marionette.LayoutView.extend({
 	template: ".jOrderLayoutTmpl",
 	templateHelpers: {},
 	_fromAddress: null,
@@ -23,18 +23,17 @@
 		"change @ui.to": "afterMap"
 	},
 	onRender: function () {
-		//var view = new App.Views.Home.Cars({
-		//	collection: App.Collections.cars
-		//});
-		////App.Controllers.Cars.activeForHome(this.cars);
-		//this.cars.show(view);
 	},
 	afterTime: function () {
 		this.ui.mapRegion.slideDown();
 	},
 	afterMap: function () {
 		if (this.ui.from.val() && this.ui.to.val()) {
-			App.Controllers.Order.calculatePrice();
+			var data = {
+				period: this.ui.time.val()
+			};
+
+			App.Controllers.Request.calculatePrice(data);
 		}
 	}
 });
