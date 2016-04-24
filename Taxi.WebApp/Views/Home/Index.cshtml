@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index our</h2>
+
+@using (Html.BeginForm("Create", "Home"))
+{
+        <legend>Create New Task Form</legend>
+
+        <div>
+            <label>Откуда</label>
+            @Html.TextBox("From")
+        </div>
+
+        <div>
+            <label>Куда</label>
+            @Html.TextBox("To")
+        </div>
+
+    <div>
+        <label>Детское кресло</label>
+        @Html.CheckBox("Child seat", false)
+
+        <label>Животные</label>
+        @Html.CheckBox("Animals", false)
+
+        <label>Некурящие, без шансона</label>
+        @Html.CheckBox("Nonsmoking", false)
+    </div>
+
+    <div>
+        <label>Эконом</label>
+        @Html.RadioButton("TaxiClass", 0, false)
+        <label>Комфорт</label>
+        @Html.RadioButton("TaxiClass", 1, false)
+    </div>
+
+    <div>
+        @Html.Hidden("Geolocation")
+    </div>
+    
+    
+    
+
+        <input type="submit" value="Create" />
+
+}
+

@@ -4,7 +4,7 @@
 		App.mainRegion.show(view);
 	},
 	calculatePrice: function (data) {
-		$.post("/api/request/calculate", { req: data })
+		$.post("/api/request/calculate", { "": data })
 			.done(function (response) {
 				console.log(response);
 			})

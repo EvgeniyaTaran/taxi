@@ -42,16 +42,19 @@
 </script>
 
 <script type="text/x-jsrender" class="jCarListItemTmpl">
-	<li class="jItem car_item">
-		<div class="delete_popup jDeletePopup">
-			<div class="delete_confirm jDeleteConfirm">
-				<span class="delete_confirm_text">Удалить?</span>
+	<li class="car_item">
+		<div class="jItem">
+			<div class="delete_popup jDeletePopup">
+				<div class="delete_confirm jDeleteConfirm">
+					<span class="delete_confirm_text">Удалить?</span>
+				</div>
 			</div>
+			<a href="/admin/cars/{{>id}}/">
+				<img src="/upload/cars/" />
+				{{>carModel.carBrand.ru.name}} {{>carModel.ru.name}}<br /> <b>{{>number}}</b>
+			</a>
+			<label class="jDelete hide"><i class="glyphicon glyphicon-remove"></i></label>
 		</div>
-		<a href="/admin/cars/{{>id}}/">
-		<img src="/upload/cars/" />
-		{{>carModel.carBrand.ru.name}} {{>carModel.ru.name}} <b>{{>number}}</b></a>
-		<label class="jDelete hide"><i class="glyphicon glyphicon-remove"></i></label>
 	</li>
 </script>
 

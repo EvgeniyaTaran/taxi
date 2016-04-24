@@ -39,31 +39,14 @@
 			</footer>
 		</div>
 
-		<div class="jModalRegion"></div>
-
-		<div class="jTemplates">
-			@Html.Partial("Templates/Order/_order")
-			@Html.Partial("Templates/Order/_cars")
-		</div>
-
 		<div class="jScripts">
 			@Scripts.Render("~/bundles/libs")
 			@Scripts.Render("~/bundles/bootstrap")
-			@Scripts.Render("~/bundles/pages")
-			@Scripts.Render("~/bundles/apps")
-			@Scripts.Render("~/bundles/app")
+			@*@Scripts.Render("~/bundles/pages")*@
+			@*@Scripts.Render("~/bundles/apps")
+			@Scripts.Render("~/bundles/app")*@
 
-			<script>
-				App.Collections.cars.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Cars, JsonSettings.Default()))));
-				App.Collections.carModels.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.CarModels, JsonSettings.Default()))));
-				App.Collections.carBrands.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.CarBrands, JsonSettings.Default()))));
-				@*App.Collections.cars.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Cars))));
-			App.Collections.cars.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Cars))));
-			App.Collections.cars.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Cars))));
-			App.Collections.cars.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Cars))));*@
 
-				App.start();
-			</script>
 			@RenderSection("Scripts", required: false)
 		</div>
 	</div>

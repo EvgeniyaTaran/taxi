@@ -23,6 +23,7 @@
 		"change @ui.to": "afterMap"
 	},
 	onRender: function () {
+		console.log("Hello Evgeniya");
 	},
 	afterTime: function () {
 		this.ui.mapRegion.slideDown();

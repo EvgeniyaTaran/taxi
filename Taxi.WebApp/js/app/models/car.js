@@ -4,7 +4,7 @@
 	},
 	init: function () {
 		this.bindItem("carModel", App.Collections.carModels, "carModelId");
-		this.bindCollection("cabs", App.Collections.cabs, "carId");
+		//this.bindCollection("cabs", App.Collections.cabs, "carId");
 	}
 });
 
