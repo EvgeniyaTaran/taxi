@@ -1,10 +1,10 @@
-﻿App.Controllers.Request = {
+﻿App.Controllers.Order = {
 	create: function () {
-		var view = new App.Views.RequestLayout();
+		var view = new App.Views.OrderLayout();
 		App.mainRegion.show(view);
 	},
 	calculatePrice: function (data) {
-		$.post("/api/request/calculate", { req: data })
+		$.post("/api/order/calculate", { order: data })
 			.done(function (response) {
 				console.log(response);
 			})

@@ -17,7 +17,7 @@ namespace Taxi.WebApp
 					"~/js/libs/backbone.marionette/backbone.js",
 					"~/js/libs/backbone.marionette/backbone.marionette.js",
 					"~/js/libs/backbone.marionette/backbone.routefilter.js",
-					"~/js/libs/select2/select2.js",
+					"~/js/libs/select2/select2.full.js",
 					"~/js/libs/select2/select2_locale_ru.js",
 					"~/js/libs/spin.js",
 					"~/js/libs/bootstrap/tooltip.js",

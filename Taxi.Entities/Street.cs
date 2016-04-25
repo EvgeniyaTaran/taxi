@@ -25,9 +25,10 @@ namespace Taxi.Entities
 
 	public enum StreetType
 	{
-		Street,
-		Alley,
-		Avenue,
-		BlindAlley
+		Street = 0,
+		Alley = 1, // проулок
+		Avenue = 2, // проспект
+		BlindAlley = 3, // тупик
+		Boulevard = 4
 	}
 }

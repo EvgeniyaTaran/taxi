@@ -1,4 +1,4 @@
-﻿App.Views.RequestLayout = Marionette.LayoutView.extend({
+﻿App.Views.OrderLayout = Marionette.LayoutView.extend({
 	template: ".jOrderLayoutTmpl",
 	templateHelpers: {},
 	_fromAddress: null,

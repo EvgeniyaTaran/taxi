@@ -23,7 +23,7 @@ namespace Taxi.Entities
 		public string OperatorComment { get; set; }
 
 		[JsonIgnore]
-		public string AddressesJson { get; set; }
+		private string AddressesJson { get; set; }
 
 		[NotMapped]
 		private List<Address> _addressesJson;

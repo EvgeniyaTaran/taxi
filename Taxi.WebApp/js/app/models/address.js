@@ -1,7 +1,7 @@
 ﻿App.Models.Address = Backbone.ExtModel.extend({
 	defaults: {},
 	init: function () {
-		this.bindManyToMany("tagGroups", App.Collections.tagGroups, "tagGroupIds", "tagIds");
+		this.bindItem("street", App.Collections.streets, "streetId");
 	}
 });
 

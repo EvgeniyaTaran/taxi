@@ -79,6 +79,10 @@
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="RabbitMQ.Client, Version=3.6.1.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce, processorArchitecture=MSIL">
+      <HintPath>..\packages\RabbitMQ.Client.3.6.1\lib\net45\RabbitMQ.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="SimpleInjector, Version=3.1.1.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
       <HintPath>..\packages\SimpleInjector.3.1.1\lib\net45\SimpleInjector.dll</HintPath>
       <Private>True</Private>
@@ -241,6 +245,7 @@
     <Compile Include="Controllers\Api\CarModelController.cs" />
     <Compile Include="Controllers\Api\ClientController.cs" />
     <Compile Include="Controllers\Api\DriverController.cs" />
+    <Compile Include="Controllers\Api\MonitorController.cs" />
     <Compile Include="Controllers\Api\OrderController.cs" />
     <Compile Include="Controllers\Api\PaymentController.cs" />
     <Compile Include="Controllers\Api\RequestController.cs" />
@@ -255,6 +260,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LayoutViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Services\TaxiWebSocketHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -283,9 +289,10 @@
     <Content Include="js\app\apps\admin\views\photos\photoGallery.js" />
     <Content Include="js\app\apps\main\app.collections.js" />
     <Content Include="js\app\apps\main\app.js" />
-    <Content Include="js\app\apps\main\controllers\request.js" />
+    <Content Include="js\app\apps\main\controllers\order.js" />
     <Content Include="js\app\apps\main\router.js" />
-    <Content Include="js\app\apps\main\views\request.js" />
+    <Content Include="js\app\apps\main\views\address.js" />
+    <Content Include="js\app\apps\main\views\order.js" />
     <Content Include="js\app\apps\operator\app.collections.js" />
     <Content Include="js\app\apps\operator\app.js" />
     <Content Include="js\app\apps\operator\router.js" />
@@ -305,7 +312,6 @@
     <Content Include="js\app\models\orderedAddress.js" />
     <Content Include="js\app\models\payment.js" />
     <Content Include="js\app\models\photo.js" />
-    <Content Include="js\app\models\request.js" />
     <Content Include="js\app\models\street.js" />
     <Content Include="js\libs\backbone.marionette\backbone.js" />
     <Content Include="js\libs\backbone.marionette\backbone.marionette.js" />
@@ -326,10 +332,9 @@
     <Content Include="js\libs\jquery.cookie.js" />
     <Content Include="js\libs\jsrender.js" />
     <Content Include="js\libs\lodash.js" />
+    <Content Include="js\libs\select2\select2.full.js" />
     <Content Include="js\libs\select2\select2_locale_ru.js" />
     <Content Include="js\libs\spin.js" />
-    <Content Include="js\libs\select2\select2.js" />
-    <Content Include="js\libs\select2\select2_4.js" />
     <Content Include="js\pages\areas\layout.js" />
     <Content Include="js\pages\areas\operator\layout.js" />
     <Content Include="js\pages\areas\admin\layout.js" />
@@ -552,6 +557,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\Shared\Templates\Drivers\_Page.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Templates\_address.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
