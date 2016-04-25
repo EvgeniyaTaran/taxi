@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Taxi.DataAccess;
+using Taxi.Entities;
+using Taxi.WebApp.Models.Dtos;
 
 namespace Taxi.WebApp.Controllers
 {
@@ -20,9 +22,10 @@ namespace Taxi.WebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(OrderDto order)
+        public Order Create(OrderDto order)
         {
-            
+
+         return   new Order();
         }
     }
 }

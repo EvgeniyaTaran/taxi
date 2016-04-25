@@ -15,16 +15,7 @@ namespace Taxi.DataAccess
 		public DbSet<Car> Cars { get; set; }
 		//public DbSet<CarType> CarTypes { get; set; }
 		public DbSet<Order> Orders { get; set; }
-		public DbSet<OrderedAddress> OrderAddresses { get; set; }
 		public DbSet<TechData> TechDataSet { get; set; }
-		public DbSet<Address> Addresses { get; set; }
-
-		public DbSet<Route> Routes { get; set; }
-		public DbSet<Road> Roads { get; set; }
-		public DbSet<RoutePoint> RoutePoints { get; set; }
-		public DbSet<RoadPoint> RoadPoints { get; set; }
-		//public DbSet<MapPoint> MapPoints { get; set; }
-
 		public DbSet<CarBrand> CarBrands { get; set; }
 		public DbSet<CarModel> CarModels { get; set; }
 		public DbSet<Country> Countries { get; set; }
@@ -32,10 +23,8 @@ namespace Taxi.DataAccess
 		public DbSet<Driver> Drivers { get; set; }
 		public DbSet<Manager> Managers { get; set; }
 		public DbSet<Client> Clients { get; set; }
-		public DbSet<OrderRequest> Requests { get; set; }
 		public DbSet<Cab> Cabs { get; set; }
 		public DbSet<Payment> Payments { get; set; }
-		public DbSet<Street> Streets { get; set; }
 		public DbSet<CarPhoto> CarPhotos { get; set; }
 		public DbSet<WebUserPhoto> WebUserPhotos { get; set; }
 		public DbSet<AddressPhoto> AddressPhotos { get; set; }

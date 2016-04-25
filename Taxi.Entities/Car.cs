@@ -22,6 +22,8 @@ namespace Taxi.Entities
 		[JsonIgnore]
         public CarModel CarModel { get; set; }
 
+        public TaxiClass TaxiType { get; set; }
+
 		//public int CarTypeId { get; set; }
 		//[JsonIgnore]
 		//public CarType Type { get; set; }
@@ -87,4 +89,10 @@ namespace Taxi.Entities
 		Pink,
 		Orange
 	}
+
+    public enum TaxiClass
+    {
+        Econom,
+        Comfort
+    }
 }

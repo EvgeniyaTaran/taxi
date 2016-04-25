@@ -13,6 +13,5 @@ namespace Taxi.WebApp.Areas.Admin.Models
 		public ICollection<CarBrand> Brands { get; set; }
 		public ICollection<Cab> Cabs { get; set; }
 		public ICollection<Driver> Drivers { get; set; }
-		public ICollection<Street> Streets { get; set; }
 	}
 }

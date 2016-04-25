@@ -12,7 +12,7 @@ namespace Taxi.Entities
     {
 		public int Id { get; set; }
 		public int Num { get; set; }
-
+        public TaxiClass TaxiType { get; set; }
 		public string ClientComment { get; set; }
 		public string DriverComment { get; set; }
 		public string AdminComment { get; set; }
@@ -26,10 +26,16 @@ namespace Taxi.Entities
 
 		public DateTime Date { get; set; }
 
+        public Address AddressFrom { get; set; }
+
+        public Address AddressTo { get; set; }
+
 		public Order()
 		{
 			Date = DateTime.Now;
 			Status = OrderStatus.Draft;
+            AddressFrom = new Address();
+            AddressTo = new Address();
 		}
 
 		public Order(WebUser client)

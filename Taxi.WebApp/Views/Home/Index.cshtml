@@ -1,4 +1,5 @@
-﻿
+﻿@using System.Collections.Specialized
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -12,17 +13,17 @@
 
         <div>
             <label>Откуда</label>
-            @Html.TextBox("From")
+            @Html.TextBox("AddressFrom")
         </div>
 
         <div>
             <label>Куда</label>
-            @Html.TextBox("To")
+            @Html.TextBox("AddressTo")
         </div>
 
     <div>
         <label>Детское кресло</label>
-        @Html.CheckBox("Child seat", false)
+        @Html.CheckBox("ChildSeat", false)
 
         <label>Животные</label>
         @Html.CheckBox("Animals", false)
@@ -35,17 +36,23 @@
         <label>Эконом</label>
         @Html.RadioButton("TaxiClass", 0, false)
         <label>Комфорт</label>
-        @Html.RadioButton("TaxiClass", 1, false)
+        @Html.RadioButton("TaxiClass", 1, true)
     </div>
 
     <div>
-        @Html.Hidden("Geolocation")
+        @Html.Hidden("GeoCoordinatesFromLat")
+        @Html.Hidden("GeoCoordinatesFromLng")
+        @Html.Hidden("GeoCoordinatesToLat")
+        @Html.Hidden("GeoCoordinatesToLng")
     </div>
-    
-    
-    
 
-        <input type="submit" value="Create" />
+    <div id="map" style="width: 320px; height: 480px;"></div>
+    <input id="submit" type="submit" value="Create" />
 
 }
 
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/pages")
+}

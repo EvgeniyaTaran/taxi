@@ -18,15 +18,6 @@ namespace Taxi.WebApp.Controllers.Api
 			: base(context)
 		{ }
 
-		[HttpPost]
-		public object Calculate(OrderRequest req) 
-		{
-			if (req != null)
-			{
-				return new { Price = 250 };
-			}
-			return new { Price = 100 };
-		}
 
 		public HttpResponseMessage Get(string username)
 		{

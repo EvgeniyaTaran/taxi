@@ -31,7 +31,7 @@ namespace Taxi.WebApp
 
 			bundles.Add(new ScriptBundle("~/bundles/pages")
 				.Include(
-					"~/js/pages/auth.js")
+					"~/js/pages/home.js")
 			);
 
 			bundles.Add(new ScriptBundle("~/bundles/js/areas/admin")

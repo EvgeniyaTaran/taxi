@@ -29,7 +29,8 @@ namespace Taxi.Entities
 
 		public CabStatus Status { get; set; }
 
-		public GeoCoordinate Coords { get; set; }
+        [JsonIgnore]
+		public GeoCoordinates Coords { get; set; }
 
 		[JsonIgnore]
 		public bool IsActive { get { return DateStop == null; } }

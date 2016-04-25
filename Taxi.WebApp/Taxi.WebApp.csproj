@@ -101,6 +101,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Device" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
@@ -335,6 +336,7 @@
     <Content Include="js\pages\areas\layout.js" />
     <Content Include="js\pages\areas\operator\layout.js" />
     <Content Include="js\pages\areas\admin\layout.js" />
+    <Content Include="js\pages\home.js" />
     <Content Include="js\practices\backbone.extensions.js" />
     <Content Include="js\app\behaviors\save.js" />
     <Content Include="js\practices\behaviors\settings.js" />
