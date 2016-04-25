@@ -28,7 +28,7 @@ namespace Taxi.WebApp.Controllers.Api
 			var car = Db.Cars.FirstOrDefault(c => c.Id == id);
 			if (car == null)
 			{
-				throw new Exception(String.Format("There is no such cacr with id = {0}", id));
+				throw new Exception(String.Format("There is no such car with id = {0}", id));
 			}
 			return car;
 		}

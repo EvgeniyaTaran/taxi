@@ -16,26 +16,13 @@ namespace Taxi.Entities
 		public string ClientComment { get; set; }
 		public string DriverComment { get; set; }
 		public string AdminComment { get; set; }
-		public string OperatorComment { get; set; }
 
 		public string ClientId { get; set; }
 		[JsonIgnore]
 		public WebUser Client { get; set; }
-
-		public string ManagerId { get; set; }
-		[JsonIgnore]
-		public Manager Manager { get; set; }
-
 		public int CabId { get; set; }
 		[JsonIgnore]
 		public Cab Cab { get; set; }
-
-		public int OrderRequestId { get; set; }
-		[JsonIgnore]
-		public OrderRequest Request { get; set; }
-
-		[JsonIgnore]
-		public virtual ICollection<OrderedAddress> OrderedAddresses { get; set; }
 
 		public DateTime Date { get; set; }
 
@@ -55,16 +42,11 @@ namespace Taxi.Entities
 		public OrderStatus Status { get; set; }
     }
 
-	public enum OrderType
-	{
-		Simple, TwoWay, Multiple, ForTime
-	}
-
 	public enum OrderStatus
 	{
 		Draft,
 		AtWork,
 		Active,
-		Closad
+		Closed
 	}
 }

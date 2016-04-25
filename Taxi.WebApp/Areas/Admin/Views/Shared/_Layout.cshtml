@@ -72,12 +72,6 @@
 	<div class="jPreloader" style="margin-left: 45%; margin-top: 250px; z-index: 9999"></div>
 	<div class="jModalRegion"></div>
 
-	<div class="jTemplates">
-		@Html.Partial("Templates/Cars/_List")
-		@Html.Partial("Templates/Cars/_Page")
-		@Html.Partial("Templates/Drivers/_List")
-		@Html.Partial("Templates/Drivers/_Page")
-	</div>
 
 	<div class="jScripts">
 		@Scripts.Render("~/bundles/libs")
@@ -85,13 +79,7 @@
 		@Scripts.Render("~/bundles/apps")
 		@Scripts.Render("~/bundles/adminApp")
 
-		<script>
-			App.Collections.cars.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Cars, JsonSettings.Default()))));
-			App.Collections.carModels.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Models, JsonSettings.Default()))));
-			App.Collections.carBrands.reset(@(Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Brands, JsonSettings.Default()))));
-
-			App.start();
-		</script>
+		
 		@RenderSection("scripts", required: false)
 	</div>
 </body>
