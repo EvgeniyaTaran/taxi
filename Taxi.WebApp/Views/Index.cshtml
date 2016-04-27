@@ -1,0 +1,58 @@
+﻿@using System.Collections.Specialized
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index our</h2>
+
+@using (Html.BeginForm("Create", "Home"))
+{
+        <legend>Create New Task Form</legend>
+
+        <div>
+            <label>Откуда</label>
+            @Html.TextBox("AddressFrom")
+        </div>
+
+        <div>
+            <label>Куда</label>
+            @Html.TextBox("AddressTo")
+        </div>
+
+    <div>
+        <label>Детское кресло</label>
+        @Html.CheckBox("ChildSeat", false)
+
+        <label>Животные</label>
+        @Html.CheckBox("Animals", false)
+
+        <label>Некурящие, без шансона</label>
+        @Html.CheckBox("Nonsmoking", false)
+    </div>
+
+    <div>
+        <label>Эконом</label>
+        @Html.RadioButton("TaxiClass", 0, false)
+        <label>Комфорт</label>
+        @Html.RadioButton("TaxiClass", 1, true)
+    </div>
+
+    <div>
+        @Html.Hidden("GeoCoordinatesFromLat")
+        @Html.Hidden("GeoCoordinatesFromLng")
+        @Html.Hidden("GeoCoordinatesToLat")
+        @Html.Hidden("GeoCoordinatesToLng")
+    </div>
+
+    <div id="map" style="width: 320px; height: 480px;"></div>
+    <input id="submit" type="submit" value="Create" />
+
+}
+
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/pages")
+}

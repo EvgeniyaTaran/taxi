@@ -1,3 +1,5 @@
+using Taxi.DataAccess;
+
 [assembly: WebActivator.PostApplicationStartMethod(typeof(Taxi.WebApp.App_Start.SimpleInjectorWebApiInitializer), "Initialize")]
 
 namespace Taxi.WebApp.App_Start
@@ -5,7 +7,6 @@ namespace Taxi.WebApp.App_Start
     using System.Web.Http;
     using SimpleInjector;
     using SimpleInjector.Integration.WebApi;
-	using Taxi.DataAccess;
     
     public static class SimpleInjectorWebApiInitializer
     {
@@ -27,9 +28,8 @@ namespace Taxi.WebApp.App_Start
      
         private static void InitializeContainer(Container container)
         {
-			container.Register<EntityContext, EntityContext>(Lifestyle.Scoped);
             // For instance:
-            // container.Register<IUserRepository, SqlUserRepository>(Lifestyle.Scoped);
+            container.Register<EntityContext, EntityContext>(Lifestyle.Scoped);
         }
     }
 }
