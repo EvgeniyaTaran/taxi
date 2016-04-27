@@ -7,7 +7,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.koushikdutta.async.future.Future;
 import com.koushikdutta.async.http.AsyncHttpClient;
 import com.koushikdutta.async.http.AsyncHttpRequest;
 import com.koushikdutta.async.http.WebSocket;
@@ -16,6 +18,7 @@ import com.koushikdutta.async.http.WebSocket;
 public class MainActivity extends ActionBarActivity {
 
     private TextView _tvData;
+    private String _name = "TEST";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,23 +51,34 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void SendRequest(View view){
-//        AsyncHttpClient.getDefaultInstance().websocket("ws://localhost:3030/api/request/get", null, new AsyncHttpClient.WebSocketConnectCallback() {
-//            @Override
-//            public void onCompleted(Exception ex, WebSocket webSocket) {
-//                webSocket.send("hello");
-//                webSocket.setStringCallback(new WebSocket.StringCallback() {
-//                    @Override
-//                    public void onStringAvailable(String s) {
-//                        _tvData.setText(s);
-//                    }
-//                });
-//            }
-//        });
+        Future<WebSocket> ws = AsyncHttpClient.getDefaultInstance().websocket("ws://10.0.2.2:3030/api/request/get?username=Reee", null, new AsyncHttpClient.WebSocketConnectCallback() {
+            @Override
+            public void onCompleted(Exception ex, WebSocket webSocket) {
+                webSocket.send("hello");
+                webSocket.setStringCallback(new WebSocket.StringCallback() {
+                    @Override
+                    public void onStringAvailable(String s) {
+                        _name = s;
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                showName();
+                            }
+                        });
+                    }
+                });
+            }
+        });
 
-        try{
-            _tvData.setText(AsyncHttpClient.getDefaultInstance().executeString(new AsyncHttpRequest(Uri.parse("http://localhost/api/car/GetByNumber"), "GET"), null).get());
-        }
-        catch (Exception e){}
+//
+//        try{
+//            _tvData.setText(AsyncHttpClient.getDefaultInstance().executeString(new AsyncHttpRequest(Uri.parse("http://10.0.2.2:3030/api/car/GetByNumber?number=11111"), "GET"), null).get());
+//        }
+//        catch (Exception e){}
 
+    }
+
+    private void showName() {
+        _tvData.setText(_name);
     }
 }

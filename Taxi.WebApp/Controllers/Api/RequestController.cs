@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Http;
 using Taxi.DataAccess;
 using Taxi.Entities;
+using Taxi.WebApp.Models.Services;
 
 namespace Taxi.WebApp.Controllers.Api
 {
@@ -21,31 +22,11 @@ namespace Taxi.WebApp.Controllers.Api
 
 		public HttpResponseMessage Get(string username)
 		{
-		    HttpContext.Current.AcceptWebSocketRequest(new ChatWebSocketHandler(username));
+			var handler = new TaxiWebSocketHandler(username);
+			HttpContext.Current.AcceptWebSocketRequest(handler);
 			var res = Request.CreateResponse(HttpStatusCode.SwitchingProtocols);
 			res.Content = new StringContent(String.Format("{0}-ho-ho-ho", username));
 			return res;
-		}
-		
-		class ChatWebSocketHandler : WebSocketHandler
-		{
-		    private static WebSocketCollection _chatClients = new WebSocketCollection();
-		    private string _username;
-		
-		    public ChatWebSocketHandler(string username)
-		    {
-		        _username = username;
-		    }
-		
-		    public override void OnOpen()
-		    {
-		        _chatClients.Add(this);
-		    }
-		
-		    public override void OnMessage(string message)
-		    {
-		        _chatClients.Broadcast(_username + ": " + message);
-		    }
 		}
 
     }

@@ -12,6 +12,7 @@ namespace Taxi.WebApp.Models
 		{
 		}
 
+		public IEnumerable<Street> Streets { get; set; }
 		public IEnumerable<Car> Cars { get; set; }
 		public IEnumerable<CarModel> CarModels { get; set; }
 		public IEnumerable<CarBrand> CarBrands { get; set; }

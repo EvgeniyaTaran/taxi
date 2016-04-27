@@ -19,11 +19,13 @@ namespace Taxi.WebApp.Controllers
 			var cars = Db.Cars.ToList();
 			var models = Db.CarModels.ToList();
 			var brands = Db.CarBrands.ToList();
+			var streets = Db.Streets.ToList();
 			var vm = new LayoutViewModel()
 			{
 				Cars = cars,
 				CarModels = models,
-				CarBrands = brands
+				CarBrands = brands,
+				Streets = streets
 			};
 			return View(vm);
 		}
