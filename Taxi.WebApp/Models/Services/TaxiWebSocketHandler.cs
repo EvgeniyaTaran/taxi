@@ -21,9 +21,9 @@ namespace Taxi.WebApp.Models.Services
 		    _drivers.Add(this);
 		}
 		
-		public override void OnMessage(string message)
-		{
-		    _drivers.Broadcast()
-		}
+        //public override void OnMessage(string message)
+        //{
+        //   // _drivers.Broadcast();
+        //}
 	}
 }
