@@ -1,125 +1,50 @@
 ﻿body {
-	background-color: #eeeeee;
 
-	footer {
-		text-align: center;
-	}
+}
 
-	.sidebar-nav-fixed {
-		width:20%;
-	}
+.main_menu {
 
-	.login-form {
-		text-align: center;
-		margin: 100px;
+}
 
-		fieldset {
-			margin: 10px;
+.taxi-navbar {
+	background: #4cff00;
 
-			input {
-				padding: 5px;
-			}
-		}
-	}
+	.taxi-nav {
 
-	.settings {
-		float: right;
-		&.delete {
-			margin-right: 5px;
-			color: red;
-			opacity: 0.6;
-		}
-		&.delete:hover {
-			color: red;
-			opacity: 0.9;
-		}
-	}
-
-	.delete_popup {
-		z-index: 999;
-		display: none;
-		position: fixed;
-		padding: 5px;
-		margin: -5px;
-		background-color: rgba(70,70,70, 0.7);
-		text-align: center;
-		
-		.delete_confirm {
-			padding-top: 4px;
-			vertical-align: middle;
-			background-color: orange;
-			width: 100px;
-			height: 33px;
-			color: white;
-			font-size: 0.8em;
-			cursor: pointer;
-
-			&:hover {
-				color: yellow;
-			}
-
-			.delete_confirm_text {
-				&:hover {
-					color: yellow;
-				}
-			}
-		}
-	}
-
-	.pointer {
-		cursor: pointer;
-		color: #2196F3;
-		font-size: 1.1em;
-	}
-
-	.textbox {
-		background-color: white;
-		border: 1px solid gray;
-		padding-left: 10px !important;
-	}
-
-	.popup_modal {
-		position: absolute;
-		width: 200%;
-		height: 150%;
-		padding-left: 50%;
-		margin: -50%;
-		margin-top: -100px;
-		background-color: rgba(120,120,120, 0.6);
-
-		.modal_content {
-			margin: 5%;
-
-			.control_rbl {
-				.add_rbl_item {
-					background-color: orange;
-					color: white;
-					text-align: center;
-					height: 40px;
-					padding: 5px;
-					margin: 5px;
-					width: 30%;
-					cursor: pointer;
-					font-size: 1.2em;
-					opacity: 1;
-					&:hover {
-						color: yellow;
-						opacity: 0.7;
-					}
-				}
-
-				ul {
-					list-style: none;
-				}
-			}
-
-			.btn_right {
-				float: right;
-			}
-		}
 	}
 }
 
+.order-block {
+	position: fixed;
+	background-color: rgba(40,40,40,0.5);
+	width: 40%;
+	height: 300px;
+	z-index: 10;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+
+	.data-raw {
+		width: 90%;
+		//background: rgba(250,250,250,0.5);
+		padding: 10px;
+		margin: 5px;
+		text-align: right;
+
+		label {
+			font-size: 1.3em;
+			width: 25%;
+			color: white;
+		}
+
+		input[type="text"] {
+			width: 70%;
+			height: 90%;
+			padding: 5px;
+			border: none;
+		}
+	}
+}
 
 
 

@@ -11,24 +11,25 @@
 
 </head>
 <body class="main-container">
+	
 	<div class="container">
+		
 		<header>
-			@*<div>
-					<img src="/img/logo.svg" />
-				</div>*@
-			<div><h1>Служба такси</h1></div>
+			<div class="navbar taxi-navbar">
+				<ul class="nav navbar-nav main-menu taxi-nav">
+					@*<li><a href="/">Главная</a></li>*@
+					<li><a href="/">Заказ такси</a></li>
+					<li><a href="/marrige/">Прокат свадебных машин</a></li>
+					<li><a href="/medical/">Услуги спецтранспорта</a></li>
+					<li><a href="/about/">О нас</a></li>
+					<li><a href="/contacts/">Контакты</a></li>
+				</ul>
+				@Html.Partial("_LoginPartial")
+			</div>
+			<div>
+				<h1>Служба такси</h1>
+			</div>
 		</header>
-		<div class="navbar">
-			<ul class="nav navbar-nav main-menu">
-				@*<li><a href="/">Главная</a></li>*@
-				<li><a href="/order/">Заказ такси</a></li>
-				<li><a href="/marrige/">Прокат свадебных машин</a></li>
-				<li><a href="/medical/">Услуги спецтранспорта</a></li>
-				<li><a href="/about/">О нас</a></li>
-				<li><a href="/contacts/">Контакты</a></li>
-			</ul>
-			@Html.Partial("_LoginPartial")
-		</div>
 		<div class="container body-content">
 			<div class="page_content jMainRegion">
 				@RenderBody()
@@ -43,11 +44,13 @@
 
 		<div class="jScripts">
 			@Scripts.Render("~/bundles/libs")
-			@Scripts.Render("~/bundles/bootstrap")
 			@Scripts.Render("~/bundles/pages")
 
 			@RenderSection("Scripts", required: false)
 		</div>
 	</div>
+	<footer>
+
+	</footer>
 </body>
 </html>

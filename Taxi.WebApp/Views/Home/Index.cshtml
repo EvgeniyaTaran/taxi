@@ -5,51 +5,54 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index our</h2>
+<div class="order-block">
+	<div class="order">
+		@using (Html.BeginForm("Create", "Home"))
+		{
+			<h3>Быстрый заказ</h3>
 
-@using (Html.BeginForm("Create", "Home"))
-{
-        <legend>Create New Task Form</legend>
+			<div class="data-raw">
+				<label>Откуда</label>
+				@Html.TextBox("AddressFrom")
+			</div>
 
-        <div>
-            <label>Откуда</label>
-            @Html.TextBox("AddressFrom")
-        </div>
+			<div class="data-raw">
+				<label>Куда</label>
+				@Html.TextBox("AddressTo")
+			</div>
 
-        <div>
-            <label>Куда</label>
-            @Html.TextBox("AddressTo")
-        </div>
+			<div class="data-raw">
+				<label>Детское кресло</label>
+				@Html.CheckBox("ChildSeat", false)
 
-    <div>
-        <label>Детское кресло</label>
-        @Html.CheckBox("ChildSeat", false)
+				<label>Животные</label>
+				@Html.CheckBox("Animals", false)
 
-        <label>Животные</label>
-        @Html.CheckBox("Animals", false)
+				<label>Некурящие, без шансона</label>
+				@Html.CheckBox("Nonsmoking", false)
+			</div>
 
-        <label>Некурящие, без шансона</label>
-        @Html.CheckBox("Nonsmoking", false)
-    </div>
+			<div class="data-raw">
+				<label>Эконом</label>
+				@Html.RadioButton("TaxiClass", 0, false)
+				<label>Комфорт</label>
+				@Html.RadioButton("TaxiClass", 1, true)
+			</div>
 
-    <div>
-        <label>Эконом</label>
-        @Html.RadioButton("TaxiClass", 0, false)
-        <label>Комфорт</label>
-        @Html.RadioButton("TaxiClass", 1, true)
-    </div>
+			<div class="data-raw">
+				@Html.Hidden("GeoCoordinatesFromLat")
+				@Html.Hidden("GeoCoordinatesFromLng")
+				@Html.Hidden("GeoCoordinatesToLat")
+				@Html.Hidden("GeoCoordinatesToLng")
+			</div>
 
-    <div>
-        @Html.Hidden("GeoCoordinatesFromLat")
-        @Html.Hidden("GeoCoordinatesFromLng")
-        @Html.Hidden("GeoCoordinatesToLat")
-        @Html.Hidden("GeoCoordinatesToLng")
-    </div>
 
-    <div id="map" style="width: 320px; height: 480px;"></div>
-    <input id="submit" type="submit" value="Create" />
+			<input id="submit" type="submit" value="Create" />
 
-}
+		}
+	</div>
+</div>
+<div id="map" style="width: 1100px; height: 640px;"></div>
 
 
 @section Scripts

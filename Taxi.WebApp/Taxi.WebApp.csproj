@@ -399,7 +399,6 @@
     <Folder Include="js\app\apps\operator\views\" />
     <Folder Include="Views\Auth\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\Home\" />
     <Folder Include="Views\Shared\Templates\Photo\" />
   </ItemGroup>
   <ItemGroup>
@@ -570,6 +569,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
