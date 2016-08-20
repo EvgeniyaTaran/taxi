@@ -11,9 +11,7 @@
 
 </head>
 <body class="main-container">
-	
 	<div class="container">
-		
 		<header>
 			<div class="navbar taxi-navbar">
 				<ul class="nav navbar-nav main-menu taxi-nav">
@@ -26,31 +24,33 @@
 				</ul>
 				@Html.Partial("_LoginPartial")
 			</div>
-			<div>
-				<h1>Служба такси</h1>
-			</div>
 		</header>
-		<div class="container body-content">
-			<div class="page_content jMainRegion">
-				@RenderBody()
-			</div>
-			<hr />
-			<footer>
-				<p>&copy; @DateTime.Now.Year - free car for you 24/7</p>
-			</footer>
-		</div>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBACHpzRVDnnjGMK9_pvbwCXE5-TOQGlMc&signed_in=true&libraries=places"
-                async defer></script>
 
-		<div class="jScripts">
-			@Scripts.Render("~/bundles/libs")
-			@Scripts.Render("~/bundles/pages")
-
-			@RenderSection("Scripts", required: false)
-		</div>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBACHpzRVDnnjGMK9_pvbwCXE5-TOQGlMc&signed_in=true&libraries=places"
+				async defer></script>
 	</div>
-	<footer>
+	<div class="container body-content">
+		<div>
+			<h1>Служба такси</h1>
+		</div>
+		<div class="page_content jMainRegion">
+			@RenderBody()
+		</div>
+		<hr />
+	</div>
+	<div class="container body-content">
+		<footer>
+			<p>&copy; @DateTime.Now.Year - free car for you 24/7</p>
+		</footer>
+	</div>
 
-	</footer>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBACHpzRVDnnjGMK9_pvbwCXE5-TOQGlMc&signed_in=true&libraries=places"
+			async defer></script>
+	<div class="jScripts">
+		@Scripts.Render("~/bundles/libs")
+		@Scripts.Render("~/bundles/pages")
+
+		@RenderSection("Scripts", required: false)
+	</div>
 </body>
 </html>

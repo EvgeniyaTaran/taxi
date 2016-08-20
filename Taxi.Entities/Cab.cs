@@ -46,6 +46,7 @@ namespace Taxi.Entities
 	{
 		Free,
 		AtWork,
-		Busy
+		Busy,
+		Offline
 	}
 }

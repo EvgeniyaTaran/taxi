@@ -84,15 +84,11 @@ namespace Taxi.WebApp
 
 
 			var libs = new StyleBundle("~/bundles/css/libs/")
-				.Include("~/css/bootstrap.less")
+				.Include("~/css/libs/bootstrap/bootstrap.less")
 				.Include("~/css/libs/select2/*.css");
 			libs.Transforms.Add(new StyleTransformer());
 			libs.Transforms.Add(new CssMinify());
 			bundles.Add(libs);
-
-			AddCssBundle(bundles, "~/bundles/css/overrides/",
-				"~/css/override/navbar.less"
-				);
 
 			AddCssBundle(bundles, "~/bundles/css/commons/",
 				"~/css/sections/layout.less"

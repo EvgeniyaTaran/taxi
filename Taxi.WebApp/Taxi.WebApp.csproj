@@ -444,7 +444,51 @@
     <Content Include="Areas\Admin\Views\AppAdmin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\sections\layout.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\sections\operator\layout.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\sections\admin\layout.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Shared\Templates\Cars\_List.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Shared\Templates\Cars\_Page.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Shared\Templates\Photo\_Photo.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Shared\Templates\Photo\_PhotoGallery.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Shared\Templates\Drivers\_List.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Views\Shared\Templates\Drivers\_Page.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Templates\_address.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="css\libs\bootstrap\alerts.less" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="css\libs\bootstrap\badges.less" />
     <Content Include="css\libs\bootstrap\bootstrap.less" />
     <Content Include="css\libs\bootstrap\breadcrumbs.less" />
@@ -517,63 +561,6 @@
     <Content Include="css\libs\bootstrap\mixins\text-emphasis.less" />
     <Content Include="css\libs\bootstrap\mixins\text-overflow.less" />
     <Content Include="css\libs\bootstrap\mixins\vendor-prefixes.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="css\bootstrap.less" />
-    <Content Include="css\bootswatch_paper.less" />
-    <Content Include="css\ext_variables.less" />
-    <Content Include="css\variables.less" />
-    <Content Include="css\variables_paper.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="css\sections\layout.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="css\override\navbar.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="css\exttrap\contexts.less" />
-    <Content Include="css\exttrap\extmixins.less" />
-    <Content Include="css\exttrap\universals.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="css\sections\operator\layout.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="css\sections\admin\layout.less" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Areas\Admin\Views\Shared\Templates\Cars\_List.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Areas\Admin\Views\Shared\Templates\Cars\_Page.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Areas\Admin\Views\Shared\Templates\Photo\_Photo.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Areas\Admin\Views\Shared\Templates\Photo\_PhotoGallery.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Areas\Admin\Views\Shared\Templates\Drivers\_List.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Areas\Admin\Views\Shared\Templates\Drivers\_Page.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\Templates\_address.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
