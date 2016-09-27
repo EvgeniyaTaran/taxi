@@ -18,7 +18,7 @@ namespace Taxi.WebApp.Controllers.Api
 		}
 
 		[HttpPost]
-		public string LogIn(DriverLogInDto dto)
+		public string Login(DriverLogInDto dto)
 		{
 			var driver = Db.Drivers.FirstOrDefault(d => d.Id == dto.DriverId);
 			if (driver == null)
@@ -43,7 +43,7 @@ namespace Taxi.WebApp.Controllers.Api
 			}
 			cab.Coords = new GeoCoordinates
 			{
-				Lattitude = dto.Lattitude,
+				Latitude = dto.Latitude,
 				Longitude = dto.Longitude
 			};
 			cab.Status = CabStatus.Free;
@@ -59,8 +59,13 @@ namespace Taxi.WebApp.Controllers.Api
 			var cab = Db.Cabs.FirstOrDefault(c => c.Id == id);
 			if (cab == null)
 			{
-				throw new Exception();
+				throw new Exception($"No cab with id = {id}");
 			}
+			cab.Status = CabStatus.Offline;
+			cab.DateStop = DateTime.Now;
+
+			Db.SaveChanges();
+
 			return "Ok";
 		}
 	}

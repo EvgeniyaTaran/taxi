@@ -25,7 +25,7 @@ namespace Taxi.Entities
     [ComplexType]
     public class GeoCoordinates
     {
-        public double Lattitude { get; set; }
+        public double Latitude { get; set; }
         public double Longitude { get; set; }
     }
 }

@@ -1,11 +1,111 @@
-﻿body {
+﻿@gray: #58585b;
+@gray-light: #c8c8ca;
+@gray-dark: #28282b;
 
+body {
+	color: @gray-light;
+	min-height: 100%;
+	position: relative;
+	padding-bottom: 6em;
+	background: url("~/img/background-street.jpg") no-repeat;
+}
+
+html {
+	height: 100%;
+	font-size: 16px;
+}
+
+header {
+	background: rgba(20,20,20,0.5);
+
+	a {
+		color: @gray-light;
+
+		&:hover {
+			color: white;
+			text-decoration: none;
+		}
+	}
+
+	.header-flex {
+		display: flex;
+		justify-content: space-between;
+		height: 100%;
+		font-size: 1.2em;
+	}
+
+	.header-title {
+		font-size: 2.5em;
+		padding: 0.5em;
+	}
+
+	.header-nav {
+		list-style: none;
+		padding: 1.5em 0 0 0;
+		margin: 0;
+
+		li {
+			display: inline-flex;
+			
+			&:hover {
+				background: rgba(20,20,20,0.7);
+			}
+			&.active {
+				background: rgba(20,20,20,0.7);
+				
+				a {
+					cursor: auto;
+					color: white;
+				}
+			}
+
+			a {
+				padding: 1em;
+			}
+		}
+	}
+
+	.header-auth {
+		padding: 1em;
+	}
+}
+
+section {
+	.title {
+		font-size: 3em;
+		text-align: center;
+		color: #c8c8ca;
+	}
+}
+
+footer {
+	bottom: 0;
+	width: 100%;
+	color: @gray-light;
+	font-size: 1em;
+	background: rgba(20,20,20,0.5);
+	position: absolute;
+	bottom: 0;
+
+	.footer-flex {
+		display: flex;
+		//padding: 2em;
+		justify-content: space-between;
+		height: 100%;
+
+		>div {
+			min-height: 100%;
+			vertical-align: middle;
+			padding: 2em;
+		}
+	}
 }
 
 .order-block {
 	position: fixed;
 	background-color: rgba(40,40,40,0.7);
 	width: 40%;
+	min-width: 640px;
 	//height: 300px;
 	z-index: 10;
 	display: flex;
@@ -66,6 +166,3 @@
 		font-size: 1.3em;
 	}
 }
-
-
-

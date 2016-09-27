@@ -1,61 +1,16 @@
-﻿@using System.Collections.Specialized
-
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+﻿@{
+    ViewBag.Title = "Taxi";
 }
 
-<div class="order-block">
-	<div class="order">
-		@using (Html.BeginForm("Create", "Home"))
-		{
-			<h3>Быстрый заказ</h3>
+<div class="page-wrapper">
 
-			<div class="data-raw">
-				<label>Откуда</label>
-				@Html.TextBox("AddressFrom")
-			</div>
+	<h1 class="title">
+		<span>Welcome to the best taxi service of Ukraine</span>
+	</h1>
 
-			<div class="data-raw">
-				<label>Куда</label>
-				@Html.TextBox("AddressTo")
-			</div>
+	<p>
+		
+	</p>
 
-			<div class="data-raw">
-				<label>Детское кресло</label>
-				@Html.CheckBox("ChildSeat", false)
-
-				<label>Животные</label>
-				@Html.CheckBox("Animals", false)
-
-				<label>Некурящие, без шансона</label>
-				@Html.CheckBox("Nonsmoking", false)
-			</div>
-
-			<div class="data-raw">
-				<label>Эконом</label>
-				@Html.RadioButton("TaxiClass", 0, false)
-				<label>Комфорт</label>
-				@Html.RadioButton("TaxiClass", 1, true)
-			</div>
-
-			<div class="data-raw">
-				@Html.Hidden("GeoCoordinatesFromLat")
-				@Html.Hidden("GeoCoordinatesFromLng")
-				@Html.Hidden("GeoCoordinatesToLat")
-				@Html.Hidden("GeoCoordinatesToLng")
-			</div>
-
-
-			<input id="submit" class="btn-create" type="submit" value="Поехали" />
-
-		}
-	</div>
 </div>
-<div id="map" style="width: 1100px; height: 640px;"></div>
 
-
-@section Scripts
-{
-    @Scripts.Render("~/bundles/pages")
-}

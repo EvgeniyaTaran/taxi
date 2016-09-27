@@ -1,4 +1,5 @@
 ﻿@model Taxi.WebApp.Models.LayoutViewModel
+@using Microsoft.AspNet.Identity
 @using Taxi.Entities.Helpers;
 <!DOCTYPE html>
 <html>
@@ -11,38 +12,64 @@
 
 </head>
 <body class="main-container">
-	<div class="container">
-		<header>
-			<div class="navbar taxi-navbar">
-				<ul class="nav navbar-nav main-menu taxi-nav">
-					@*<li><a href="/">Главная</a></li>*@
-					<li><a href="/">Заказ такси</a></li>
-					<li><a href="/marrige/">Прокат свадебных машин</a></li>
-					<li><a href="/medical/">Услуги спецтранспорта</a></li>
-					<li><a href="/about/">О нас</a></li>
-					<li><a href="/contacts/">Контакты</a></li>
-				</ul>
-				@Html.Partial("_LoginPartial")
-			</div>
-		</header>
 
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBACHpzRVDnnjGMK9_pvbwCXE5-TOQGlMc&signed_in=true&libraries=places"
-				async defer></script>
-	</div>
-	<div class="container body-content">
-		<div>
-			<h1>Служба такси</h1>
+	<header>
+		<div class="container">
+			<div class="header-flex">
+				<div class="header-title">
+					<span>
+						<a href="/">TAXI</a>
+					</span>
+				</div>
+				<ul class="header-nav">
+					<li>
+						<a href="/">Home</a>
+					</li>
+					<li>
+						<a href="/order/">Quick order</a>
+					</li>
+					<li>
+						<a href="/special/">Special order</a>
+					</li>
+					<li>
+						<a href="/marrige/">For marrige</a>
+					</li>
+				</ul>
+				<div class="header-auth">
+					@if (User.Identity.IsAuthenticated)
+					{
+						<span>Hello, @User.Identity.GetUserName()</span>
+						<a href="/auth/logout/">
+							<span>Log out</span>
+						</a>
+					}
+					else
+					{
+						<a href="/auth/login/">
+							<span>Log in</span>
+						</a>
+					}
+				</div>
+			</div>
 		</div>
-		<div class="page_content jMainRegion">
+	</header>
+
+	<section>
+		<div class="container body-content">
 			@RenderBody()
 		</div>
-		<hr />
-	</div>
-	<div class="container body-content">
-		<footer>
-			<p>&copy; @DateTime.Now.Year - free car for you 24/7</p>
-		</footer>
-	</div>
+	</section>
+
+	<footer>
+		<div class="container">
+			<div class="footer-flex">
+				<div>&copy; @DateTime.Now.Year - Taxi: free car for you 24/7</div>
+				<div></div>
+				<div>tel: +38 0xx xxx-xx-xx</div>
+			</div>
+		</div>
+	</footer>
+
 
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBACHpzRVDnnjGMK9_pvbwCXE5-TOQGlMc&signed_in=true&libraries=places"
 			async defer></script>

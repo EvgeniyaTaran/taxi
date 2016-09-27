@@ -255,6 +255,7 @@
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -262,6 +263,7 @@
     <Compile Include="Models\Dtos\CarDto.cs" />
     <Compile Include="Models\Dtos\DriverLogInDto.cs" />
     <Compile Include="Models\Dtos\OrderDto.cs" />
+    <Compile Include="Models\HtmlHelperExtensions.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LayoutViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -275,6 +277,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="img\background-street.jpg" />
     <Content Include="js\app\apps\admin\app.collections.js" />
     <Content Include="js\app\apps\admin\app.js" />
     <Content Include="js\app\apps\admin\controllers\cabs.js" />
@@ -393,14 +396,12 @@
     <Folder Include="Areas\Admin\Views\Shared\Templates\Orders\" />
     <Folder Include="Areas\Admin\Views\Shared\Templates\Requests\" />
     <Folder Include="Areas\Operator\Models\" />
-    <Folder Include="img\" />
     <Folder Include="js\app\apps\admin\models\" />
     <Folder Include="js\app\apps\main\models\" />
     <Folder Include="js\app\apps\operator\controllers\" />
     <Folder Include="js\app\apps\operator\models\" />
     <Folder Include="js\app\apps\operator\views\" />
     <Folder Include="Views\Auth\" />
-    <Folder Include="Views\Base\" />
     <Folder Include="Views\Shared\Templates\Photo\" />
   </ItemGroup>
   <ItemGroup>
@@ -483,7 +484,7 @@
     <Content Include="Views\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\libs\bootstrap\alerts.less" />
@@ -562,6 +563,9 @@
     <Content Include="css\libs\bootstrap\mixins\text-overflow.less" />
     <Content Include="css\libs\bootstrap\mixins\vendor-prefixes.less" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -580,7 +584,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>2355</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:3030/</IISUrl>
+          <IISUrl>http://localhost:60606/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
