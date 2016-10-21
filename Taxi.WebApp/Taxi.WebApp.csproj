@@ -263,7 +263,6 @@
     <Compile Include="Models\Dtos\CarDto.cs" />
     <Compile Include="Models\Dtos\DriverLogInDto.cs" />
     <Compile Include="Models\Dtos\OrderDto.cs" />
-    <Compile Include="Models\HtmlHelperExtensions.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LayoutViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -275,7 +274,7 @@
     <Content Include="css\libs\select2\select2-bootstrap.css" />
     <Content Include="css\libs\select2\select2.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="css\libs\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="img\background-street.jpg" />
     <Content Include="js\app\apps\admin\app.collections.js" />
@@ -336,8 +335,7 @@
     <Content Include="js\libs\bootstrap\tab.js" />
     <Content Include="js\libs\bootstrap\tooltip.js" />
     <Content Include="js\libs\bootstrap\transition.js" />
-    <Content Include="js\libs\jquery-2.1.0.js" />
-    <Content Include="js\libs\jquery.cookie.js" />
+    <Content Include="js\libs\jquery-3.1.0.js" />
     <Content Include="js\libs\jsrender.js" />
     <Content Include="js\libs\lodash.js" />
     <Content Include="js\libs\select2\select2.full.js" />
@@ -448,10 +446,10 @@
     <Content Include="css\sections\layout.less" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="css\libs\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="css\libs\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="css\libs\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="css\libs\fonts\glyphicons-halflings-regular.woff2" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\sections\operator\layout.less" />

@@ -25,7 +25,7 @@ namespace Taxi.WebApp.Controllers
         public Order Create(OrderDto order)
         {
 
-         return   new Order();
+         return new Order();
         }
     }
 }

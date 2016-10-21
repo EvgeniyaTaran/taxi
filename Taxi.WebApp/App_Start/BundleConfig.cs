@@ -11,7 +11,7 @@ namespace Taxi.WebApp
 		{
 			bundles.Add(new ScriptBundle("~/bundles/libs")
 				.Include(
-					"~/js/libs/jquery-2.1.0.js",
+					"~/js/libs/jquery-3.1.0.js",
 					"~/js/libs/jsrender.js",
 					"~/js/libs/lodash.js",
 					"~/js/libs/backbone.marionette/backbone.js",
@@ -23,9 +23,9 @@ namespace Taxi.WebApp
 					"~/js/libs/bootstrap/tooltip.js",
 					"~/js/libs/bootstrap/*.js"));
 
-			bundles.Add(new ScriptBundle("~/bundles/jquery")
+			bundles.Add(new ScriptBundle("~/bundles/jquery/")
 				.Include(
-					"~/js/libs/jquery-2.1.0.js",
+					"~/js/libs/jquery-3.1.0.js",
 					"~/js/libs/spin.js")
 			);
 
@@ -84,7 +84,7 @@ namespace Taxi.WebApp
 
 
 			var libs = new StyleBundle("~/bundles/css/libs/")
-				.Include("~/css/libs/bootstrap/bootstrap.less")
+				.Include("~/css/libs/bootstrap/bootstrap.less", new CssRewriteUrlTransform())
 				.Include("~/css/libs/select2/*.css");
 			libs.Transforms.Add(new StyleTransformer());
 			libs.Transforms.Add(new CssMinify());
