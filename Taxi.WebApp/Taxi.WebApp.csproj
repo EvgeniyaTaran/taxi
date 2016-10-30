@@ -234,7 +234,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AppAdminController.cs" />
-    <Compile Include="Areas\Admin\Controllers\AuthController.cs" />
     <Compile Include="Areas\Admin\Models\AppAdminViewModel.cs" />
     <Compile Include="Areas\Operator\Controllers\DeskController.cs" />
     <Compile Include="Areas\Operator\OperatorAreaRegistration.cs" />
@@ -255,6 +254,7 @@
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MarridgesController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -354,7 +354,6 @@
     <Content Include="js\practices\utils.js" />
     <Content Include="js\practices\views\components.js" />
     <Content Include="js\practices\views\templateHelpers.js" />
-    <Content Include="Areas\Admin\Views\Auth\Index.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -399,7 +398,6 @@
     <Folder Include="js\app\apps\operator\controllers\" />
     <Folder Include="js\app\apps\operator\models\" />
     <Folder Include="js\app\apps\operator\views\" />
-    <Folder Include="Views\Auth\" />
     <Folder Include="Views\Shared\Templates\Photo\" />
   </ItemGroup>
   <ItemGroup>
@@ -563,6 +561,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Marridges\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Auth\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

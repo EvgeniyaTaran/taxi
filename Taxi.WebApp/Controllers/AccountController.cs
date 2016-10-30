@@ -27,8 +27,8 @@ namespace Taxi.WebApp.Controllers
         public ApplicationSignInManager SignInManager
         {
             get
-            {
-                return _signInManager ;//?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
+			{
+				return _signInManager; //?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
             private set 
             { 

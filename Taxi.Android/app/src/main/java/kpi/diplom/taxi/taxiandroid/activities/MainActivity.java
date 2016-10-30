@@ -17,7 +17,7 @@ import java.util.UUID;
 import kpi.diplom.taxi.taxiandroid.R;
 import kpi.diplom.taxi.taxiandroid.RestClient;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +37,21 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	@Override
+	public void onResume() {
+		super.onResume();
+
+		if (getIntent().getBooleanExtra("EXIT", false)) {
+			finish();
+		}
+
+		if (settings.isAuthenticated()) {
+
+		} else {
+			toLogin();
+		}
+	}
+
+	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -51,21 +66,8 @@ public class MainActivity extends AppCompatActivity {
 		int id = item.getItemId();
 
 		//noinspection SimplifiableIfStatement
-		if (id == R.id.action_settings) {
-			RestClient client = new RestClient(this);
-			client.login(new AsyncHttpResponseHandler() {
-				@Override
-				public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, byte[] responseBody) {
-
-					Toast.makeText(MainActivity.this, "Success", Toast.LENGTH_LONG);
-				}
-
-				@Override
-				public void onFailure(int statusCode, cz.msebera.android.httpclient.Header[] headers, byte[] responseBody, Throwable error) {
-					Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_LONG);
-				}
-
-			});
+		if (id == R.id.action_logout) {
+			logout();
 		}
 
 		return super.onOptionsItemSelected(item);

@@ -9,23 +9,32 @@ using Taxi.WebApp.Models.Dtos;
 
 namespace Taxi.WebApp.Controllers
 {
-    public class OrderController : BaseController
-    {
-        public OrderController(EntityContext context)
+	public class OrderController : BaseController
+	{
+		public OrderController(EntityContext context)
 			: base(context)
 		{ }
 
-        // GET: Home
-        public ActionResult Index()
-        {
-            return View();
-        }
+		// GET: Home
+		public ActionResult Index()
+		{
+			return View();
+		}
 
-        [HttpPost]
-        public Order Create(OrderDto order)
-        {
+		[HttpPost]
+		public Order Create(OrderDto dto)
+		{
+			var order = new Order
+			{
+				AddressFrom = new Address
+				{
+					
+				}, 
+			};
 
-         return new Order();
-        }
-    }
+			return order;
+		}
+
+		
+	}
 }

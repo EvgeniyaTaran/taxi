@@ -4,11 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Taxi.WebApp.Areas.Admin.Controllers
+namespace Taxi.WebApp.Controllers
 {
-    public class AuthController : Controller
+    public class MarridgesController : Controller
     {
-        // GET: Admin/Auth
+        // GET: Marridges
         public ActionResult Index()
         {
             return View();

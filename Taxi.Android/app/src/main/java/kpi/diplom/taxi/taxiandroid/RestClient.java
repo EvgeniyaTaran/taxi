@@ -13,11 +13,8 @@ import com.loopj.android.http.SyncHttpClient;
 import java.util.UUID;
 
 class Client {
-	//private static final String BASE_URL1 = "http://opinion.com.ua/interviewersApi/";
 
-	//public static final String BASE_URL = BuildConfig.DEBUG ? "http://10.0.2.2:53938/interviewersApi/" : "http://opinion.com.ua/interviewersApi/";
-	public static final String BASE_URL = "http://10.0.2.2:60606/api/";
-	//public static final String BASE_URL = "http://opinion.com.ua/interviewersApi/";
+	public static final String BASE_URL = "http://10.0.2.2:60606/";
 
 	private static AsyncHttpClient client = new AsyncHttpClient();
 	private static SyncHttpClient syncClient = new SyncHttpClient();
@@ -45,26 +42,13 @@ public class RestClient {
 
 	public RestClient(Context context) {
 		this.context = context;
-
 	}
 
-	public void login(AsyncHttpResponseHandler responseHandler) {
+	public void login(String login, String password, int carId , AsyncHttpResponseHandler responseHandler) {
 		RequestParams params = new RequestParams();
-		params.put("DriverId", UUID.randomUUID().toString());
-		params.put("CarId", UUID.randomUUID().toString());
-		params.put("Longitude", UUID.randomUUID().toString());
-		params.put("Latitude", UUID.randomUUID().toString());
-		Client.post("cab/login/", params, responseHandler);
-	}
-
-	public void getProjects(JsonHttpResponseHandler responseHandler) {
-		RequestParams params = new RequestParams();
-		Client.get("getProjects.ashx", params, responseHandler);
-	}
-
-	public void auth(String name, AsyncHttpResponseHandler responseHandler) {
-		RequestParams params = new RequestParams();
-		params.put("name", name);
-		Client.get("auth.ashx", params, responseHandler);
+		params.put("login", login);
+		params.put("password", password);
+		params.put("carId", carId);
+		Client.post("auth/androidlogin", params, responseHandler);
 	}
 }

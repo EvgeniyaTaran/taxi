@@ -25,13 +25,14 @@ public class AuthActivity extends BaseActivity {
 	}
 
 	public void auth(View view) {
-		String name = String.valueOf(((EditText) findViewById(R.id.login)).getText());
-
+		String login = String.valueOf(((EditText) findViewById(R.id.login)).getText());
+		String password = String.valueOf(((EditText) findViewById(R.id.password)).getText());
+		int carId = 40; //((Spinner) findViewById(R.id.carSpinner)).;
 
 		final ProgressDialog pDialog = new ProgressDialog(this);
 		pDialog.show();
 
-		restClient.auth(name, new AsyncHttpResponseHandler() {
+		restClient.login(login, password, carId, new AsyncHttpResponseHandler() {
 			@Override
 			public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, byte[] responseBody) {
 				pDialog.dismiss();

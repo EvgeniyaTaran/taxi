@@ -8,6 +8,8 @@ namespace Taxi.WebApp.Models.Dtos
 	public class DriverLogInDto
 	{
 		public string DriverId { get; set; }
+		public string Login { get; set; }
+		public string Password { get; set; }
 		public int CarId { get; set; }
 		public double Latitude { get; set; }
 		public double Longitude { get; set; }

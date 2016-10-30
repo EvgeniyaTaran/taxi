@@ -18,7 +18,7 @@ namespace Taxi.WebApp.Controllers.Api
 		}
 
 		[HttpPost]
-		public string Login(DriverLogInDto dto)
+		public string StartWork(DriverLogInDto dto)
 		{
 			var driver = Db.Drivers.FirstOrDefault(d => d.Id == dto.DriverId);
 			if (driver == null)
