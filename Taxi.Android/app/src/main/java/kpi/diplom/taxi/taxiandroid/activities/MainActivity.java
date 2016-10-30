@@ -1,5 +1,11 @@
 package kpi.diplom.taxi.taxiandroid.activities;
 
+import android.Manifest;
+import android.annotation.TargetApi;
+import android.app.ProgressDialog;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,10 +20,13 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import java.util.UUID;
 
+import kpi.diplom.taxi.taxiandroid.GpsTracker;
 import kpi.diplom.taxi.taxiandroid.R;
 import kpi.diplom.taxi.taxiandroid.RestClient;
 
 public class MainActivity extends BaseActivity {
+
+	private GpsTracker gps;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +43,8 @@ public class MainActivity extends BaseActivity {
 						.setAction("Action", null).show();
 			}
 		});
+
+		gps = new GpsTracker(this);
 	}
 
 	@Override
@@ -71,5 +82,52 @@ public class MainActivity extends BaseActivity {
 		}
 
 		return super.onOptionsItemSelected(item);
+	}
+
+	public void startWork(View view) {
+		UUID driverId = settings.getToken();
+		// TODO: select car from the list
+		int carId = 40;
+
+		if (driverId != null) {
+			final ProgressDialog pDialog = new ProgressDialog(this);
+			pDialog.show();
+
+			double lat = 0;
+			double lng = 0;
+			Boolean withGeo = false;
+
+			if (canAccessGps()) {
+				Location location = gps.getCurrentLocation();
+				lat = location.getLatitude();
+				lng = location.getLongitude();
+				withGeo = true;
+			}
+
+			restClient.startWork(driverId, carId, lat, lng, withGeo, new AsyncHttpResponseHandler() {
+				@Override
+				public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, byte[] responseBody) {
+					pDialog.dismiss();
+
+
+					Toast.makeText(MainActivity.this, "Started to work", Toast.LENGTH_SHORT).show();
+				}
+
+				@Override
+				public void onFailure(int statusCode, cz.msebera.android.httpclient.Header[] headers, byte[] responseBody, Throwable error) {
+					pDialog.dismiss();
+				}
+
+			});
+		}
+	}
+
+	private boolean canAccessGps() {
+		return (hasPermission(Manifest.permission.ACCESS_FINE_LOCATION));
+	}
+
+	@TargetApi(Build.VERSION_CODES.M)
+	private boolean hasPermission(String perm) {
+		return (PackageManager.PERMISSION_GRANTED == checkSelfPermission(perm));
 	}
 }

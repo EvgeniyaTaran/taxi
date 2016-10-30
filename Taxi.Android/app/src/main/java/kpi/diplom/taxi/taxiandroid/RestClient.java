@@ -44,11 +44,23 @@ public class RestClient {
 		this.context = context;
 	}
 
-	public void login(String login, String password, int carId , AsyncHttpResponseHandler responseHandler) {
+	public void login(String login, String password, int carId, AsyncHttpResponseHandler responseHandler) {
 		RequestParams params = new RequestParams();
 		params.put("login", login);
 		params.put("password", password);
 		params.put("carId", carId);
 		Client.post("auth/androidlogin", params, responseHandler);
+	}
+
+	public void startWork(UUID driverId, int carId, double lat, double lng, Boolean withGeo, AsyncHttpResponseHandler responseHandler) {
+		RequestParams params = new RequestParams();
+		params.put("driverId", driverId.toString());
+		params.put("carId", carId);
+		if (withGeo)
+		{
+			params.put("latitude", lat);
+			params.put("longitude", lng);
+		}
+		Client.post("api/cab/startwork", params, responseHandler);
 	}
 }
