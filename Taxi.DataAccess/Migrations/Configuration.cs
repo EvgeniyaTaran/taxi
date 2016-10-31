@@ -194,6 +194,8 @@
 			context.CarBrands.AddRange(brands);
 			context.CarModels.AddRange(models);
 
+			
+
 			foreach (var m in models)
 			{
 				var car = new Car
@@ -208,9 +210,32 @@
 			}
 			
 			context.SaveChanges();
+
+	        GenerateDrivers(context);
+
         }
 
-		private CarColor _getRandomColor(Random r)
+	    private void GenerateDrivers(EntityContext db)
+	    {
+		    for (int i = 1; i < 21; i++)
+		    {
+				db.Drivers.Add(CreateDriver(i));
+			}
+		    db.SaveChanges();
+	    }
+
+	    private Driver CreateDriver(int num)
+	    {
+			var driver = new Driver
+			{
+				PasswordHash = "ANin9+1rNiQh6Hz45rUnBG1Acr9mFsRMHGh0nYjRSSz573LjnS5uTZGbGyMkJDqE3Q==",
+				Email = $"driver{num}@gmail.com",
+				UserName = $"driver{num}"
+			};
+		    return driver;
+	    }
+
+	    private CarColor _getRandomColor(Random r)
 		{
 			var values = Enum.GetValues(typeof(CarColor)).Cast<CarColor>();
 			return values.ElementAt(r.Next(0, values.Count() - 1));

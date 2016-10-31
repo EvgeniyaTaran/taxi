@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -128,6 +129,6 @@ public class MainActivity extends BaseActivity {
 
 	@TargetApi(Build.VERSION_CODES.M)
 	private boolean hasPermission(String perm) {
-		return (PackageManager.PERMISSION_GRANTED == checkSelfPermission(perm));
+		return (PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(this, perm));
 	}
 }

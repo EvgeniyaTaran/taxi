@@ -5,20 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using Taxi.DataAccess;
 using Taxi.WebApp.Models.Dtos;
-
-using System;
-using System.Globalization;
-using System.Linq;
-using System.Net;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
-using Taxi.WebApp.Models;
-using Taxi.DataAccess;
+using Microsoft.AspNet.Identity;
 
 namespace Taxi.WebApp.Controllers
 {
@@ -65,6 +53,7 @@ namespace Taxi.WebApp.Controllers
 		[HttpPost]
 		public ActionResult AndroidLogin(DriverLogInDto dto)
 		{
+			UserManager.PasswordHasher.HashPassword(dto.Password);
 			// TODO: realize own usermanager with PasswordLogin method
 			var driver = Db.Drivers.FirstOrDefault();
 
