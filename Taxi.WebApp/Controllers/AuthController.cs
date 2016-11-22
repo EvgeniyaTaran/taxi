@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Taxi.DataAccess;
@@ -24,7 +25,7 @@ namespace Taxi.WebApp.Controllers
 		{
 			get
 			{
-				return _signInManager;// ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
+				return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
 			}
 			private set
 			{
@@ -36,7 +37,7 @@ namespace Taxi.WebApp.Controllers
 		{
 			get
 			{
-				return _userManager;// ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+				return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
 			}
 			private set
 			{
@@ -51,15 +52,28 @@ namespace Taxi.WebApp.Controllers
         }
 
 		[HttpPost]
-		public ActionResult AndroidLogin(DriverLogInDto dto)
+		public JsonResult AndroidLogin(DriverLogInDto dto)
 		{
-			UserManager.PasswordHasher.HashPassword(dto.Password);
-			// TODO: realize own usermanager with PasswordLogin method
-			var driver = Db.Drivers.FirstOrDefault();
+			try
+			{
+				var driver = UserManager.FindByName(dto.Login);
+				if (driver != null)
+				{
+					var res = UserManager.CheckPassword(driver, dto.Password);
+					if (res)
+					{
+						return Json(driver.Id);
+					}
+					// TODO: realize own usermanager with PasswordLogin method
 
-			Response.StatusCode = (int) HttpStatusCode.OK;
-			//return Content(driver?.Id);
-			return Content(Guid.NewGuid().ToString());
+					return Json(String.Empty);
+				}
+				return Json(String.Empty);
+			}
+			catch (Exception e)
+			{
+				return Json(null);
+			}
 		}
     }
 }

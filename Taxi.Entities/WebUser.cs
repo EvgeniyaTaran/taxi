@@ -11,8 +11,10 @@ namespace Taxi.Entities
 {
 	public class WebUser: IdentityUser
 	{
-		public int Num { get; set; }
-		public int PhoneNomber { get; set; }
+		public string FirstName { get; set; }
+		public string Surname { get; set; }
+		public DateTime BirthDate { get; set; }
+		public Sex Sex { get; set; }
 
 		public virtual ICollection<WebUserPhoto> Photos { get; set; }
 
@@ -23,5 +25,11 @@ namespace Taxi.Entities
 			// Add custom user claims here
 			return userIdentity;
 		}
+	}
+
+	public enum Sex
+	{
+		Male, 
+		Female
 	}
 }

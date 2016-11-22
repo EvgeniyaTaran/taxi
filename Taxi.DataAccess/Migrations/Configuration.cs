@@ -194,8 +194,6 @@
 			context.CarBrands.AddRange(brands);
 			context.CarModels.AddRange(models);
 
-			
-
 			foreach (var m in models)
 			{
 				var car = new Car
@@ -203,8 +201,8 @@
 					CarModel = m,
 					Number = Guid.NewGuid().ToString(),
 					Color = _getRandomColor(r),
-					Ru = new BaseLocale { Name = String.Format("{0} {1}", m.Brand.Ru.Name, m.Ru.Name) },
-					En = new BaseLocale { Name = String.Format("{0} {1}", m.Brand.En.Name, m.En.Name) }
+					Ru = new BaseLocale { Name = $"{m.Brand.Ru.Name} {m.Ru.Name}" },
+					En = new BaseLocale { Name = $"{m.Brand.En.Name} {m.En.Name}" }
 				};
 				context.Cars.Add(car);
 			}
@@ -230,7 +228,8 @@
 			{
 				PasswordHash = "ANin9+1rNiQh6Hz45rUnBG1Acr9mFsRMHGh0nYjRSSz573LjnS5uTZGbGyMkJDqE3Q==",
 				Email = $"driver{num}@gmail.com",
-				UserName = $"driver{num}"
+				UserName = $"driver{num}",
+				BirthDate = DateTime.Now.AddYears(-40 + num)
 			};
 		    return driver;
 	    }

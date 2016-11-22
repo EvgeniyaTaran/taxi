@@ -19,6 +19,7 @@ namespace Taxi.WebApp.Models.Dtos
         public string GeoCoordinatesFromLng { get; set; }
         public string GeoCoordinatesToLat { get; set; }
         public string GeoCoordinatesToLng { get; set; }
+	    public string ClientId { get; set; }
     }
 
     

@@ -12,13 +12,12 @@ namespace Taxi.Entities
     [ComplexType]
 	public class Address
 	{
-		public int Id { get; set; }
         public string Name { get; set; }
-        public GeoCoordinates LatLng { get; set; }
+        public GeoCoordinates Coords { get; set; }
 
         public Address()
         {
-            LatLng = new GeoCoordinates();
+            Coords = new GeoCoordinates();
         }
 	}
 

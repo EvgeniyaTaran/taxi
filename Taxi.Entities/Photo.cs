@@ -31,10 +31,10 @@ namespace Taxi.Entities
 		public WebUser WebUser { get; set; }
 	}
 
-	public class AddressPhoto : Photo
-	{
-		public int AddressId { get; set; }
-		[JsonIgnore]
-		public Address Address { get; set; }
-	}
+	//public class AddressPhoto : Photo
+	//{
+	//	public int AddressId { get; set; }
+	//	[JsonIgnore]
+	//	public Address Address { get; set; }
+	//}
 }
