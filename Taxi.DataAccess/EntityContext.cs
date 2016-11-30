@@ -45,6 +45,11 @@ namespace Taxi.DataAccess
 			//modelBuilder.HasDefaultSchema("Taxi");
 			modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 			base.OnModelCreating(modelBuilder);
+
+			modelBuilder.Entity<Car>()
+				.HasRequired(x => x.Owner)
+				.WithMany()
+				.HasForeignKey(x => x.OwnerId);
 		}
 
 		public static EntityContext Create()

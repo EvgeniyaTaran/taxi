@@ -99,84 +99,10 @@ namespace Taxi.WebApp.Controllers.Api
 			return new { Success = true };
 		}
 
-		///////////////////////////////
-		/*[HttpPost]
-		public object Create(CarDto dto)
-		{
-			var car = Db.Cars.FirstOrDefault(c => c.Number == dto.Number);
-			if (car == null)
-			{
-				throw new Exception(String.Format("The car with number {0} has already existed", dto.Number));
-			}
-			car = new Car
-			{
-				CarModelId = dto.ModelId,
-				Name = dto.Name,
-				Number = dto.Number,
-				IsActive = true
-			};
-			Db.Cars.Add(car);
-			Db.SaveChanges();
-			return new { car };
-		}
+		//[HttpGet]
+		//public object Filter(FilterCarParams filterParams)
+		//{
 
-		[HttpPut]
-		public object Save(CarDto dto)
-		{
-			var car = Db.Cars.FirstOrDefault(c => c.Number == dto.Number);
-			if (car == null)
-			{
-				throw new Exception(String.Format("The car with number {0} has already existed", dto.Number));
-			}
-			car.CarModelId = dto.ModelId;
-			car.Name = dto.Name;
-			car.Number = dto.Number;
-			car.IsActive = true;
-
-			Db.SaveChanges();
-			return new { car };
-		}
-
-		[HttpDelete]
-		public string Delete(int id)
-		{
-			var car = Db.Cars.FirstOrDefault(c => c.Id == id);
-			if (car == null)
-			{
-				throw new Exception(String.Format("The car with id = {0} has already existed", id));
-			}
-			Db.Cars.Remove(car);
-			Db.SaveChanges();
-			return "Ok";
-		}
-
-		[HttpGet]
-		public object GetById(int id)
-		{
-			var car = Db.Cars.FirstOrDefault(c => c.Id == id);
-			if (car == null)
-			{
-				throw new Exception(String.Format("The car with id = {0} has already existed", id));
-			}
-			return new { car };
-		}
-
-		[HttpGet]
-		public object GetByNumber(string number)
-		{
-			var car = Db.Cars.FirstOrDefault(c => c.Number == number);
-			if (car == null)
-			{
-				throw new Exception(String.Format("The car with id = {0} has already existed", id));
-			}
-			return new { car };
-		}
-
-		[HttpGet]
-		public object GetAll()
-		{
-			var cars = Db.Cars.Where(c => c.IsActive).ToList();
-			return new { cars };
-		}*/
+		//}
 	}
 }

@@ -7,223 +7,218 @@
 	using System.Linq;
 	using Taxi.Entities;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Taxi.DataAccess.EntityContext>
-    {
-        public Configuration()
-        {
-            AutomaticMigrationsEnabled = true;
-        }
+	internal sealed class Configuration : DbMigrationsConfiguration<Taxi.DataAccess.EntityContext>
+	{
+		public Configuration()
+		{
+			AutomaticMigrationsEnabled = true;
+		}
 
-        protected override void Seed(Taxi.DataAccess.EntityContext context)
-        {
+		protected override void Seed(Taxi.DataAccess.EntityContext context)
+		{
 			var r = new Random();
-			var brands = _createCarBrands(context);
-
-			var models = new List<CarModel>
+			if (!context.CarModels.Any())
 			{
-				new CarModel 
-				{ 
-					En = new BaseLocale
-					{
-						Name = "Corolla"
-					},
-					Ru = new BaseLocale
-					{
-						Name = "Corolla"
-					},
-					Brand = brands.ElementAt(0)
-				},
-				new CarModel 
-				{ 
-					En = new BaseLocale
-					{
-						Name = "Camry"
-					},
-					Ru = new BaseLocale
-					{
-						Name = "Camry"
-					},
-					Brand = brands.ElementAt(0)
-				},
-				new CarModel 
-				{ 
-					En = new BaseLocale
-					{
-						Name = "Astra"
-					},
-					Ru = new BaseLocale
-					{
-						Name = "Astra"
-					},
-					Brand = brands.ElementAt(1)
-				},
-				new CarModel 
-				{ 
-					En = new BaseLocale
-					{
-						Name = "Vectra"
-					},
-					Ru = new BaseLocale
-					{
-						Name = "Vectra"
-					},
-					Brand = brands.ElementAt(1)
-				},
-				new CarModel 
-				{ 
-					En = new BaseLocale
-					{
-						Name = "Focus"
-					},
-					Ru = new BaseLocale
-					{
-						Name = "Focus"
-					},
-					Brand = brands.ElementAt(2)
-				},
-				new CarModel 
-				{ 
-					En = new BaseLocale
-					{
-						Name = "Mondeo"
-					},
-					Ru = new BaseLocale
-					{
-						Name = "Mondeo"
-					},
-					Brand = brands.ElementAt(2)
-				},
-				new CarModel 
-				{ 
-					En = new BaseLocale
-					{
-						Name = "Civic"
-					},
-					Ru = new BaseLocale
-					{
-						Name = "Civic"
-					},
-					Brand = brands.ElementAt(3)
-				},
-				new CarModel 
-				{ 
-					En = new BaseLocale
-					{
-						Name = "Pilot"
-					},
-					Ru = new BaseLocale
-					{
-						Name = "Pilot"
-					},
-					Brand = brands.ElementAt(3)
-				},
-				new CarModel 
-				{ 
-					En = new BaseLocale
-					{
-						Name = "S660"
-					},
-					Ru = new BaseLocale
-					{
-						Name = "S660"
-					},
-					Brand = brands.ElementAt(3)
-				},
-				new CarModel 
-				{ 
-					En = new BaseLocale
-					{
-						Name = "Benz"
-					},
-					Ru = new BaseLocale
-					{
-						Name = "Benz"
-					},
-					Brand = brands.ElementAt(4)
-				},
-				new CarModel 
-				{ 
-					En = new BaseLocale
-					{
-						Name = "Aveo"
-					},
-					Ru = new BaseLocale
-					{
-						Name = "Aveo"
-					},
-					Brand = brands.ElementAt(5)
-				},
-				new CarModel 
-				{ 
-					En = new BaseLocale
-					{
-						Name = "Lacetti"
-					},
-					Ru = new BaseLocale
-					{
-						Name = "Lacetti"
-					},
-					Brand = brands.ElementAt(5)
-				},
-				new CarModel 
-				{ 
-					En = new BaseLocale
-					{
-						Name = "Evanda"
-					},
-					Ru = new BaseLocale
-					{
-						Name = "Evanda"
-					},
-					Brand = brands.ElementAt(5)
-				},
-				new CarModel 
-				{ 
-					En = new BaseLocale
-					{
-						Name = "Camaro"
-					},
-					Ru = new BaseLocale
-					{
-						Name = "Camaro"
-					},
-					Brand = brands.ElementAt(5)
-				}
-			};
-			context.Countries.AddRange(_createCountries());
-			context.CarBrands.AddRange(brands);
-			context.CarModels.AddRange(models);
+				var brands = _createCarBrands(context);
 
-			foreach (var m in models)
-			{
-				var car = new Car
+				var models = new List<CarModel>
 				{
-					CarModel = m,
-					Number = Guid.NewGuid().ToString(),
-					Color = _getRandomColor(r),
-					Ru = new BaseLocale { Name = $"{m.Brand.Ru.Name} {m.Ru.Name}" },
-					En = new BaseLocale { Name = $"{m.Brand.En.Name} {m.En.Name}" }
+					new CarModel
+					{
+						En = new BaseLocale
+						{
+							Name = "Corolla"
+						},
+						Ru = new BaseLocale
+						{
+							Name = "Corolla"
+						},
+						Brand = brands.ElementAt(0)
+					},
+					new CarModel
+					{
+						En = new BaseLocale
+						{
+							Name = "Camry"
+						},
+						Ru = new BaseLocale
+						{
+							Name = "Camry"
+						},
+						Brand = brands.ElementAt(0)
+					},
+					new CarModel
+					{
+						En = new BaseLocale
+						{
+							Name = "Astra"
+						},
+						Ru = new BaseLocale
+						{
+							Name = "Astra"
+						},
+						Brand = brands.ElementAt(1)
+					},
+					new CarModel
+					{
+						En = new BaseLocale
+						{
+							Name = "Vectra"
+						},
+						Ru = new BaseLocale
+						{
+							Name = "Vectra"
+						},
+						Brand = brands.ElementAt(1)
+					},
+					new CarModel
+					{
+						En = new BaseLocale
+						{
+							Name = "Focus"
+						},
+						Ru = new BaseLocale
+						{
+							Name = "Focus"
+						},
+						Brand = brands.ElementAt(2)
+					},
+					new CarModel
+					{
+						En = new BaseLocale
+						{
+							Name = "Mondeo"
+						},
+						Ru = new BaseLocale
+						{
+							Name = "Mondeo"
+						},
+						Brand = brands.ElementAt(2)
+					},
+					new CarModel
+					{
+						En = new BaseLocale
+						{
+							Name = "Civic"
+						},
+						Ru = new BaseLocale
+						{
+							Name = "Civic"
+						},
+						Brand = brands.ElementAt(3)
+					},
+					new CarModel
+					{
+						En = new BaseLocale
+						{
+							Name = "Pilot"
+						},
+						Ru = new BaseLocale
+						{
+							Name = "Pilot"
+						},
+						Brand = brands.ElementAt(3)
+					},
+					new CarModel
+					{
+						En = new BaseLocale
+						{
+							Name = "S660"
+						},
+						Ru = new BaseLocale
+						{
+							Name = "S660"
+						},
+						Brand = brands.ElementAt(3)
+					},
+					new CarModel
+					{
+						En = new BaseLocale
+						{
+							Name = "Benz"
+						},
+						Ru = new BaseLocale
+						{
+							Name = "Benz"
+						},
+						Brand = brands.ElementAt(4)
+					},
+					new CarModel
+					{
+						En = new BaseLocale
+						{
+							Name = "Aveo"
+						},
+						Ru = new BaseLocale
+						{
+							Name = "Aveo"
+						},
+						Brand = brands.ElementAt(5)
+					},
+					new CarModel
+					{
+						En = new BaseLocale
+						{
+							Name = "Lacetti"
+						},
+						Ru = new BaseLocale
+						{
+							Name = "Lacetti"
+						},
+						Brand = brands.ElementAt(5)
+					},
+					new CarModel
+					{
+						En = new BaseLocale
+						{
+							Name = "Evanda"
+						},
+						Ru = new BaseLocale
+						{
+							Name = "Evanda"
+						},
+						Brand = brands.ElementAt(5)
+					},
+					new CarModel
+					{
+						En = new BaseLocale
+						{
+							Name = "Camaro"
+						},
+						Ru = new BaseLocale
+						{
+							Name = "Camaro"
+						},
+						Brand = brands.ElementAt(5)
+					}
 				};
-				context.Cars.Add(car);
+
+				context.Countries.AddRange(_createCountries());
+				context.CarBrands.AddRange(brands);
+				context.CarModels.AddRange(models);
+
+				context.SaveChanges();
 			}
-			
-			context.SaveChanges();
 
-	        GenerateDrivers(context);
+			GenerateDrivers(context);
 
-        }
+			GenerateCars(context);
+		}
 
-	    private void GenerateDrivers(EntityContext db)
-	    {
-		    for (int i = 1; i < 21; i++)
-		    {
-				db.Drivers.Add(CreateDriver(i));
+		private void GenerateDrivers(EntityContext db)
+		{
+			if (!db.Drivers.Any())
+			{
+				for (int i = 1; i < 21; i++)
+				{
+					db.Drivers.Add(CreateDriver(i));
+				}
+				db.SaveChanges();
 			}
-		    db.SaveChanges();
-	    }
+		}
 
-	    private Driver CreateDriver(int num)
-	    {
+		private Driver CreateDriver(int num)
+		{
 			var driver = new Driver
 			{
 				PasswordHash = "ANin9+1rNiQh6Hz45rUnBG1Acr9mFsRMHGh0nYjRSSz573LjnS5uTZGbGyMkJDqE3Q==",
@@ -231,10 +226,36 @@
 				UserName = $"driver{num}",
 				BirthDate = DateTime.Now.AddYears(-40 + num)
 			};
-		    return driver;
-	    }
+			return driver;
+		}
 
-	    private CarColor _getRandomColor(Random r)
+		private void GenerateCars(EntityContext db)
+		{
+			if (!db.Cars.Any())
+			{
+				var models = db.CarModels.ToList();
+				var drivers = db.Drivers.ToList();
+				var r = new Random();
+				foreach (var carModel in models)
+				{
+					var index = r.Next(0, drivers.Count - 1);
+					var driver = drivers.ElementAt(index);
+					var car = new Car()
+					{
+						CarModelId = carModel.Id,
+						OwnerId = driver.Id,
+						Number = Guid.NewGuid().ToString(),
+						Color = _getRandomColor(r),
+						Ru = new BaseLocale { Name = $"{carModel.Brand.Ru.Name} {carModel.Ru.Name}" },
+						En = new BaseLocale { Name = $"{carModel.Brand.En.Name} {carModel.En.Name}" }
+					};
+					db.Cars.Add(car);
+				}
+				db.SaveChanges();
+			}
+		}
+
+		private CarColor _getRandomColor(Random r)
 		{
 			var values = Enum.GetValues(typeof(CarColor)).Cast<CarColor>();
 			return values.ElementAt(r.Next(0, values.Count() - 1));
@@ -257,7 +278,7 @@
 			return brands;
 		}
 
-		private List<Country> _createCountries() 
+		private List<Country> _createCountries()
 		{
 			var countries = new List<Country>
 			{
@@ -279,5 +300,5 @@
 			};
 			return countries;
 		}
-    }
+	}
 }

@@ -25,6 +25,11 @@ namespace Taxi.Entities
 			// Add custom user claims here
 			return userIdentity;
 		}
+
+		public string GetFullName()
+		{
+			return $"{FirstName} {Surname}";
+		}
 	}
 
 	public enum Sex

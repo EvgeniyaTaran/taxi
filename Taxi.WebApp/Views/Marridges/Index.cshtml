@@ -1,7 +1,21 @@
-﻿
+﻿@using Taxi.Entities
+@model Taxi.WebApp.Models.MarrigesViewModel
 @{
-    ViewBag.Title = "Index";
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Cars to order</h2>
 
+<ul>
+	@foreach (var car in Model.Cars)
+	{
+		<li>
+			<span>@car.En.Name</span>
+			<br/>
+			<span>Phone: @car.Owner.PhoneNumber</span>
+			<br/>
+			<span>@car.Owner.GetFullName()</span>
+		</li>
+	}
+</ul>

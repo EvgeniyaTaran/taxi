@@ -24,7 +24,13 @@ namespace Taxi.Entities
 
         public TaxiClass TaxiType { get; set; }
 
-		//public int CarTypeId { get; set; }
+	    public string OwnerId { get; set; }
+	    [JsonIgnore]
+		public Driver Owner { get; set; }
+
+	    public bool IsForMarrige { get; set; }
+
+	    //public int CarTypeId { get; set; }
 		//[JsonIgnore]
 		//public CarType Type { get; set; }
 

@@ -264,12 +264,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Dtos\CabDto.cs" />
     <Compile Include="Models\Dtos\CarDto.cs" />
     <Compile Include="Models\Dtos\DriverLogInDto.cs" />
     <Compile Include="Models\Dtos\OrderDto.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LayoutViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MarrigesViewModel.cs" />
     <Compile Include="Models\Services\TaxiWebSocketHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
