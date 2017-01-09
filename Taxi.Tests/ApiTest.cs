@@ -1,6 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Core;
 using NUnit.Framework;
+using Taxi.Services;
 
 namespace Taxi.Tests
 {
@@ -8,7 +10,7 @@ namespace Taxi.Tests
 	public class ApiTest
 	{
 		[Test]
-		public void GetBestCarsTest()
+		public void CalculatePrice()
 		{
 		}
 

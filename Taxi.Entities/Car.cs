@@ -30,6 +30,8 @@ namespace Taxi.Entities
 
 	    public bool IsForMarrige { get; set; }
 
+	    public float? PricePerHourForWeddings { get; set; }
+
 	    //public int CarTypeId { get; set; }
 		//[JsonIgnore]
 		//public CarType Type { get; set; }
@@ -40,6 +42,8 @@ namespace Taxi.Entities
 
 		[JsonIgnore]
 		public ICollection<CarPhoto> Photos { get; set; }
+
+		
 
 		//[JsonIgnore]
 		//public ICollection<Driver> ActiveDrivers 
@@ -79,6 +83,8 @@ namespace Taxi.Entities
 		{
 			Ru = new BaseLocale();
 			En = new BaseLocale();
+			Photos = new List<CarPhoto>();
+			Cabs = new List<Cab>();
 		}
     }
 

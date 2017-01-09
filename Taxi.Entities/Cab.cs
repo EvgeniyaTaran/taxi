@@ -40,6 +40,14 @@ namespace Taxi.Entities
 
 		[JsonIgnore]
 		public ICollection<Order> Orders { get; set; }
+
+		public Cab()
+		{
+			Coords = new GeoCoordinates();
+			Orders = new List<Order>();
+			DateStart = DateTime.Now.AddDays(-1).AddHours(-5);
+			DateStop = DateTime.Now.AddDays(-1).AddHours(1);
+		}
 	}
 
 	public enum CabStatus 

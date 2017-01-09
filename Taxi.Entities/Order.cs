@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -20,22 +21,25 @@ namespace Taxi.Entities
 		public string ClientId { get; set; }
 		[JsonIgnore]
 		public WebUser Client { get; set; }
-		public int CabId { get; set; }
+		public int? CabId { get; set; }
 		[JsonIgnore]
 		public Cab Cab { get; set; }
 
 		public DateTime Date { get; set; }
 
-        public Address AddressFrom { get; set; }
+	    public ICollection<OrderAddress> Addresses { get; set; }
 
-        public Address AddressTo { get; set; }
+	    [NotMapped]
+	    public OrderAddress AddressFrom => Addresses.OrderBy(a => a.Num).FirstOrDefault();
+
+		[NotMapped]
+		public OrderAddress AddressTo => Addresses.OrderByDescending(a => a.Num).FirstOrDefault();
 
 		public Order()
 		{
 			Date = DateTime.Now;
 			Status = OrderStatus.Draft;
-            AddressFrom = new Address();
-            AddressTo = new Address();
+			Addresses = new List<OrderAddress>();
 		}
 
 		public Order(WebUser client)
@@ -43,6 +47,7 @@ namespace Taxi.Entities
 			ClientId = client.Id;
 			Date = DateTime.Now;
 			Status = OrderStatus.Draft;
+			Addresses = new List<OrderAddress>();
 		}
 
 		public OrderStatus Status { get; set; }
@@ -50,9 +55,10 @@ namespace Taxi.Entities
 
 	public enum OrderStatus
 	{
-		Draft,
-		AtWork,
+		New,
+		Processing,
 		Active,
-		Closed
+		Closed,
+		Draft
 	}
 }

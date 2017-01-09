@@ -203,6 +203,114 @@
 			GenerateDrivers(context);
 
 			GenerateCars(context);
+
+			if (!context.Photos.Any())
+			{
+				GenerateTestImgs(context);
+			}
+
+			GenerateDefUSers(context);
+			GenOrders(context);
+		}
+
+		private void GenOrders(EntityContext db)
+		{
+			var user = db.Users.FirstOrDefault(u => !(u is Driver)) ?? new WebUser
+			{
+				Sex = Sex.Male,
+				BirthDate = DateTime.Now.AddYears(-27),
+				Email = "alexroverandom@gmail.com",
+				FirstName = "Tester",
+				Surname = "Testerson",
+				PhoneNumber = "0989882872",
+				PasswordHash = "ANin9+1rNiQh6Hz45rUnBG1Acr9mFsRMHGh0nYjRSSz573LjnS5uTZGbGyMkJDqE3Q==",
+				UserName = "alexroverandom@gmail.com",
+				Photos = new List<WebUserPhoto>
+					{
+						new WebUserPhoto
+						{
+							Description = "Фото с первой поездки",
+							FileName = "user-test-1.png",
+							IsMain = true,
+							Num = 0
+						}
+					},
+				PhoneNumberConfirmed = true,
+				EmailConfirmed = true,
+				SecurityStamp = Guid.NewGuid().ToString()
+			};
+
+			db.Users.AddOrUpdate(user);
+			db.SaveChanges();
+			if (!db.Cabs.Any())
+			{
+				var driver1 = db.Users.FirstOrDefault(u => u is Driver);
+				var driver2 = db.Users.FirstOrDefault(u => u is Driver && u.Id != driver1.Id);
+				var car1 = db.Cars.FirstOrDefault();
+				var car2 = db.Cars.FirstOrDefault(x => x.Id != car1.Id);
+				var cab1 = new Cab
+				{
+					CarId = car1.Id,
+					DriverId = driver1.Id
+				};
+				var cab2 = new Cab
+				{
+					CarId = car2.Id,
+					DriverId = driver2.Id
+				};
+
+				db.Cabs.Add(cab1);
+				db.Cabs.Add(cab2);
+				db.SaveChanges();
+
+				var order1 = db.Orders.FirstOrDefault();
+				var order2 = db.Orders.FirstOrDefault(x => x.Id != order1.Id);
+
+				order1.CabId = cab1.Id;
+				order1.ClientComment = "прелестно";
+				order1.Status = OrderStatus.Closed;
+				order2.ClientComment = "ужас";
+				order2.CabId = cab2.Id;
+				order2.Status = OrderStatus.Closed;
+
+				user.Orders = new List<Order>
+				{
+					order1, order2
+				};
+
+				db.SaveChanges();
+			}
+
+			
+		}
+
+		private void GenerateDefUSers(EntityContext db)
+		{
+
+
+		}
+
+		private void GenerateTestImgs(EntityContext context)
+		{
+			var photos = new List<CarPhoto>
+			{
+				new CarPhoto
+				{
+					IsMain = true,
+					CarId = 2,
+					FileName = "test1.png",
+					Num = 0
+				},
+				new CarPhoto
+				{
+					IsMain = true,
+					CarId = 10,
+					FileName = "test2.png",
+					Num = 0
+				}
+			};
+			context.Photos.AddRange(photos);
+			context.SaveChanges();
 		}
 
 		private void GenerateDrivers(EntityContext db)

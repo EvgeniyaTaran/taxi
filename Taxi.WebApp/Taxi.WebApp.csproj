@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Taxi.WebApp</RootNamespace>
     <AssemblyName>Taxi.WebApp</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -23,6 +23,7 @@
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
     <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -110,6 +111,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Device" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -120,8 +122,7 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
       <Private>True</Private>
@@ -130,9 +131,7 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -174,6 +173,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebActivator, Version=1.4.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\WebActivator.1.4.4\lib\net40\WebActivator.dll</HintPath>
       <Private>True</Private>
@@ -241,7 +241,6 @@
     <Compile Include="Areas\Admin\Models\AppAdminViewModel.cs" />
     <Compile Include="Areas\Operator\Controllers\DeskController.cs" />
     <Compile Include="Areas\Operator\OperatorAreaRegistration.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\AddressController.cs" />
     <Compile Include="Controllers\Api\ApiBaseController.cs" />
     <Compile Include="Controllers\Api\CabController.cs" />
@@ -258,7 +257,8 @@
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MarridgesController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
+    <Compile Include="Controllers\WeddingsController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -271,9 +271,15 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LayoutViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\MarrigesViewModel.cs" />
+    <Compile Include="Models\ProfileViewModel.cs" />
+    <Compile Include="Models\WeddingsViewModel.cs" />
     <Compile Include="Models\Services\TaxiWebSocketHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -283,6 +289,7 @@
     <Content Include="css\libs\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="img\background-street.jpg" />
+    <Content Include="img\no-auto.png" />
     <Content Include="js\app\apps\admin\app.collections.js" />
     <Content Include="js\app\apps\admin\app.js" />
     <Content Include="js\app\apps\admin\controllers\cabs.js" />
@@ -351,6 +358,7 @@
     <Content Include="js\pages\areas\operator\layout.js" />
     <Content Include="js\pages\areas\admin\layout.js" />
     <Content Include="js\pages\home.js" />
+    <Content Include="js\pages\profile.js" />
     <Content Include="js\practices\backbone.extensions.js" />
     <Content Include="js\app\behaviors\save.js" />
     <Content Include="js\practices\behaviors\settings.js" />
@@ -374,18 +382,18 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\App\Index.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Auth\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Auth\ConfirmEmail.cshtml" />
+    <Content Include="Views\Auth\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Auth\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Auth\ForgotPassword.cshtml" />
+    <Content Include="Views\Auth\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Auth\Login.cshtml" />
+    <Content Include="Views\Auth\Register.cshtml" />
+    <Content Include="Views\Auth\ResetPassword.cshtml" />
+    <Content Include="Views\Auth\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Auth\SendCode.cshtml" />
+    <Content Include="Views\Auth\VerifyCode.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
@@ -417,6 +425,10 @@
     <ProjectReference Include="..\Taxi.Entities\Taxi.Entities.csproj">
       <Project>{123a704a-1e9a-4164-9aee-8f4844650037}</Project>
       <Name>Taxi.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Taxi.Services\Taxi.Services.csproj">
+      <Project>{8fb54273-7912-4f60-9ada-c79dba4a55ec}</Project>
+      <Name>Taxi.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -569,10 +581,23 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Marridges\Index.cshtml" />
+    <Content Include="Views\Weddings\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Auth\Index.cshtml" />
+    <Content Include="css\sections\home.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Templates\_orderComplited.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\sections\weddings.less" />
+    <Content Include="css\sections\profile.less" />
+    <Content Include="css\sections\order.less" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Views\Profile\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

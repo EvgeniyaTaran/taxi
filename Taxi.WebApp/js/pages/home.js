@@ -22,7 +22,17 @@
 			toggle: $(".jAdditionalToggle"),
 			items: $(".jAdditional")
 		},
-		create: $(".jCreateOrder")
+		create: $(".jCreateOrder"),
+		calculation: {
+			send: $(".jCalculationSend"),
+			from: $(".jCalculationFrom"),
+			to: $(".jCalculationTo"),
+			serviceClass: $(".jCalculationClass")
+		},
+		priceBlock: $(".jPriceBlock"),
+		messageBlock: $(".jMessageBlock"),
+		priceInfo: $(".jPriceInfo"),
+		error: $(".jErrorBlock")
 	}
 
 	var geocoderFrom;
@@ -120,7 +130,33 @@
 		}, 100);
 
 	}
-	
+
+	function getCalculationData() {
+		return {
+			geoCoordinatesFromLat: $("#GeoCoordinatesFromLat").val(),
+			geoCoordinatesFromLng: $("#GeoCoordinatesFromLng").val(),
+			geoCoordinatesToLat: $("#GeoCoordinatesToLat").val(),
+			geoCoordinatesToLng: $("#GeoCoordinatesToLng").val(),
+			addressFrom: $("#AddressFrom").val(),
+			addressTo: $("#AddressTo").val(),
+			taxiClass: $("input[type='radio']:checked").val()
+		}
+	}
+
+	function getOrderData() {
+		return {
+			geoCoordinatesFromLat: $("#GeoCoordinatesFromLat").val(),
+			geoCoordinatesFromLng: $("#GeoCoordinatesFromLng").val(),
+			geoCoordinatesToLat: $("#GeoCoordinatesToLat").val(),
+			geoCoordinatesToLng: $("#GeoCoordinatesToLng").val(),
+			addressFrom: $("#AddressFrom").val(),
+			addressTo: $("#AddressTo").val(),
+			childSeat: $("#ChildSeat").prop("checked"),
+			animals: $("#Animals").prop("checked"),
+			nonSmoking: $("#NonSmoking").prop("checked"),
+			taxiClass: $("input[type='radio']:checked").val()
+		}
+	}
 
 
 	function codeAddressTo() {
@@ -170,6 +206,46 @@
 				ui.additional.items.slideUp();
 			} else {
 				ui.additional.items.slideDown();
+			}
+		});
+
+		ui.calculation.send.click(function () {
+			var data = getCalculationData();
+			if (data && data.addressTo && data.addressFrom) {
+				$.post("/order/calculate/", data)
+					.done(function(res) {
+						ui.priceBlock.toggleClass("hide", false);
+						ui.error.toggleClass("hide", true);
+						ui.priceInfo.text(res.Price);
+					})
+					.fail(function(res) {
+						ui.priceBlock.toggleClass("hide", true);
+						ui.error.toggleClass("hide", false);
+						ui.error.text(res.responseText);
+					});
+			} else {
+				ui.priceBlock.toggleClass("hide", true);
+				ui.error.toggleClass("hide", false);
+				ui.error.text("Введите данные для рассчета");
+			}
+		});
+
+		ui.create.click(function () {
+			var data = getOrderData();
+			if (data && data.addressTo && data.addressFrom) {
+				$.post("/order/create/", data)
+					.done(function (res) {
+						$(".jMakeOrder").toggleClass("hide");
+					})
+					.fail(function (res) {
+						ui.messageBlock.toggleClass("hide", true);
+						ui.error.toggleClass("hide", false);
+						ui.error.text(res.responseText);
+					});
+			} else {
+				ui.messageBlock.toggleClass("hide", true);
+				ui.error.toggleClass("hide", false);
+				ui.error.text("Введите данные для рассчета");
 			}
 		});
 	}

@@ -19,10 +19,14 @@ namespace Taxi.Entities
         [JsonIgnore]
         public CarBrand Brand { get; set; }
 
+		[JsonIgnore]
+		public List<Car> Cars { get; set; }
+
 		public CarModel() 
 		{
 			Ru = new BaseLocale();
 			En = new BaseLocale();
+			Cars = new List<Car>();
 		}
     }
 }

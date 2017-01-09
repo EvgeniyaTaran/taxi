@@ -1,0 +1,65 @@
+﻿@model Taxi.WebApp.Models.RegisterViewModel
+@{
+	ViewBag.Title = "Регистрация";
+}
+
+<h2 class="centered title">
+	<span>@ViewBag.Title</span>
+</h2>
+
+@using (Html.BeginForm("Register", "Auth", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+	<div class="col-sm-offset-1 col-sm-10">
+		<section class="block-back auth">
+			@Html.AntiForgeryToken()
+			<div class="form-group">
+				@Html.LabelFor(x => x.FirstName, new { @class = "col-md-4 control-label" })
+				<div class="col-md-6">
+					@Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+				</div>
+			</div>
+
+			<div class="form-group">
+				@Html.LabelFor(x => x.Surname, new { @class = "col-md-4 control-label" })
+				<div class="col-md-6">
+					@Html.TextBoxFor(m => m.Surname, new { @class = "form-control" })
+				</div>
+			</div>
+
+			<div class="form-group">
+				@Html.LabelFor(x => x.Phone, new { @class = "col-md-4 control-label" })
+				<div class="col-md-6">
+					@Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+				</div>
+			</div>
+
+			<div class="form-group">
+				@Html.LabelFor(x => x.Email, new { @class = "col-md-4 control-label" })
+				<div class="col-md-6">
+					@Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+				</div>
+			</div>
+			<div class="form-group">
+				@Html.LabelFor(m => m.Password, new { @class = "col-md-4 control-label" })
+				<div class="col-md-6">
+					@Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+				</div>
+			</div>
+			<div class="form-group">
+				@Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-4 control-label" })
+				<div class="col-md-6">
+					@Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-offset-4 col-md-8">
+					<input type="submit" class="btn btn-custom" value="Зарегистрироваться" />
+				</div>
+			</div>
+		</section>
+	</div>
+}
+
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+}

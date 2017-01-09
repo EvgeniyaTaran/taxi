@@ -9,10 +9,10 @@
 	<title>Taxi</title>
 	@Styles.Render("~/bundles/css/libs/")
 	@Styles.Render("~/bundles/css/commons/")
+	@RenderSection("Styles", required: false)
 
 </head>
 <body class="main-container">
-
 	<header>
 		<div class="container">
 			<div class="header-flex">
@@ -23,30 +23,33 @@
 				</div>
 				<ul class="header-nav">
 					<li>
-						<a href="/">Home</a>
+						<a href="/">Главная</a>
 					</li>
 					<li>
-						<a href="/order/">Quick order</a>
+						<a href="/order/">Заказать такси</a>
 					</li>
 					<li>
-						<a href="/special/">Special order</a>
+						<a href="/weddings/">Свадебные авто</a>
 					</li>
-					<li>
-						<a href="/marrige/">For marrige</a>
-					</li>
+					@if (User.Identity.IsAuthenticated)
+					{
+						<li>
+							<a href="/profile/">Мой профиль</a>
+						</li>
+					}
 				</ul>
 				<div class="header-auth">
 					@if (User.Identity.IsAuthenticated)
 					{
 						<span>Hello, @User.Identity.GetUserName()</span>
 						<a href="/auth/logout/">
-							<span>Log out</span>
+							<span>Выйти</span>
 						</a>
 					}
 					else
 					{
 						<a href="/auth/login/">
-							<span>Log in</span>
+							<span>Войти</span>
 						</a>
 					}
 				</div>

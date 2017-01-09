@@ -18,12 +18,16 @@ namespace Taxi.Entities
 		public string PhotoPath { get; set; }
 
 		[JsonIgnore]
+		public List<CarModel> Models { get; set; }
+
+		[JsonIgnore]
         public List<Country> Countries { get; set; } 
 
 		public CarBrand() 
 		{
 			Ru = new BaseLocale();
 			En = new BaseLocale();
+			Models = new List<CarModel>();
 		}
     }
 }

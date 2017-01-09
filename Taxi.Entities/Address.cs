@@ -9,15 +9,18 @@ using System.Threading.Tasks;
 
 namespace Taxi.Entities
 {
-    [ComplexType]
 	public class Address
 	{
+        public int Id { get; set; }
         public string Name { get; set; }
         public GeoCoordinates Coords { get; set; }
 
-        public Address()
+		public ICollection<OrderAddress> Orders { get; set; }
+
+		public Address()
         {
             Coords = new GeoCoordinates();
+			Orders = new List<OrderAddress>();
         }
 	}
 

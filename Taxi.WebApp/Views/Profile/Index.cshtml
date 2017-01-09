@@ -1,0 +1,141 @@
+﻿@using Taxi.Entities
+@model Taxi.WebApp.Models.ProfileViewModel
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	var isDriver = Model.CurrentUser is Driver;
+}
+
+@section Styles {
+	@Styles.Render("~/bundles/css/order/")
+	@Styles.Render("~/bundles/css/profile/")
+}
+<style>
+	body {
+		background: none;
+	}
+</style>
+
+<div class="fixed-back"></div>
+
+<div class="profile-wrap">
+	
+	<div class="profile">
+		
+		<h2>Профиль</h2>
+		
+		<ul class="tabs">
+			<li class="jTab active"  data-tab="info">Мои данные</li>
+			<li class="jTab"  data-tab="history">История заказов</li>
+			<li class="jTab" data-tab="stat">Статистика</li>
+			@if (isDriver)
+			{
+				<li class="jTab" data-tab="work">Сводка</li>
+				<li class="jTab" data-tab="cars">Автомобили</li>
+			}
+		</ul>
+		
+		<div class="tab-content">
+			
+			<div class="jInfo jBlock" data-tab="info">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label for="name" class="control-label col-md-4">Имя</label>
+						<div class="col-md-4">
+							<input type="text" id="name" name="FirstName" class="jInput form-control" value="@Model.CurrentUser.FirstName" /> 
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="surname" class="control-label col-md-4">Фамилия</label>
+						<div class="col-md-4">
+							<input type="text" id="surname" name="Name" class="jInput form-control" value="@Model.CurrentUser.Surname" />
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="phone" class="control-label col-md-4">Телефон</label>
+						<div class="col-md-4">
+							<input type="text" id="phone" name="PhoneNumber" class="jInput form-control" value="@Model.CurrentUser.PhoneNumber" />
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="email" class="control-label col-md-4">Email</label>
+						<div class="col-md-4">
+							<input type="text" id="email" name="Email" class="jInput form-control" value="@Model.CurrentUser.Email" />
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="sex" class="control-label col-md-4">Пол</label>
+						<div class="col-md-4">
+							<select id="sex" name="Sex" class="jInput form-control">
+								<option value="@((int)Sex.Male)" @(Model.CurrentUser.Sex == Sex.Male ? "selected" : "")>Мужской</option>
+								<option value="@((int)Sex.Female)"  @(Model.CurrentUser.Sex == Sex.Female ? "selected" : "")>Женский</option>
+							</select>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<button class="btn-save col-sm-offset-4 jSave">
+							<span>Сохранить</span>
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="jHistory jBlock hide" data-tab="history">
+				
+				<ul class="history-list">
+					@foreach (var o in Model.CurrentUser.Orders.ToList())
+					{
+						<li>
+							<div class="history-raw">
+								Откуда: <span>@o.AddressFrom.Address.Name</span>
+							</div>
+							<div class="history-raw">
+								Куда: <span>@o.AddressTo.Address.Name</span>
+							</div>
+
+							<div class="history-raw">
+								Время: <span>@(o.Date.ToString("dd.MM.yyyy HH:mm"))</span>
+							</div>
+
+							<div class="history-raw">
+								Автомобиль: <span>@(o.Cab.Car.Ru.Name)</span>
+							</div>
+
+							<div class="history-raw">
+								Водитель: @(o.Cab.Driver.GetFullName())
+							</div>
+
+							<div class="history-raw">
+								<span>Комментарий: @(o.ClientComment)</span>
+							</div>
+						</li>
+					}
+				</ul>
+
+			</div>
+			
+			@if (isDriver)
+			{
+				<div class="jWork jBlock hide" data-tab="work">
+					Сводка
+				</div>
+
+				<div class="jCars jBlock hide" data-tab="cars">
+					Автомобили
+				</div>
+			}
+
+		</div>
+	</div>
+
+</div>
+
+@section Scripts
+{
+	@Scripts.Render("~/bundles/js/profile/")
+}

@@ -27,7 +27,8 @@ namespace Taxi.DataAccess
 		public DbSet<Payment> Payments { get; set; }
 		public DbSet<CarPhoto> CarPhotos { get; set; }
 		public DbSet<WebUserPhoto> WebUserPhotos { get; set; }
-		//public DbSet<Address> Addresses { get; set; }
+		public DbSet<Address> Addresses { get; set; }
+		public DbSet<OrderAddress> OrderAddresses { get; set; }
 		//public DbSet<AddressPhoto> AddressPhotos { get; set; }
 		public DbSet<Photo> Photos { get; set; }
 		//public DbSet<Settings> Settings { get; set; }

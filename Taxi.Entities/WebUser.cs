@@ -18,6 +18,8 @@ namespace Taxi.Entities
 
 		public virtual ICollection<WebUserPhoto> Photos { get; set; }
 
+		public virtual ICollection<Order> Orders { get; set; }
+
 		public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<WebUser> manager)
 		{
 			// Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

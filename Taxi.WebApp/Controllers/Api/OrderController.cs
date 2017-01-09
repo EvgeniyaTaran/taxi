@@ -16,14 +16,14 @@ namespace Taxi.WebApp.Controllers.Api
 			: base(context)
 		{ }
 
-		[HttpPost]
-		public object Calculate(Order order)
-		{
-			if (order != null)
-			{
-				return new { Price = 250 };
-			}
-			return new { Price = 100 };
-		}
+		//[HttpPost]
+		//public object Calculate(Order order)
+		//{
+		//	if (order != null)
+		//	{
+		//		return new { Price = 250 };
+		//	}
+		//	return new { Price = 100 };
+		//}
     }
 }

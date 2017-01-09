@@ -29,9 +29,14 @@ namespace Taxi.WebApp
 					"~/js/libs/spin.js")
 			);
 
-			bundles.Add(new ScriptBundle("~/bundles/pages")
+			bundles.Add(new ScriptBundle("~/bundles/js/order/")
 				.Include(
 					"~/js/pages/home.js")
+			);
+
+			bundles.Add(new ScriptBundle("~/bundles/js/profile/")
+				.Include(
+					"~/js/pages/profile.js")
 			);
 
 			bundles.Add(new ScriptBundle("~/bundles/js/areas/admin")
@@ -93,6 +98,23 @@ namespace Taxi.WebApp
 			AddCssBundle(bundles, "~/bundles/css/commons/",
 				"~/css/sections/layout.less"
 				);
+
+			AddCssBundle(bundles, "~/bundles/css/home/",
+				"~/css/sections/home.less"
+				);
+
+			AddCssBundle(bundles, "~/bundles/css/weddings/",
+				"~/css/sections/weddings.less"
+				);
+
+			AddCssBundle(bundles, "~/bundles/css/profile/",
+				"~/css/sections/profile.less"
+				);
+
+			AddCssBundle(bundles, "~/bundles/css/order/",
+				"~/css/sections/order.less"
+				);
+
 			AddCssBundle(bundles, "~/bundles/css/operator/commons/",
 				"~/css/sections/operator/layout.less"
 				);

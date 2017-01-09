@@ -1,16 +1,75 @@
 ﻿@{
-    ViewBag.Title = "Taxi";
+	ViewBag.Title = "Taxi";
+}
+
+@section Styles {
+	@Styles.Render("~/bundles/css/order/")
+	@Styles.Render("~/bundles/css/home/")
 }
 
 <div class="page-wrapper">
 
-	<h1 class="title">
-		<span>Welcome to the best taxi service in Ukraine</span>
-	</h1>
+	<div class="home-title">
+		<h1 class="title">
+			Вас приветствует новый сервис такси в Украине
+		</h1>
 
-	<p>
-		
-	</p>
+		<h3>
+			Скорость, приятная цена и высокое качество - все, что нужно для хорошего настроения
+		</h3>
+	</div>
+
+	<div class="calculation jCalculation">
+		<div class="form-horizontal">
+			<div class="form-group">
+				<label class="col-sm-3">Откуда</label>
+				<div class="col-sm-6">
+					@Html.TextBox("AddressFrom", String.Empty, new { @class = "form-control" })
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-3">Куда</label>
+				<div class="col-sm-6">
+					@Html.TextBox("AddressTo", String.Empty, new { @class = "form-control" })
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="TaxiClassBase" class="col-sm-4">Эконом</label>
+				<div class="col-sm-1">
+					@Html.RadioButton("TaxiClass", 0, false, new { @class = "form-control", id = "TaxiClassBase" })
+				</div>
+				<label for="TaxiClassPlus" class="col-sm-2">Комфорт</label>
+				<div class="col-sm-1">
+					@Html.RadioButton("TaxiClass", 1, true, new { @class = "form-control", id = "TaxiClassPlus" })
+				</div>
+			</div>
+
+			<div class="data-raw hide">
+				@Html.Hidden("GeoCoordinatesFromLat")
+				@Html.Hidden("GeoCoordinatesFromLng")
+				@Html.Hidden("GeoCoordinatesToLat")
+				@Html.Hidden("GeoCoordinatesToLng")
+			</div>
+
+
+			<button class="col-sm-offset-4 btn-calculate jCalculationSend">Рассчитать</button>
+
+			<div class="jPriceBlock hide price-info">
+				₴<span class="jPriceInfo"></span>
+			</div>
+			<div class="jErrorBlock hide with-error">
+
+			</div>
+		</div>
+	</div>
+
+	<div id="map" style="display: none"></div>
 
 </div>
 
+@section Scripts
+{
+	@Scripts.Render("~/bundles/js/order/")
+}

@@ -17,6 +17,7 @@ html {
 
 header {
 	background: rgba(20,20,20,0.5);
+	z-index: 10;
 
 	a {
 		color: @gray-light;
@@ -173,11 +174,19 @@ label {
 	margin-top: 6px;
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="password"] {
 	border-radius: 0px;
 	padding: 1em;
 	border: none;
 	font-size: 1.1em;
+}
+
+select,
+select.form-control {
+	border-radius: 0px;
+	//padding: 1em;
+	border: none;
 }
 
 input[type="checkbox"] {
@@ -196,4 +205,63 @@ input[type="radio"] {
 	border-radius: 13px;
 	width: 20px;
 	height: 20px;
+}
+
+.btn-custom {
+	width: 300px;
+	height: 55px;
+	color: #eee;
+	font-size: 1.4em;
+	border: 1px solid rgba(200,200,200,0.7);
+	background: none;
+	cursor: pointer;
+
+	&:hover {
+		background: rgba(200,200,200,0.7);
+		color: #444;
+	}
+}
+
+.block-back {
+	padding: 5em 1em 3em 1em;
+	background: rgba(20,20,20,0.5);
+	//margin: 2em 0;
+	width: 100%;
+
+	&.auth {
+		a {
+			color: #eee;
+		}
+
+		input[type="text"],
+		input[type="email"],
+		input[type="password"] {
+			font-size: 1.5em;
+			opacity: 0.7;
+		}
+	}
+}
+
+.centered {
+	text-align: center;
+	&.title {
+		padding: 0.5em;
+	}
+}
+
+.history-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+
+	> li {
+		padding: 1em;
+		background: rgba(20,20,20,0.5);
+		border-bottom: 1px solid #ddd;
+		margin: 0.3em;
+
+		.history-raw {
+			padding: 0.3em;
+		}
+	}
 }

@@ -1,0 +1,97 @@
+﻿@using Taxi.Entities
+@model Taxi.WebApp.Models.WeddingsViewModel
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+	@Styles.Render("~/bundles/css/weddings/")
+}
+<style>
+	body {
+		background: none;
+	}
+</style>
+
+<div class="fixed-back"></div>
+
+<div class="wedding-cars-wrap">
+	
+	<h2>Свадебные автомобили</h2>
+	
+	<div class="filter">
+		<div class="raw">
+			<div class="col-md-3">
+				<label class="col-md-4">Дата</label>
+				<div class="form-group col-md-8">
+					<input type="date" class="form-control" />
+				</div>
+			</div>
+			
+			<div class="col-md-3">
+				<label class="col-md-4">Время</label>
+				<div class="form-group col-md-8">
+					<input type="time" class="form-control" />
+				</div>
+			</div>
+			
+			<div class="col-md-3">
+				<label class="col-md-6">Длительность</label>
+				<div class="form-group col-md-6">
+					<select class="form-control">
+						<option>1 час</option>
+						<option>2 часа</option>
+						<option>3 часа</option>
+						<option>4 часа</option>
+						<option>5 часов</option>
+						<option>6 часов</option>
+						<option>7 часов</option>
+						<option>8 часов</option>
+						<option>9 часов</option>
+						<option>10 часов</option>
+						<option>более 10 часов</option>
+					</select>
+				</div>
+			</div>
+			
+			<div class="col-md-3">
+				<label class="col-md-4">Бренд</label>
+				<div class="form-group col-md-8">
+					<select type="date" class="form-control">
+						<option value="0">Все</option>
+						@foreach (var brand in Model.CarBrands)
+						{
+							<option value="@brand.Id">@brand.Ru.Name</option>
+						}
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<ul class="wedding-cars">
+		@foreach (var car in Model.Cars)
+		{
+			<li>
+				<div class="imagable">
+					<img src="/upload/cars/@(car.Photos.Any(x => x.IsMain) ? car.Photos.FirstOrDefault(x => x.IsMain).FileName : "no-auto.png")"/>
+				</div>
+				<div class="info">
+					<span class="model">@car.Ru.Name</span>
+					<br/>
+					<span class="phone">Телефон: @car.Owner.PhoneNumber</span>
+					<br/>
+					<span>Владелец: @car.Owner.GetFullName()</span>
+				</div>
+				<div class="order">
+					<span class="price">@car.PricePerHourForWeddings грн/час</span>
+					<button class="btn-order">
+						<span>Заказать</span>
+					</button>
+				</div>
+			</li>
+		}
+	</ul>
+</div>
+

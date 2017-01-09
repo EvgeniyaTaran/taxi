@@ -5,75 +5,86 @@
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section Styles {
+	@Styles.Render("~/bundles/css/order/")
+}
+
 <div class="order-block-wrap">
 	<div class="order-block">
+		<div class="jMakeOrder">
+			<h3>
+				Быстрый заказ
+				<span class="collapser glyphicon glyphicon-chevron-up jCollapse"></span>
+				<span class="collapser glyphicon glyphicon-chevron-down hide jCollapse"></span>
+			</h3>
 
-		<h3>
-			Быстрый заказ
-			<span class="collapser glyphicon glyphicon-chevron-up jCollapse"></span>
-			<span class="collapser glyphicon glyphicon-chevron-down hide jCollapse"></span>
-		</h3>
 
-
-		<div class="order jOrder">
-			@using (Html.BeginForm("Create", "Order", FormMethod.Post, new { @class = "form-horizontal" }))
-			{
-				<div class="form-group">
-					<label class="col-sm-3">Откуда</label>
-					<div class="col-sm-6">
-						@Html.TextBox("AddressFrom", String.Empty, new { @class = "form-control" })
+			<div class="order jOrder">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="col-sm-3">Откуда</label>
+						<div class="col-sm-6">
+							@Html.TextBox("AddressFrom", String.Empty, new {@class = "form-control"})
+						</div>
 					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3">Куда</label>
+						<div class="col-sm-6">
+							@Html.TextBox("AddressTo", String.Empty, new {@class = "form-control"})
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="TaxiClassBase" class="col-sm-4">Эконом</label>
+						<div class="col-sm-1">
+							@Html.RadioButton("TaxiClass", 0, false, new {@class = "form-control", id = "TaxiClassBase"})
+						</div>
+						<label for="TaxiClassPlus" class="col-sm-2">Комфорт</label>
+						<div class="col-sm-1">
+							@Html.RadioButton("TaxiClass", 1, true, new {@class = "form-control", id = "TaxiClassPlus"})
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 jAdditionalToggle additional-toggle">Дополнительно:</label>
+					</div>
+
+					<div class="form-group jAdditional" style="display: none;">
+						<label class="col-sm-4">Детское кресло</label>
+						<div class="col-sm-1">
+							@Html.CheckBox("ChildSeat", false)
+						</div>
+						<label class="col-sm-2">Животные</label>
+						<div class="col-sm-1">
+							@Html.CheckBox("Animals", false, new {@class = "form-control"})
+						</div>
+						<label class="col-sm-2">Некурящие, без шансона</label>
+						<div class="col-sm-1">
+							@Html.CheckBox("Nonsmoking", false, new {@class = "form-control"})
+						</div>
+					</div>
+
+					<div class="data-raw hide">
+						@Html.Hidden("GeoCoordinatesFromLat")
+						@Html.Hidden("GeoCoordinatesFromLng")
+						@Html.Hidden("GeoCoordinatesToLat")
+						@Html.Hidden("GeoCoordinatesToLng")
+					</div>
+
+					<button class="col-sm-offset-4 btn-create jCreateOrder" style="display: none;">Поехали</button>
 				</div>
-
-				<div class="form-group">
-					<label class="col-sm-3">Куда</label>
-					<div class="col-sm-6">
-						@Html.TextBox("AddressTo", String.Empty, new { @class = "form-control" })
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label for="TaxiClassBase"  class="col-sm-4">Эконом</label>
-					<div class="col-sm-1">
-						@Html.RadioButton("TaxiClass", 0, false, new {@class = "form-control", id = "TaxiClassBase" })
-					</div>
-					<label for="TaxiClassPlus" class="col-sm-2">Комфорт</label>
-					<div class="col-sm-1">
-						@Html.RadioButton("TaxiClass", 1, true, new { @class = "form-control", id = "TaxiClassPlus" })
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label class="col-sm-3 jAdditionalToggle additional-toggle">Дополнительно:</label>
-				</div>
-
-				<div class="form-group jAdditional" style="display: none;">
-					<label class="col-sm-4">Детское кресло</label>
-					<div class="col-sm-1">
-						@Html.CheckBox("ChildSeat", false)
-					</div>
-					<label class="col-sm-2">Животные</label>
-					<div class="col-sm-1">
-						@Html.CheckBox("Animals", false, new {@class = "form-control"})
-					</div>
-					<label class="col-sm-2">Некурящие, без шансона</label>
-					<div class="col-sm-1">
-						@Html.CheckBox("Nonsmoking", false, new { @class = "form-control" })
-					</div>
-				</div>
-
-				<div class="data-raw hide">
-					@Html.Hidden("GeoCoordinatesFromLat")
-					@Html.Hidden("GeoCoordinatesFromLng")
-					@Html.Hidden("GeoCoordinatesToLat")
-					@Html.Hidden("GeoCoordinatesToLng")
-				</div>
-
-
-				<input id="submit" class="col-sm-offset-4 btn-create jCreateOrder" type="submit" value="Поехали" style="display: none;" />
-
-			}
+			</div>
 		</div>
+
+		<div class="jMakeOrder hide thanks">
+			<h2>Спасибо! Ваш заказ принят!</h2>
+			
+			<h4>
+				Ожидайте СМС с номером и моделью автомобиля
+			</h4>
+		</div>
+
 	</div>
 </div>
 <div id="map" style="width: 800px; height: 480px"></div>
@@ -81,5 +92,5 @@
 
 @section Scripts
 {
-	@Scripts.Render("~/bundles/pages")
+	@Scripts.Render("~/bundles/js/order/")
 }
